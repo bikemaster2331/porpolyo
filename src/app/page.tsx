@@ -25,7 +25,7 @@ export default function Home() {
           `}
         >
           <div className="relative z-10">
-            <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-[0.3em] mb-4 block">01 | Hero</span>
+            <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-[0.3em] mb-1 block">01 | Hero</span>
             <div className="relative h-32 w-full mb-1">
               {/* FULL NAME: Starts tiny and invisible, grows to 4xl */}
               <h1
