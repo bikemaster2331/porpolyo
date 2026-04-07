@@ -25,8 +25,23 @@ export default function Home() {
           `}
         >
           <div className="relative z-10">
-            <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-[0.3em] mb-1 block">01 | Hero</span>
             <div className="relative h-32 w-full mb-1">
+              <div className={`
+                absolute top-0 left-0 flex items-baseline gap-6 transition-all duration-700 ease-in-out z-50 origin-top-left
+                ${isExpanded
+                  ? 'transform -translate-y-[28rem] md:-translate-y-[32rem]'
+                  : 'transform translate-y-0'
+                }
+              `}>
+                <span className={`font-bold uppercase tracking-[0.15em] text-zinc-600 ${isExpanded ? 'text-[12px]' : 'text-[10px]'}`}>
+                  01 | Hero
+                </span>
+                {isExpanded && (
+                  <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-600/50 animate-pulse">
+                    [ Move mouse to exit ]
+                  </div>
+                )}
+              </div>
               {/* FULL NAME: Starts tiny and invisible, grows to 4xl */}
               <h1
                 className={`absolute bottom-0 left-0 font-black tracking-tighter leading-none transition-all duration-700 ease-out whitespace-nowrap
@@ -49,7 +64,7 @@ export default function Home() {
             </div>
             <p className="text-zinc-500 text-lg font-medium max-w-sm uppercase tracking-widest">
               AWEEEESOME DEVELOPER <br />
-              / FATHER OF SCIENCE
+              / BIKEMASTER2331
             </p>
           </div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/5 via-transparent to-transparent" />
@@ -63,7 +78,7 @@ export default function Home() {
         {/* 02 | PROJECT */}
         <div className={`md:col-span-1 bg-zinc-900/40 border border-white/5 rounded-2xl p-8 flex flex-col justify-between hover:bg-zinc-800/50 transition-all duration-700 cursor-pointer group ${isExpanded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
           <div className="flex justify-between items-start">
-            <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest">02 | Project 01</span>
+            <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest">02 | Projects</span>
             <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">→</div>
           </div>
           <div>
