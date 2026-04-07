@@ -1,11 +1,13 @@
 "use client"; // Required for useState
 import { useState } from 'react';
+import Script from 'next/script';
 
 export default function Home() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isLabExpanded, setIsLabExpanded] = useState(false);
 
   return (
+    
     <main className="h-screen w-full bg-black text-white p-4 flex flex-col pt-24 overflow-hidden">
 
       <div className="flex-grow grid grid-cols-1 md:grid-cols-4 grid-rows-[repeat(6,_1fr)] md:grid-rows-[7fr_3fr] gap-2 w-full h-full relative">
@@ -15,49 +17,31 @@ export default function Home() {
         <div
           onMouseEnter={() => setIsExpanded(true)}
           onMouseLeave={() => setIsExpanded(false)}
-          className={`
-            bg-zinc-900/40 border border-white/5 rounded-2xl p-10 flex flex-col justify-end overflow-hidden group transition-all duration-700 ease-in-out
-            absolute top-0 left-0 
-            ${isExpanded
-              ? 'w-full h-full z-50 p-20'
-              : 'w-full md:w-[calc(50%-4px)] h-full md:h-[calc(70%-4px)] z-10'
-            }
-          `}
+          className={`bg-zinc-900/40 border border-white/5 rounded-2xl p-10 flex flex-col justify-end overflow-hidden group transition-all duration-700 ease-in-out absolute top-0 left-0 ${isExpanded ? 'w-full h-full z-50 p-20' : 'w-full md:w-[calc(50%-4px)] h-full md:h-[calc(70%-4px)] z-10'}`}
         >
           <div className="relative z-10">
+            <div className={`flex items-baseline gap-6 transition-all duration-700 ease-in-out z-50 origin-top-left ${isExpanded ? 'transform -translate-y-[28rem] md:-translate-y-[32rem]' : 'transform translate-y-0 mb-1'}`}>
+              <span className={`font-bold uppercase tracking-[0.15em] text-zinc-600 ${isExpanded ? 'text-[12px]' : 'text-[10px]'}`}>
+                01 | Hero
+              </span>
+              {isExpanded && (
+                <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-600/50 animate-pulse">
+                  [ Move mouse to exit ]
+                </div>
+              )}
+            </div>
+
             <div className="relative h-32 w-full mb-1">
-              <div className={`
-                absolute top-0 left-0 flex items-baseline gap-6 transition-all duration-700 ease-in-out z-50 origin-top-left
-                ${isExpanded
-                  ? 'transform -translate-y-[28rem] md:-translate-y-[32rem]'
-                  : 'transform translate-y-0'
-                }
-              `}>
-                <span className={`font-bold uppercase tracking-[0.15em] text-zinc-600 ${isExpanded ? 'text-[12px]' : 'text-[10px]'}`}>
-                  01 | Hero
-                </span>
-                {isExpanded && (
-                  <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-600/50 animate-pulse">
-                    [ Move mouse to exit ]
-                  </div>
-                )}
-              </div>
               {/* FULL NAME: Starts tiny and invisible, grows to 4xl */}
               <h1
-                className={`absolute bottom-0 left-0 font-black tracking-tighter leading-none transition-all duration-700 ease-out whitespace-nowrap
-    ${isExpanded
-                    ? 'text-3xl opacity-100 translate-y-0 scale-100'
-                    : 'text-sm opacity-0 translate-y-10 scale-50'}`}
+                className={`absolute bottom-0 left-0 font-black tracking-tighter leading-none transition-all duration-700 ease-out whitespace-nowrap ${isExpanded ? 'text-3xl opacity-100 translate-y-0 scale-100' : 'text-sm opacity-0 translate-y-10 scale-50'}`}
               >
                 MARTHAN L. LANUZGA
               </h1>
 
               {/* MLL: Starts huge (9xl), shrinks and disappears on hover */}
               <h1
-                className={`absolute bottom-0 left-0 font-black tracking-tighter leading-none transition-all duration-1000 ease-in-out
-    ${isExpanded
-                    ? 'text-2xl opacity-0 -translate-y-8 scale-50 blur-sm'
-                    : 'text-9xl opacity-100 translate-y-0 scale-100'}`}
+                className={`absolute bottom-0 left-0 font-black tracking-tighter leading-none transition-all duration-1000 ease-in-out ${isExpanded ? 'text-2xl opacity-0 -translate-y-8 scale-50 blur-sm' : 'text-9xl opacity-100 translate-y-0 scale-100'}`}
               >
                 MLL
               </h1>
@@ -67,12 +51,15 @@ export default function Home() {
               / BIKEMASTER2331
             </p>
           </div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/5 via-transparent to-transparent" />
-          {isExpanded && (
-            <div className="absolute top-10 right-10 text-[10px] uppercase tracking-[0.3em] text-zinc-600 animate-pulse">
-              [ Move mouse to exit ]
-            </div>
-          )}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/5 via-transparent to-transparent z-10" />
+          <div className={`absolute inset-0 transition-all duration-1000 ease-in-out ${isExpanded ? 'opacity-100 scale-100' : 'opacity-100 scale-105'} pointer-events-none z-0`}>
+            <img
+              src="/images/whalee.jpg"
+              alt="Hero Visual"
+              className="w-full h-full object-cover object-center grayscale contrast-110 brightness-[0.67]"
+              loading="eager"
+            />
+          </div>
         </div>
 
         {/* 02 | PROJECT */}
@@ -121,13 +108,7 @@ export default function Home() {
           <div
             onMouseEnter={() => setIsLabExpanded(true)}
             onMouseLeave={() => setIsLabExpanded(false)}
-            className={`
-              absolute top-0 left-0 h-full overflow-hidden rounded-2xl p-8 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black
-              ${isLabExpanded
-                ? 'w-full z-20'
-                : 'w-[calc(50%-4px)] z-10'
-              }
-            `}
+            className={`absolute top-0 left-0 h-full overflow-hidden rounded-2xl p-8 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black ${isLabExpanded ? 'w-full z-20' : 'w-[calc(50%-4px)] z-10'}`}
           >
             <div className="z-10 flex justify-between items-center">
               <span className="text-[10px] font-black uppercase tracking-widest">05 | The Lab</span>
@@ -142,11 +123,7 @@ export default function Home() {
           </div>
 
           {/* BOX 06 | CONNECT (The Background) */}
-          <div className="
-            absolute top-0 right-0 h-full w-[calc(50%-4px)] z-0
-            bg-white text-black rounded-2xl p-8 flex flex-col justify-center items-center text-center 
-            hover:invert transition-all duration-700 cursor-pointer
-          ">
+          <div className="absolute top-0 right-0 h-full w-[calc(50%-4px)] z-0 bg-white text-black rounded-2xl p-8 flex flex-col justify-center items-center text-center hover:invert transition-all duration-700 cursor-pointer">
             <p className="text-xs font-black uppercase tracking-[0.3em] mb-2">06 | Let's Connect</p>
             <span className="text-3xl font-bold break-all">marthan@dev.io</span>
           </div>
