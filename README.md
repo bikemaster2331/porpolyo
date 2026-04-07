@@ -1,4 +1,4 @@
-# Marthan Lanuzga | AI & Software Developer
+# Marthan Lanuzga | WARRRUPPPPP
 A high-performance portfolio built with **Next.js 15**, **TypeScript**, and **Tailwind CSS**, featuring optimized rendering and modern UI patterns.
 
 ## Stack
