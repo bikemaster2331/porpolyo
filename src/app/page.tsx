@@ -1,11 +1,61 @@
 "use client";
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Script from 'next/script';
 import Link from 'next/link';
 
 export default function Home() {
   const [isLabExpanded, setIsLabExpanded] = useState(false);
+  const [bmoReply, setBmoReply] = useState("SYSTEM IS NOW READY. EXPLORE WITH ME");
+  const [displayedReply, setDisplayedReply] = useState("");
+  const [isHovering, setIsHovering] = useState(false);
   const catVideoRef = useRef<HTMLVideoElement>(null);
+  
+  const boxRef = useRef<HTMLDivElement>(null);
+  const [lockedStyle, setLockedStyle] = useState<{ minHeight?: number, minWidth?: number }>({});
+
+  useEffect(() => {
+    if (isHovering) return;
+
+    const quotes = [
+      "THINKING ABOUT BIKES... AND MASTERS",
+      "SYSTEM OPTIMAL. AWAITING COMMANDS. HATCHING EGGS",
+      "I MISS PAPA PIZZERIA AND FARMVILLE",
+      "EXPLORING THE DIGITAL VOID AND MY DRAGON CITY",
+      "ALL SYSTEMS GO. WHAT'S NEXT? WORLD DOMINATION!!",
+      "SCANNING FOR COOL PROJECTS AND POKÉMONS",
+      "WOWSOMETRIC! ADVENTURE? OKAYLICIOUS!",
+      "KUMUSTA KA? - FROM TAGALOG BMO",
+      "HUH, NASAAN AKO, SINO KAYO, BAKIT AKO ROBOT?",
+      "LET ME TELL YOU SOMETHING ABOUT MLL, HE'S A BIT...."
+    ];
+
+    const timer = setInterval(() => {
+      setBmoReply(quotes[Math.floor(Math.random() * quotes.length)]);
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [isHovering]);
+
+  useEffect(() => {
+    let i = 0;
+    setDisplayedReply("");
+    const targetText = bmoReply || "AWAITING_INPUT";
+    const interval = setInterval(() => {
+      setDisplayedReply(targetText.slice(0, i + 1));
+      i++;
+      if (i >= targetText.length) {
+        clearInterval(interval);
+        if (boxRef.current && !lockedStyle.minHeight) {
+          setLockedStyle({
+            minHeight: boxRef.current.offsetHeight,
+            minWidth: boxRef.current.offsetWidth,
+          });
+        }
+      }
+    }, 50);
+    return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bmoReply]);
 
   return (
     <>
@@ -60,10 +110,28 @@ export default function Home() {
           {/* New 3D Model Box replacing Projects and Stack */}
           <div className="md:col-span-6 bg-black rounded-2xl relative overflow-hidden group transition-all duration-700 opacity-100">
             
-            <div className="absolute top-8 left-8 z-10 pointer-events-none">
-              <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest">
-                IM HERE TO ASSIST YOU
-              </span>
+            <div className="absolute top-8 left-8 z-20 pointer-events-auto max-w-[240px]">
+              <div className={`transition-all duration-500 transform ${bmoReply ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
+
+                {/* Minimalist HUD Bracket */}
+                <div 
+                  ref={boxRef}
+                  style={lockedStyle}
+                  className="relative bg-black/80 backdrop-blur-sm border border-zinc-800 p-4 shadow-2xl transition-all duration-300"
+                >
+
+                  {/* Corner Brackets */}
+                  <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-white/40"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white/40"></div>
+
+                  <p className="font-mono text-[10px] leading-relaxed uppercase font-bold tracking-widest text-zinc-400 text-left w-full break-words relative z-10">
+                    {displayedReply}
+                    <span className="font-bold animate-caret-blink">|</span>
+                  </p>
+
+                </div>
+
+              </div>
             </div>
 
             <div
@@ -78,6 +146,7 @@ export default function Home() {
                 autoplay
                 camera-controls
                 disable-zoom
+                disable-tap
                 shadow-intensity="0"
                 environment-image="neutral"
                 exposure="0.8"
@@ -87,11 +156,17 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="md:col-span-8 bg-zinc-900/40 border border-white/5 rounded-2xl p-8 flex flex-col justify-center gap-6 transition-all duration-700 opacity-100 relative">
+          <div className="md:col-span-8 bg-zinc-900/40 border border-white/5 rounded-2xl p-8 flex flex-col justify-center gap-6 transition-all duration-700 opacity-100 relative"
+            onMouseEnter={() => {
+              setIsHovering(true);
+              setBmoReply("TRY HOVERING OVER THE IMAGE! HE'S GOT A SURPRISE");
+            }}
+            onMouseLeave={() => setIsHovering(false)}
+          >
             <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest"> WHO'S THIS GUY? </span>
             <div className="flex items-center gap-10">
               <div
-                className="h-24 w-24 bg-zinc-800 rounded-2xl shrink-0 border border-white/10 hover:scale-150 transition-transform duration-500 hidden sm:block overflow-hidden"
+                className="h-24 w-24 bg-zinc-800 rounded-2xl shrink-0 border border-white/10 hover:scale-125 transition-transform duration-500 hidden sm:block overflow-hidden"
                 onMouseEnter={() => catVideoRef.current?.play()}
                 onMouseLeave={() => {
                   catVideoRef.current?.pause();
@@ -114,6 +189,11 @@ export default function Home() {
               </p>
             </div>
             <a
+              onMouseEnter={() => {
+                setIsHovering(true);
+                setBmoReply("YOU WANNA VIEW BM'S CV? HERE YOU GO!");
+              }}
+              onMouseLeave={() => setIsHovering(false)}
               href="/cv/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -130,8 +210,15 @@ export default function Home() {
 
             <Link
               href="/projects"
-              onMouseEnter={() => setIsLabExpanded(true)}
-              onMouseLeave={() => setIsLabExpanded(false)}
+              onMouseEnter={() => {
+                setIsHovering(true);
+                setIsLabExpanded(true);
+                setBmoReply("YOU WANNA VIEW BM'S PROJECTS? LET'S GO!");
+              }}
+              onMouseLeave={() => {
+                setIsHovering(false);
+                setIsLabExpanded(false);
+              }}
               className={`absolute top-0 left-0 h-full overflow-hidden rounded-2xl p-8 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black ${isLabExpanded ? 'w-full z-20' : 'w-[calc(70%-4px)] z-10'}`}
             >
               <div className="z-10 flex justify-between items-center">
@@ -148,7 +235,13 @@ export default function Home() {
               </div>
             </Link>
 
-            <div className="absolute top-0 right-0 h-full w-[calc(30%-4px)] z-0 bg-white text-black rounded-2xl p-8 flex flex-col justify-center items-center text-center hover:invert transition-all duration-700 cursor-pointer">
+            <div
+              onMouseEnter={() => {
+                setIsHovering(true);
+                setBmoReply("CONNECT WITH BM? I'M A BIT SHY...");
+              }}
+              onMouseLeave={() => setIsHovering(false)}
+              className="absolute top-0 right-0 h-full w-[calc(30%-4px)] z-0 bg-white text-black rounded-2xl p-8 flex flex-col justify-center items-center text-center hover:invert transition-all duration-700 cursor-pointer">
               <p className="text-xs font-black uppercase tracking-[0.3em] mb-2"> + Let's Connect</p>
               <span className="text-3xl font-bold break-all">marthan@dev.io</span>
             </div>
