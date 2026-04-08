@@ -156,7 +156,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="md:col-span-10 bg-zinc-900/40 border border-white/10 rounded-2xl p-8 flex flex-col justify-center gap-6 transition-all duration-700 opacity-100 relative"
+          <div className="md:col-span-10 bg-zinc-900/40 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15),inset_1px_0_0_rgba(255,255,255,0.1),0_10px_30px_rgba(0,0,0,0.5)] rounded-2xl p-8 flex flex-col justify-center gap-6 transition-all duration-700 opacity-100 relative"
             onMouseEnter={() => {
               setIsHovering(true);
               setBmoReply("TRY HOVERING OVER THE IMAGE! HE'S GOT A SURPRISE");
@@ -219,7 +219,7 @@ export default function Home() {
                 setIsHovering(false);
                 setIsLabExpanded(false);
               }}
-              className={`absolute bottom-0 left-0 w-[calc(60%-4px)] overflow-hidden border border-zinc-800 rounded-2xl p-8 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black ${isLabExpanded ? 'h-full w-full z-20' : 'h-[calc(75%-4px)] z-10'}`}
+              className={`absolute bottom-0 left-0 w-[calc(60%-4px)] overflow-hidden border border-zinc-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.3),inset_1px_0_0_rgba(255,255,255,0.2),0_10px_30px_rgba(0,0,0,0.5)] rounded-2xl p-8 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black ${isLabExpanded ? 'h-full w-full z-20' : 'h-[calc(75%-4px)] z-10'}`}
             >
               <div className="z-10 flex justify-between items-center">
                 <span className="text-[10px] font-black uppercase tracking-widest"> The Lab</span>
@@ -242,7 +242,7 @@ export default function Home() {
                 setBmoReply("CONNECT WITH BM? I'M A BIT SHY...");
               }}
               onMouseLeave={() => setIsHovering(false)}
-              className="absolute bottom-0 right-0 w-[calc(40%-4px)] h-[calc(45%-4px)] z-0 bg-white text-black border border-zinc-800 rounded-2xl p-8 flex flex-col justify-center items-center text-center hover:invert transition-all duration-700 cursor-pointer">
+              className="absolute bottom-0 right-0 w-[calc(40%-4px)] h-[calc(45%-4px)] z-0 bg-white text-black border border-zinc-800 shadow-[inset_0_-2px_0_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,1),0_10px_30px_rgba(0,0,0,0.2)] rounded-2xl p-8 flex flex-col justify-center items-center text-center hover:invert transition-all duration-700 cursor-pointer">
               <div className="flex flex-col items-center text-center">
                 <p className="text-xs font-black uppercase tracking-[0.3em] mb-2 mr-12"> + Let's</p>
                 <span className="text-4xl font-bold break-all ml-8">LINK</span>
