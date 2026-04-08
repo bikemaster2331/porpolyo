@@ -156,7 +156,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="md:col-span-8 bg-zinc-900/40 border border-white/5 rounded-2xl p-8 flex flex-col justify-center gap-6 transition-all duration-700 opacity-100 relative"
+          <div className="md:col-span-10 bg-zinc-900/40 border border-white/10 rounded-2xl p-8 flex flex-col justify-center gap-6 transition-all duration-700 opacity-100 relative"
             onMouseEnter={() => {
               setIsHovering(true);
               setBmoReply("TRY HOVERING OVER THE IMAGE! HE'S GOT A SURPRISE");
@@ -203,7 +203,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="md:col-span-12 grid grid-cols-2 gap-2 relative transition-all duration-700 opacity-100">
+          <div className="md:col-span-10 grid grid-cols-2 gap-2 relative transition-all duration-700 opacity-100">
 
             <div className="invisible" />
             <div className="invisible" />
@@ -219,7 +219,7 @@ export default function Home() {
                 setIsHovering(false);
                 setIsLabExpanded(false);
               }}
-              className={`absolute top-0 left-0 h-full overflow-hidden rounded-2xl p-8 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black ${isLabExpanded ? 'w-full z-20' : 'w-[calc(70%-4px)] z-10'}`}
+              className={`absolute bottom-0 left-0 w-[calc(60%-4px)] overflow-hidden border border-zinc-800 rounded-2xl p-8 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black ${isLabExpanded ? 'h-full w-full z-20' : 'h-[calc(75%-4px)] z-10'}`}
             >
               <div className="z-10 flex justify-between items-center">
                 <span className="text-[10px] font-black uppercase tracking-widest"> The Lab</span>
@@ -242,10 +242,10 @@ export default function Home() {
                 setBmoReply("CONNECT WITH BM? I'M A BIT SHY...");
               }}
               onMouseLeave={() => setIsHovering(false)}
-              className="absolute top-0 right-0 h-full w-[calc(30%-4px)] z-0 bg-white text-black rounded-2xl p-8 flex flex-col justify-center items-center text-center hover:invert transition-all duration-700 cursor-pointer">
-              <div className="flex flex-col items-start text-left">
-                <p className="text-xs font-black uppercase tracking-[0.3em] mb-2"> + Let's</p>
-                <span className="text-4xl font-bold break-all">LINK</span>
+              className="absolute bottom-0 right-0 w-[calc(40%-4px)] h-[calc(45%-4px)] z-0 bg-white text-black border border-zinc-800 rounded-2xl p-8 flex flex-col justify-center items-center text-center hover:invert transition-all duration-700 cursor-pointer">
+              <div className="flex flex-col items-center text-center">
+                <p className="text-xs font-black uppercase tracking-[0.3em] mb-2 mr-12"> + Let's</p>
+                <span className="text-4xl font-bold break-all ml-8">LINK</span>
               </div>
             </a>
 
