@@ -31,7 +31,7 @@ export default function Home() {
 
     const timer = setInterval(() => {
       setBmoReply(quotes[Math.floor(Math.random() * quotes.length)]);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [isHovering]);
@@ -163,8 +163,8 @@ export default function Home() {
             }}
             onMouseLeave={() => setIsHovering(false)}
           >
-            <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest"> WHO'S THIS GUY? </span>
-            <div className="flex items-center gap-10">
+            <span className="absolute top-8 left-8 text-[10px] font-bold text-zinc-600 uppercase tracking-widest"> WHO'S THIS GUY? </span>
+            <div className="flex items-center gap-10 mt-6">
               <div
                 className="h-24 w-24 bg-zinc-800 rounded-2xl shrink-0 border border-white/10 hover:scale-125 transition-transform duration-500 hidden sm:block overflow-hidden"
                 onMouseEnter={() => catVideoRef.current?.play()}
@@ -183,7 +183,7 @@ export default function Home() {
                 />
               </div>
               <p className="text-lg text-zinc-400 font-light leading-relaxed italic">
-                I want to build wowsome perfect things at first try.
+                I want to learn wowsome perfect things at first try. 
                 <br />
                 *whispers* want to know more? heh
               </p>
@@ -235,16 +235,19 @@ export default function Home() {
               </div>
             </Link>
 
-            <div
+            <a
+              href="mailto:tanlanuzga@gmail.com"
               onMouseEnter={() => {
                 setIsHovering(true);
                 setBmoReply("CONNECT WITH BM? I'M A BIT SHY...");
               }}
               onMouseLeave={() => setIsHovering(false)}
               className="absolute top-0 right-0 h-full w-[calc(30%-4px)] z-0 bg-white text-black rounded-2xl p-8 flex flex-col justify-center items-center text-center hover:invert transition-all duration-700 cursor-pointer">
-              <p className="text-xs font-black uppercase tracking-[0.3em] mb-2"> + Let's Connect</p>
-              <span className="text-3xl font-bold break-all">marthan@dev.io</span>
-            </div>
+              <div className="flex flex-col items-start text-left">
+                <p className="text-xs font-black uppercase tracking-[0.3em] mb-2"> + Let's</p>
+                <span className="text-4xl font-bold break-all">LINK</span>
+              </div>
+            </a>
 
           </div>
 
