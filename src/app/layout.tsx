@@ -36,7 +36,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${satoshi.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar /> {/* 4. Add the component here */}
+        <Navbar />
         <main className="flex-grow">{children}</main>
       </body>
     </html>
