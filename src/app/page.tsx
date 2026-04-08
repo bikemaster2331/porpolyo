@@ -62,7 +62,7 @@ export default function Home() {
             
             <div className="absolute top-8 left-8 z-10 pointer-events-none">
               <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest">
-                Neural Assistant // BMO
+                IM HERE TO ASSIST YOU
               </span>
             </div>
 
