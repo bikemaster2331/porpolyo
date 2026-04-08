@@ -66,7 +66,7 @@ export default function Home() {
               </span>
             </div>
 
-            <div 
+            <div
               className="w-full h-full absolute inset-0"
               style={{
                 WebkitMaskImage: 'linear-gradient(to top, transparent 5%, black 25%, black 100%)',
@@ -91,7 +91,7 @@ export default function Home() {
             <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest"> WHO'S THIS GUY? </span>
             <div className="flex items-center gap-10">
               <div
-                className="h-24 w-24 bg-zinc-800 rounded-2xl shrink-0 border border-white/10 hover:scale-200 transition-transform duration-500 hidden sm:block overflow-hidden"
+                className="h-24 w-24 bg-zinc-800 rounded-2xl shrink-0 border border-white/10 hover:scale-150 transition-transform duration-500 hidden sm:block overflow-hidden"
                 onMouseEnter={() => catVideoRef.current?.play()}
                 onMouseLeave={() => {
                   catVideoRef.current?.pause();
