@@ -10,7 +10,6 @@ export default function Projects() {
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Placeholder for project cards */}
           <div className="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
             <h3 className="text-xl font-bold mb-2">Project One</h3>
             <p className="text-zinc-400 text-sm mb-4">A brief description of this amazing project and what it accomplishes.</p>
