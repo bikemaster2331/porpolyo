@@ -7,13 +7,13 @@ export default function About() {
         </h1>
         <div className="space-y-6 text-xl text-zinc-400 leading-relaxed text-center sm:text-left">
           <p>
-            I'm Marthan Lanuzga, a Lead Developer and AI Specialist dedicated to building intuitive and impactful digital products.
+            I'm Marthan Lanuzga, a Lead Developer and AI Specialist dedicated to building intuitive and impactful digital products. (barf)
           </p>
           <p>
-            With a background in software engineering and a passion for artificial intelligence, I bridge the gap between complex technology and user-centric design.
+            With a background in software engineering and a passion for artificial intelligence, I bridge the gap between complex technology and user-centric design. (wip pa to dont mind)
           </p>
           <p>
-            When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge with the developer community.
+            When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge with the developer community. (buns)
           </p>
         </div>
       </div>
