@@ -19,7 +19,7 @@ export default function Work() {
           
           <div className="grid grid-cols-2 gap-4">
             <a 
-              href="https://linkedin.com/in/marthan" 
+              href="https://www.linkedin.com/in/marthan-lanuzga-01b8b5287/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="py-4 bg-white/5 border border-white/10 rounded-2xl font-medium hover:bg-white/10 transition-colors"
@@ -27,7 +27,7 @@ export default function Work() {
               LinkedIn
             </a>
             <a 
-              href="https://github.com/marthan" 
+              href="https://github.com/bikemaster2331" 
               target="_blank" 
               rel="noopener noreferrer"
               className="py-4 bg-white/5 border border-white/10 rounded-2xl font-medium hover:bg-white/10 transition-colors"
