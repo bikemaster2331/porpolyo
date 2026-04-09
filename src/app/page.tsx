@@ -35,7 +35,7 @@ export default function Home() {
     const timer = setInterval(() => {
       setBmoReply(quotes[quoteIndexRef.current % quotes.length]);
       quoteIndexRef.current++;
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [isHovering]);
