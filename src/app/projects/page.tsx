@@ -34,9 +34,9 @@ export default function Projects() {
     <div className="flex flex-col items-center min-h-screen px-6 md:pt-36 pt-12 pb-40 bg-black text-white">
       <div className="max-w-5xl w-full">
 
-        <div className="mb-24 flex flex-col gap-3">
+        <div className="md:mb-24 mb-14 flex flex-col gap-3">
           <h1 className="text-4xl font-mono font-bold tracking-tighter">./projects</h1>
-          <p className="text-zinc-600 font-mono text-[13px] max-w-xl leading-relaxed">
+          <p className="text-zinc-600 font-mono md:text-[13px] text-[12px] max-w-xl leading-relaxed">
             Get to know me more through my projects! Click the cards to find more!
           </p>
         </div>
@@ -58,11 +58,11 @@ export default function Projects() {
                 }}
               />
 
-              <h3 className="text-2xl md:text-3xl font-bold lowercase font-mono tracking-tighter mb-9 group-hover:text-white transition-colors duration-300">
+              <h3 className="text-2xl md:text-3xl text-[14px] font-bold lowercase font-mono tracking-tighter md:mb-9 mb-4 group-hover:text-white transition-colors duration-300">
                 {project.name}
               </h3>
 
-              <p className="text-zinc-500 text-[12px] leading-relaxed mb-8 flex-1">
+              <p className="text-zinc-500 md:text-[12px] text-[10px] leading-relaxed mb-8 flex-1">
                 {project.desc}
               </p>
 
