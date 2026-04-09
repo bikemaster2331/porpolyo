@@ -29,7 +29,8 @@ export default function Home() {
       "KUMUSTA KA? - FROM TAGALOG BMO",
       "HUH? NASAAN AKO? SINO KAYO? BAKIT AKO ROBOT?",
       "LET ME TELL YOU SOMETHING ABOUT MLL, HE'S A BIT....",
-      "MSG RECEIVED: LET'S WORK TOGETHER - MARTHAN"
+      "MSG RECEIVED: LET'S WORK TOGETHER - MARTHAN",
+      "WHALE LOOKED COOL SO I PUT IT THERE - MLL"
     ];
 
     const timer = setInterval(() => {
@@ -112,7 +113,7 @@ export default function Home() {
           {/* New 3D Model Box replacing Projects and Stack */}
           <div className="fixed inset-0 md:relative md:inset-auto md:col-span-6 bg-black md:rounded-2xl z-0 flex md:block items-center justify-center overflow-hidden group transition-all duration-700 opacity-100">
             
-            <div className="absolute top-8 left-8 z-20 pointer-events-auto max-w-[240px]">
+            <div className="absolute top-15 md:top-8 left-8 z-20 pointer-events-auto max-w-[240px]">
               <div className={`transition-all duration-500 transform ${bmoReply ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
 
                 {/* Minimalist HUD Bracket */}
@@ -137,7 +138,7 @@ export default function Home() {
             </div>
 
             <div
-              className="w-full h-full absolute inset-0"
+              className="w-full h-full absolute inset-0 md:translate-y-0 translate-y-6"
               style={{
                 WebkitMaskImage: 'linear-gradient(to top, transparent 5%, black 25%, black 100%)',
                 maskImage: 'linear-gradient(to top, transparent 5%, black 25%, black 100%)'
@@ -263,7 +264,7 @@ export default function Home() {
               href="mailto:tanlanuzga@gmail.com"
               onMouseEnter={() => {
                 setIsHovering(true);
-                setBmoReply("CONNECT WITH BM? I'M A BIT SHY...");
+                setBmoReply("CONNECT WITH BM? HE'S A BIT SHY...");
               }}
               onMouseLeave={() => setIsHovering(false)}
               className={`absolute bottom-0 right-0 w-[calc(40%-4px)] h-[calc(45%-4px)] z-0 bg-white text-black rounded-2xl p-8 flex flex-col justify-center items-center text-center hover:invert transition-all duration-700 cursor-pointer ${isContactActive ? 'drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] z-30' : isLabActive ? 'blur-[6px] opacity-60 pointer-events-none' : ''}`}>
