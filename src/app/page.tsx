@@ -175,7 +175,7 @@ export default function Home() {
 
               <div className="flex justify-start">
                 <div
-                  className="h-24 w-24 bg-zinc-800 rounded-2xl shrink-0 border border-white/10 hover:scale-125 transition-transform duration-500 hidden sm:block overflow-hidden cursor-pointer"
+                  className="h-24 w-24 bg-zinc-800 rounded-2xl shrink-0 border border-white/10 transition-transform duration-500 hidden sm:block overflow-hidden cursor-pointer"
                   onMouseEnter={() => catVideoRef.current?.play()}
                   onMouseLeave={() => {
                     catVideoRef.current?.pause();
