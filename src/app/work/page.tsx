@@ -1,12 +1,12 @@
 export default function Work() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[70vh] px-8 pt-20 text-center">
+    <div className="flex flex-col items-center justify-center min-h-[70vh] px-8 pt-12 text-center">
       <div className="max-w-2xl w-full">
         <h1 className="text-5xl font-bold tracking-tight mb-8">
           Let's Work Together
         </h1>
-        <p className="text-xl text-zinc-400 mb-12">
-          I'm always open to new opportunities, collaborations, or just a friendly chat about technology.
+        <p className="text-[12px] text-zinc-400 mb-8 md:mb-12">
+          I&apos;m always open to new opportunities, collaborations, or just a friendly chat about technology.
         </p>
         
         <div className="space-y-4">
