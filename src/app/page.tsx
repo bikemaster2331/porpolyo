@@ -9,6 +9,7 @@ export default function Home() {
   const [displayedReply, setDisplayedReply] = useState("");
   const [isHovering, setIsHovering] = useState(false);
   const catVideoRef = useRef<HTMLVideoElement>(null);
+  const quoteIndexRef = useRef(0);
   
   const boxRef = useRef<HTMLDivElement>(null);
   const [lockedStyle, setLockedStyle] = useState<{ minHeight?: number, minWidth?: number }>({});
@@ -23,15 +24,18 @@ export default function Home() {
       "EXPLORING THE DIGITAL VOID AND MY DRAGON CITY",
       "ALL SYSTEMS GO. WHAT'S NEXT? WORLD DOMINATION!!",
       "SCANNING FOR COOL PROJECTS AND POKÉMONS",
+      "YOU MIGHT WANT TO CHECK OUT THE PROJECTS FOLDER!",
       "WOWSOMETRIC! ADVENTURE? OKAYLICIOUS!",
       "KUMUSTA KA? - FROM TAGALOG BMO",
-      "HUH, NASAAN AKO, SINO KAYO, BAKIT AKO ROBOT?",
-      "LET ME TELL YOU SOMETHING ABOUT MLL, HE'S A BIT...."
+      "HUH? NASAAN AKO? SINO KAYO? BAKIT AKO ROBOT?",
+      "LET ME TELL YOU SOMETHING ABOUT MLL, HE'S A BIT....",
+      "MSG RECEIVED: LET'S WORK TOGETHER - MARTHAN"
     ];
 
     const timer = setInterval(() => {
-      setBmoReply(quotes[Math.floor(Math.random() * quotes.length)]);
-    }, 5000);
+      setBmoReply(quotes[quoteIndexRef.current % quotes.length]);
+      quoteIndexRef.current++;
+    }, 3000);
 
     return () => clearInterval(timer);
   }, [isHovering]);
@@ -57,6 +61,10 @@ export default function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bmoReply]);
 
+  const isLabActive = bmoReply === "YOU MIGHT WANT TO CHECK OUT THE PROJECTS FOLDER!";
+  const isContactActive = bmoReply === "MSG RECEIVED: LET'S WORK TOGETHER - MARTHAN";
+  const isAnyActive = isLabActive || isContactActive;
+
   return (
     <>
       <Script
@@ -69,7 +77,7 @@ export default function Home() {
 
           <div className="md:col-span-14 hidden md:block" aria-hidden="true" />
           <div
-            className="bg-zinc-900/40 rounded-2xl p-10 flex flex-col justify-end overflow-hidden group absolute top-0 left-0 w-full md:w-[calc(70%-3.2px)] h-full md:h-[calc(70%-4px)] z-10"
+            className={`hidden md:flex bg-zinc-900/40 rounded-2xl p-10 flex-col justify-end overflow-hidden group absolute top-0 left-0 w-full md:w-[calc(70%-3.2px)] h-full md:h-[calc(70%-4px)] z-10 transition-all duration-700 ${isAnyActive ? 'blur-[6px] opacity-60 pointer-events-none' : ''}`}
           >
             <div className="relative z-10">
               <div className="flex items-baseline gap-6 transition-all duration-700 ease-in-out z-50 origin-top-left transform translate-y-0 mb-1">
@@ -79,12 +87,6 @@ export default function Home() {
               </div>
 
               <div className="relative h-32 w-full mb-1">
-                <h1
-                  className="absolute bottom-0 left-0 font-black tracking-tighter leading-none transition-all duration-700 ease-out whitespace-nowrap text-sm opacity-0 translate-y-10 scale-50"
-                >
-                  MARTHAN L. LANUZGA
-                </h1>
-
                 <h1
                   className="absolute bottom-0 left-0 font-black tracking-tighter leading-none transition-all duration-1000 ease-in-out text-9xl opacity-100 translate-y-0 scale-100"
                 >
@@ -108,7 +110,7 @@ export default function Home() {
           </div>
 
           {/* New 3D Model Box replacing Projects and Stack */}
-          <div className="md:col-span-6 bg-black rounded-2xl relative overflow-hidden group transition-all duration-700 opacity-100">
+          <div className="fixed inset-0 md:relative md:inset-auto md:col-span-6 bg-black md:rounded-2xl z-0 flex md:block items-center justify-center overflow-hidden group transition-all duration-700 opacity-100">
             
             <div className="absolute top-8 left-8 z-20 pointer-events-auto max-w-[240px]">
               <div className={`transition-all duration-500 transform ${bmoReply ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
@@ -156,37 +158,59 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="md:col-span-10 bg-zinc-900/40 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15),inset_1px_0_0_rgba(255,255,255,0.1),0_10px_30px_rgba(0,0,0,0.5)] rounded-2xl p-8 flex flex-col justify-center gap-6 transition-all duration-700 opacity-100 relative"
+          <div className={`hidden md:flex md:col-span-10 bg-zinc-900/40 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15),inset_1px_0_0_rgba(255,255,255,0.1),0_10px_30px_rgba(0,0,0,0.5)] rounded-2xl p-8 flex-col justify-center gap-6 transition-all duration-700 relative overflow-hidden ${isAnyActive ? 'blur-[6px] opacity-60 pointer-events-none' : 'opacity-100'}`}
             onMouseEnter={() => {
               setIsHovering(true);
               setBmoReply("TRY HOVERING OVER THE IMAGE! HE'S GOT A SURPRISE");
             }}
             onMouseLeave={() => setIsHovering(false)}
           >
-            <span className="absolute top-8 left-8 text-[10px] font-bold text-zinc-600 uppercase tracking-widest"> WHO'S THIS GUY? </span>
-            <div className="flex items-center gap-10 mt-6">
-              <div
-                className="h-24 w-24 bg-zinc-800 rounded-2xl shrink-0 border border-white/10 hover:scale-125 transition-transform duration-500 hidden sm:block overflow-hidden"
-                onMouseEnter={() => catVideoRef.current?.play()}
-                onMouseLeave={() => {
-                  catVideoRef.current?.pause();
-                  if (catVideoRef.current) catVideoRef.current.currentTime = 0;
-                }}
-              >
-                <video
-                  ref={catVideoRef}
-                  src="/images/catcat.mp4"
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover object-center grayscale contrast-110 brightness-100"
-                />
+            <div className="absolute inset-0 z-0 mix-blend-overlay">
+              <img src="/images/cattos.png" alt="Background" className="w-full h-full object-cover opacity-[0.06] grayscale" />
+            </div>
+
+            <span className="absolute z-10 top-8 left-8 text-[10px] font-bold text-zinc-600 uppercase tracking-widest"> WHO'S THIS GUY? </span>
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-[auto_1fr_1.25fr] gap-8 w-full mt-4 items-center">
+
+              <div className="flex justify-start">
+                <div
+                  className="h-24 w-24 bg-zinc-800 rounded-2xl shrink-0 border border-white/10 hover:scale-125 transition-transform duration-500 hidden sm:block overflow-hidden cursor-pointer"
+                  onMouseEnter={() => catVideoRef.current?.play()}
+                  onMouseLeave={() => {
+                    catVideoRef.current?.pause();
+                    if (catVideoRef.current) catVideoRef.current.currentTime = 0;
+                  }}
+                >
+                  <video
+                    ref={catVideoRef}
+                    src="/images/catcat.mp4"
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover object-center grayscale contrast-110 brightness-100"
+                  />
+                </div>
               </div>
-              <p className="text-lg text-zinc-400 font-light leading-relaxed italic">
-                I want to learn wowsome perfect things at first try. 
-                <br />
-                *whispers* want to know more? heh
-              </p>
+
+              {/* 2nd Column: Bio */}
+              <div className="flex flex-col justify-center">
+                <p className="text-sm lg:text-base text-zinc-400 font-light leading-relaxed italic">
+                  I want to learn wowsome perfect things at first try.
+                  <br />
+                  <span className="text-zinc-600 mt-2 block">*whispers* want to know more? heh</span>
+                </p>
+              </div>
+
+              {/* 3rd Column: Tech Stack */}
+              <div className="flex flex-wrap items-center content-center gap-2 md:border-l md:border-white/5 md:pl-6 pb-8 md:pb-0">
+                {['Next.js', 'React', 'TypeScript', 'Tailwind', 'Node.js', 'Python'].map(tech => (
+                  <span key={tech} className="px-2 py-1 bg-white/5 border border-white/10 rounded-md text-[10px] font-mono text-zinc-300">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
             </div>
             <a
               onMouseEnter={() => {
@@ -203,7 +227,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="md:col-span-10 grid grid-cols-2 gap-2 relative transition-all duration-700 opacity-100">
+          <div className="hidden md:grid md:col-span-10 grid-cols-2 gap-2 relative transition-all duration-700 opacity-100">
 
             <div className="invisible" />
             <div className="invisible" />
@@ -219,7 +243,7 @@ export default function Home() {
                 setIsHovering(false);
                 setIsLabExpanded(false);
               }}
-              className={`absolute bottom-0 left-0 w-[calc(60%-4px)] overflow-hidden border border-zinc-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.3),inset_1px_0_0_rgba(255,255,255,0.2),0_10px_30px_rgba(0,0,0,0.5)] rounded-2xl p-8 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black ${isLabExpanded ? 'h-full w-full z-20' : 'h-[calc(75%-4px)] z-10'}`}
+              className={`absolute bottom-0 left-0 w-[calc(60%-4px)] overflow-hidden border border-zinc-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.3),inset_1px_0_0_rgba(255,255,255,0.2),0_10px_30px_rgba(0,0,0,0.5)] rounded-2xl p-8 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black ${isLabExpanded ? 'h-full w-full z-20' : 'h-[calc(75%-4px)] z-10'} ${isLabActive ? "drop-shadow-[0_0_30px_rgba(37,99,235,0.8)] z-30" : isContactActive ? "blur-[6px] opacity-60 pointer-events-none" : ""}`}
             >
               <div className="z-10 flex justify-between items-center">
                 <span className="text-[10px] font-black uppercase tracking-widest"> The Lab</span>
@@ -242,7 +266,7 @@ export default function Home() {
                 setBmoReply("CONNECT WITH BM? I'M A BIT SHY...");
               }}
               onMouseLeave={() => setIsHovering(false)}
-              className="absolute bottom-0 right-0 w-[calc(40%-4px)] h-[calc(45%-4px)] z-0 bg-white text-black border border-zinc-800 shadow-[inset_0_-2px_0_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,1),0_10px_30px_rgba(0,0,0,0.2)] rounded-2xl p-8 flex flex-col justify-center items-center text-center hover:invert transition-all duration-700 cursor-pointer">
+              className={`absolute bottom-0 right-0 w-[calc(40%-4px)] h-[calc(45%-4px)] z-0 bg-white text-black rounded-2xl p-8 flex flex-col justify-center items-center text-center hover:invert transition-all duration-700 cursor-pointer ${isContactActive ? 'drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] z-30' : isLabActive ? 'blur-[6px] opacity-60 pointer-events-none' : ''}`}>
               <div className="flex flex-col items-center text-center">
                 <p className="text-xs font-black uppercase tracking-[0.3em] mb-2 mr-12"> + Let's</p>
                 <span className="text-4xl font-bold break-all ml-8">LINK</span>
