@@ -5,14 +5,12 @@ import Link from 'next/link';
 
 export default function Home() {
   const [isLabExpanded, setIsLabExpanded] = useState(false);
-  const [bmoReply, setBmoReply] = useState("SYSTEM IS NOW READY. EXPLORE WITH ME");
+  const [bmoReply, setBmoReply] = useState("SYSTEM IS READY. BMO IS NOT.");
   const [displayedReply, setDisplayedReply] = useState("");
   const [isHovering, setIsHovering] = useState(false);
   const catVideoRef = useRef<HTMLVideoElement>(null);
   const quoteIndexRef = useRef(0);
   
-  const boxRef = useRef<HTMLDivElement>(null);
-  const [lockedStyle, setLockedStyle] = useState<{ minHeight?: number, minWidth?: number }>({});
 
   useEffect(() => {
     if (isHovering) return;
@@ -50,12 +48,6 @@ export default function Home() {
       i++;
       if (i >= targetText.length) {
         clearInterval(interval);
-        if (boxRef.current && !lockedStyle.minHeight) {
-          setLockedStyle({
-            minHeight: boxRef.current.offsetHeight,
-            minWidth: boxRef.current.offsetWidth,
-          });
-        }
       }
     }, 50);
     return () => clearInterval(interval);
@@ -102,7 +94,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/5 via-transparent to-transparent z-10" />
             <div className="absolute inset-0 opacity-100 pointer-events-none z-0">
               <img
-                src="/images/whalee.jpg"
+                src="/images/gatty.png"
                 alt="Hero Visual"
                 className="w-full h-full object-cover object-center grayscale contrast-110 brightness-[0.67]"
                 loading="eager"
@@ -111,15 +103,12 @@ export default function Home() {
           </div>
 
           {/* New 3D Model Box replacing Projects and Stack */}
-          <div className="fixed inset-0 md:relative md:inset-auto md:col-span-6 bg-black md:rounded-2xl z-0 flex md:block items-center justify-center overflow-hidden group transition-all duration-700 opacity-100">
-            
+          <div className="fixed inset-0 md:relative md:inset-auto md:col-span-6 bg-black md:rounded-2xl z-0 flex md:block items-center justify-center overflow-hidden group transition-all duration-700 opacity-100 border-2 border-zinc-800">
             <div className="absolute top-15 md:top-8 left-8 z-20 pointer-events-auto max-w-[240px]">
               <div className={`transition-all duration-500 transform ${bmoReply ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
 
                 {/* Minimalist HUD Bracket */}
                 <div 
-                  ref={boxRef}
-                  style={lockedStyle}
                   className="relative bg-black/80 backdrop-blur-sm border border-zinc-800 p-4 shadow-2xl transition-all duration-300"
                 >
 
@@ -159,13 +148,14 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={`hidden md:flex md:col-span-10 bg-zinc-900/40 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.15),inset_1px_0_0_rgba(255,255,255,0.1),0_10px_30px_rgba(0,0,0,0.5)] rounded-2xl p-8 flex-col justify-center gap-6 transition-all duration-700 relative overflow-hidden ${isAnyActive ? 'blur-[6px] opacity-60 pointer-events-none' : 'opacity-100'}`}
+          <div className={`hidden md:flex md:col-span-10 rounded-2xl p-8 flex-col justify-center gap-6 transition-all duration-700 relative overflow-hidden ${isAnyActive ? 'blur-[6px] opacity-60 pointer-events-none' : 'opacity-100'}`}
             onMouseEnter={() => {
               setIsHovering(true);
               setBmoReply("TRY HOVERING OVER THE IMAGE! HE'S GOT A SURPRISE");
             }}
             onMouseLeave={() => setIsHovering(false)}
           >
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-white/[0.15] to-transparent z-20" />
             <div className="absolute inset-0 z-0 mix-blend-overlay">
               <img src="/images/cattos.png" alt="Background" className="w-full h-full object-cover opacity-[0.06] grayscale" />
             </div>
@@ -189,7 +179,7 @@ export default function Home() {
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-cover object-center grayscale contrast-110 brightness-100"
+                    className="w-full h-full object-cover object-center grayscale contrast-110 brightness-100 hover:grayscale-0 transition-all duration-700"
                   />
                 </div>
               </div>
@@ -204,13 +194,13 @@ export default function Home() {
               </div>
 
               {/* 3rd Column: Tech Stack */}
-              <div className="flex flex-wrap items-center content-center gap-2 md:border-l md:border-white/5 md:pl-6 pb-8 md:pb-0">
+              {/* <div className="flex flex-wrap items-center content-center gap-2 md:border-l md:border-white/5 md:pl-6 pb-8 md:pb-0">
                 {['Next.js', 'React', 'TypeScript', 'Tailwind', 'Node.js', 'Python'].map(tech => (
                   <span key={tech} className="px-2 py-1 bg-white/5 border border-white/10 rounded-md text-[10px] font-mono text-zinc-300">
                     {tech}
                   </span>
                 ))}
-              </div>
+              </div> */}
 
             </div>
             <a
@@ -254,9 +244,6 @@ export default function Home() {
               </h4>
               <div className={`absolute bottom-8 right-8 z-20 font-black transition-all duration-500 ${isLabExpanded ? 'text-8xl' : 'text-6xl'}`}>
                 →
-              </div>
-              <div className={`absolute -bottom-4 -right-4 font-black transition-all duration-700 ${isLabExpanded ? 'text-[15rem] opacity-20' : 'text-9xl opacity-10'}`}>
-                PROJ
               </div>
             </Link>
 
