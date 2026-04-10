@@ -1,9 +1,11 @@
+import Footer from '@/components/footer';
+
 export default function Work() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[70vh] px-8 pt-12 text-center">
-      <div className="max-w-2xl w-full">
+    <div className="flex flex-col items-center min-h-screen px-6 pt-24 md:pt-36 bg-black text-white text-center">
+      <div className="max-w-2xl w-full flex-grow">
         <h1 className="text-5xl font-bold tracking-tight mb-8">
-          Let's Work Together
+          Let&apos;s Work Together
         </h1>
         <p className="text-[12px] text-zinc-400 mb-8 md:mb-12">
           I&apos;m always open to new opportunities, collaborations, or just a friendly chat about technology.
@@ -43,6 +45,7 @@ export default function Work() {
           </p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
