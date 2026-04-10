@@ -1,3 +1,5 @@
+import Footer from '@/components/footer';
+
 export default function Projects() {
   const projectData = [
     {
@@ -5,6 +7,7 @@ export default function Projects() {
       tag: "AI & IoT",
       desc: "Interactive tourism using Raspberry Pi and RAG.",
       tech: ["Python", "Raspberry Pi", "RAG"],
+      link: "https://github.com/bikemaster2331/pathfinder",
       featured: true
     },
     {
@@ -12,6 +15,7 @@ export default function Projects() {
       tag: "Computer Vision",
       desc: "AI-powered medicine identifier utilizing Computer Vision.",
       tech: ["TensorFlow", "OpenCV", "Python"],
+      link: "https://github.com/bikemaster2331/med-id",
       featured: false
     },
     {
@@ -19,6 +23,7 @@ export default function Projects() {
       tag: "Engine",
       desc: "Coding behavior analysis using AST traversal.",
       tech: ["AST", "TypeScript", "Algorithms"],
+      link: "https://github.com/bikemaster2331/reflex",
       featured: true
     },
     {
@@ -26,39 +31,32 @@ export default function Projects() {
       tag: "E-commerce",
       desc: "Specialized marketplace for trading and purchasing booster packs.",
       tech: ["React", "Supabase", "Tailwind"],
+      link: "https://github.com/bikemaster2331/pokebind",
       featured: false
     }
   ];
 
   return (
-    <div className="flex flex-col items-center min-h-screen px-6 md:pt-36 pt-12 pb-40 bg-black text-white">
-      <div className="max-w-5xl w-full">
+    <div className="flex flex-col items-center min-h-screen px-6 pt-24 md:pt-36 bg-black text-white">
+      <div className="max-w-5xl w-full flex-grow">
 
         <div className="md:mb-24 mb-14 flex flex-col gap-3">
           <h1 className="text-4xl font-mono font-bold tracking-tighter">./projects</h1>
           <p className="text-zinc-600 font-mono md:text-[13px] text-[12px] max-w-xl leading-relaxed">
-            Get to know me more through my projects! Click the cards to find more!
+            Get to know me more through my projects! I call this page the "vault". Click the cards for the repo!
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 gap-3 md:gap-4 group/list">
           {projectData.map((project, i) => (
-            <div
+            <a
               key={project.name}
-              className="group relative p-5 md:p-7 h-full flex flex-col rounded-xl bg-zinc-900/40 hover:bg-zinc-800/60 transition-all duration-500 cursor-pointer overflow-hidden border border-white/[0.03] hover:border-white/10"
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              className="group relative p-5 md:p-7 h-full flex flex-col rounded-xl bg-zinc-900/40 hover:bg-zinc-800/60 transition-all duration-700 cursor-pointer overflow-hidden border-2 border-zinc-800 group-hover/list:blur-[4px] group-hover/list:opacity-40 hover:!blur-none hover:!opacity-100"
             >
-              <div className="absolute top-0 left-0 right-0 h-px pointer-events-none"
-                style={{
-                  background: 'linear-gradient(to right, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.08) 60%, transparent 100%)'
-                }}
-              />
-              <div className="absolute top-0 left-0 bottom-0 w-px pointer-events-none"
-                style={{
-                  background: 'linear-gradient(to bottom, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.08) 60%, transparent 100%)'
-                }}
-              />
-
-              <h3 className="text-2xl md:text-3xl text-[14px] font-bold lowercase font-mono tracking-tighter md:mb-9 mb-4 group-hover:text-white transition-colors duration-300">
+              <h3 className="text-2xl md:text-3xl font-bold lowercase font-mono tracking-tighter md:mb-9 mb-4 group-hover:text-white transition-colors duration-300">
                 {project.name}
               </h3>
 
@@ -66,7 +64,7 @@ export default function Projects() {
                 {project.desc}
               </p>
 
-              <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/[0.04]">
+              <div className="flex items-center justify-between mt-auto pt-4">
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map(t => (
                     <span key={t} className="text-[9px] font-mono text-zinc-600 italic">
@@ -78,11 +76,12 @@ export default function Projects() {
                   →
                 </span>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
       </div>
+      <Footer />
     </div>
   );
 }
