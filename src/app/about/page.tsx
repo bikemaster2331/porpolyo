@@ -2,9 +2,12 @@ import Footer from '@/components/footer';
 
 export default function About() {
   return (
-    <div className="flex flex-col items-center min-h-screen px-6 pt-24 md:pt-36 bg-black text-white">
-      <div className="max-w-2xl w-full flex-grow">
-        <h1 className="text-5xl font-bold tracking-tight mb-8 text-center sm:text-left">
+    <div className="flex flex-col items-center min-h-screen px-6 bg-black text-white pb-32 md:pb-0">
+      <div className="w-full order-first md:order-last">
+        <Footer />
+      </div>
+      <div className="max-w-2xl w-full flex-grow pt-12 md:pt-36">
+        <h1 className="text-5xl font-satoshi font-bold tracking-tight mb-8 text-center sm:text-left">
           About Me
         </h1>
         <div className="space-y-6 text-[12px] text-zinc-400 leading-relaxed text-center sm:text-left">
@@ -19,7 +22,6 @@ export default function About() {
           </p>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

@@ -2,9 +2,12 @@ import Footer from '@/components/footer';
 
 export default function Work() {
   return (
-    <div className="flex flex-col items-center min-h-screen px-6 pt-24 md:pt-36 bg-black text-white text-center">
-      <div className="max-w-2xl w-full flex-grow">
-        <h1 className="text-5xl font-bold tracking-tight mb-8">
+    <div className="flex flex-col items-center min-h-screen px-6 bg-black text-white text-center pb-32 md:pb-0">
+      <div className="w-full order-first md:order-last">
+        <Footer />
+      </div>
+      <div className="max-w-2xl w-full flex-grow pt-12 md:pt-36">
+        <h1 className="text-5xl font-satoshi font-bold tracking-tight mb-8">
           Let&apos;s Work Together
         </h1>
         <p className="text-[12px] text-zinc-400 mb-8 md:mb-12">
@@ -45,7 +48,6 @@ export default function Work() {
           </p>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
