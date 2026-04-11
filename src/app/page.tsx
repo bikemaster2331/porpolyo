@@ -28,7 +28,8 @@ export default function Home() {
       "HUH? NASAAN AKO? SINO KAYO? BAKIT AKO ROBOT?",
       "LET ME TELL YOU SOMETHING ABOUT MLL, HE'S A BIT....",
       "MSG RECEIVED: LET'S WORK TOGETHER - MARTHAN",
-      "WHALE LOOKED COOL SO I PUT IT THERE - MLL"
+      "WHALE LOOKED COOL SO I PUT IT THERE - MLL",
+      "IM STUCK IN HERE, CANT GO TO OTHER PAGES..."
     ];
 
     const timer = setInterval(() => {
@@ -64,7 +65,7 @@ export default function Home() {
         type="module"
         src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"
       />
-      <main className="h-screen w-full bg-black text-white p-4 flex flex-col pt-24 overflow-hidden">
+      <div className="h-svh w-full bg-black text-white p-4 flex flex-col md:pt-24 pt-4 overflow-hidden">
 
         <div className="flex-grow grid grid-cols-1 md:grid-cols-[repeat(20,minmax(0,1fr))] grid-rows-[repeat(6,_1fr)] md:grid-rows-[7fr_3fr] gap-2 w-full h-full relative">
 
@@ -264,7 +265,7 @@ export default function Home() {
           </div>
 
         </div>
-      </main>
+      </div>
     </>
   );
 }
