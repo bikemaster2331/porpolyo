@@ -67,7 +67,7 @@ export default function Home() {
       />
       <div className="h-svh w-full bg-black text-white p-4 flex flex-col md:pt-24 pt-4 overflow-hidden">
 
-        <div className="flex-grow grid grid-cols-1 md:grid-cols-[repeat(20,minmax(0,1fr))] grid-rows-[repeat(6,_1fr)] md:grid-rows-[7fr_3fr] gap-2 w-full h-full relative">
+        <div className="flex-grow grid grid-cols-1 md:grid-cols-[repeat(20,minmax(0,1fr))] grid-rows-[repeat(6,_1fr)] md:grid-rows-[8fr_3fr] gap-2 w-full h-full relative">
 
           <div className="md:col-span-14 hidden md:block" aria-hidden="true" />
           <div
@@ -161,9 +161,9 @@ export default function Home() {
               <img src="/images/cattos.png" alt="Background" className="w-full h-full object-cover opacity-[0.06] grayscale" />
             </div>
 
-            <span className="absolute z-10 top-8 left-8 text-[10px] font-bold text-zinc-600 uppercase tracking-widest"> WHO'S THIS GUY? </span>
+            <span className="absolute z-10 top-9 left-7 text-[10px] font-bold text-zinc-600 uppercase tracking-widest"> WHO'S THIS GUY? </span>
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-[auto_1fr_1.25fr] gap-8 w-full mt-4 items-center">
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-[auto_1fr_auto_1.25fr] gap-8 w-full mt-12.5 items-center">
 
               <div className="flex justify-start">
                 <div
@@ -186,22 +186,66 @@ export default function Home() {
               </div>
 
               {/* 2nd Column: Bio */}
-              <div className="flex flex-col justify-center">
-                <p className="text-sm lg:text-base text-zinc-400 font-light leading-relaxed italic">
-                  I want to learn wowsome perfect things at first try.
-                  <br />
-                  <span className="text-zinc-600 mt-2 block">*whispers* want to know more? heh</span>
-                </p>
+              <div className="flex flex-col justify-center relative pr-4">
+                <div className="relative">
+                  <span className="absolute -top-4 -left-2 text-4xl text-white/5 font-serif select-none pointer-events-none">"</span>
+                  <p className="text-sm md:text-sm text-zinc-400 font-light leading-relaxed italic relative z-10">
+                    To tolerate imperfection on the first try is to surrender before the work has even begun.
+                  </p>
+                  <span className="text-[12px] font-mono text-zinc-400 tracking-widest block text-right mt-4">
+                    — just thought of it rn
+                  </span>
+                </div>
               </div>
 
-              {/* 3rd Column: Tech Stack */}
-              {/* <div className="flex flex-wrap items-center content-center gap-2 md:border-l md:border-white/5 md:pl-6 pb-8 md:pb-0">
-                {['Next.js', 'React', 'TypeScript', 'Tailwind', 'Node.js', 'Python'].map(tech => (
-                  <span key={tech} className="px-2 py-1 bg-white/5 border border-white/10 rounded-md text-[10px] font-mono text-zinc-300">
-                    {tech}
-                  </span>
-                ))}
-              </div> */}
+              {/* Vertical Divider */}
+              <div className="hidden md:block w-px h-32 bg-white/10 self-center" />
+
+              {/* 3rd Column: Game Stats */}
+              <div className="relative p-5 rounded-2xl border border-white/[0.05] bg-[#050505] overflow-hidden group/card hover:border-white/[0.15] transition-colors duration-500 w-full">
+
+                {/* 1. Hardware Grid Background */}
+                <div className="absolute inset-0 opacity-[0.02] group-hover/card:opacity-[0.05] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:12px_12px] transition-opacity duration-500 pointer-events-none" />
+
+                {/* 2. Holo-Foil Hover Glint */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.05] to-transparent -translate-x-[150%] group-hover/card:translate-x-[150%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+
+                {/* 3. Card Header / Serial Number */}
+                <div className="flex justify-between items-center mb-4 pb-2 border-b border-white/[0.05] relative z-10">
+                  <span className="text-[12px] font-mono text-zinc-400 tracking-[0.3em] uppercase">ID</span>
+                  <div className="flex gap-1.5">
+                    <div className="w-1 h-1 bg-zinc-800 rounded-full group-hover/card:bg-zinc-600 transition-colors" />
+                    <div className="w-1 h-1 bg-zinc-800 rounded-full group-hover/card:bg-zinc-500 transition-colors delay-75" />
+                  </div>
+                </div>
+
+                {/* 4. The Stats Data */}
+                <div className="flex flex-col gap-3 w-full relative z-10">
+                  {[
+                    { label: "NAME", value: "MARTHAN LANUZGA" },
+                    { label: "LVL", value: "22" },
+                    { label: "TYPE", value: "COMPUTER ENGINEER" },
+                    { label: "STATUS", value: "UNEMPLOYED" },
+                  ].map((stat) => (
+                    <div key={stat.label} className="group/stat flex items-end justify-between text-[10px] font-mono tracking-[0.2em] relative">
+
+                      {/* Label */}
+                      <span className="text-zinc-600 group-hover/stat:text-zinc-400 transition-colors z-10 bg-[#050505] pr-3">
+                        {stat.label}
+                      </span>
+
+                      {/* Dotted Leader Line */}
+                      <div className="absolute bottom-[3px] left-0 right-0 border-b border-dashed border-zinc-800/50 group-hover/stat:border-zinc-700 transition-colors z-0" />
+
+                      {/* Value */}
+                      <span className="z-10 bg-[#050505] pl-3 flex items-center gap-2 transition-all duration-300 text-zinc-400 group-hover/stat:text-white">
+                        {stat.value}
+                      </span>
+
+                    </div>
+                  ))}
+                </div>
+              </div>
 
             </div>
             <a
