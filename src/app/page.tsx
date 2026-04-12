@@ -52,7 +52,6 @@ export default function Home() {
       }
     }, 50);
     return () => clearInterval(interval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bmoReply]);
 
   const isLabActive = bmoReply === "YOU MIGHT WANT TO CHECK OUT THE PROJECTS FOLDER!";
@@ -103,17 +102,14 @@ export default function Home() {
             </div>
           </div>
 
-          {/* New 3D Model Box replacing Projects and Stack */}
           <div className="fixed inset-0 md:relative md:inset-auto md:col-span-6 bg-black md:rounded-2xl z-0 flex md:block items-center justify-center overflow-hidden group transition-all duration-700 opacity-100 md:border-2 md:border-zinc-800">
             <div className="absolute top-15 md:top-8 left-8 z-20 pointer-events-auto max-w-[240px]">
               <div className={`transition-all duration-500 transform ${bmoReply ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
 
-                {/* Minimalist HUD Bracket */}
                 <div 
                   className="relative bg-black/80 backdrop-blur-sm border border-zinc-800 p-4 shadow-2xl transition-all duration-300"
                 >
 
-                  {/* Corner Brackets */}
                   <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-white/40"></div>
                   <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white/40"></div>
 
@@ -161,9 +157,21 @@ export default function Home() {
               <img src="/images/cattos.png" alt="Background" className="w-full h-full object-cover opacity-[0.06] grayscale" />
             </div>
 
-            <span className="absolute z-10 top-9 left-7 text-[10px] font-bold text-zinc-600 uppercase tracking-widest"> WHO'S THIS GUY? </span>
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-[0.8fr_auto_auto_1.2fr] gap-8 w-full items-center">
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-[auto_1fr_auto_1.25fr] gap-8 w-full mt-12.5 items-center">
+              <div className="relative p-0 rounded-2xl border border-white/[0.05] bg-[#050505] overflow-hidden group/card hover:border-white/[0.15] transition-colors duration-500 w-full flex items-center justify-center">
+                <div className="absolute inset-0 opacity-[0.02] group-hover/card:opacity-[0.05] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:12px_12px] transition-opacity duration-500 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.05] to-transparent -translate-x-[150%] group-hover/card:translate-x-[150%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+                <div className="relative w-full overflow-hidden z-10">
+                  <img 
+                    src="/images/license.png" 
+                    alt="License" 
+                    className="w-full h-auto object-contain transition-all duration-700" 
+                  />
+                </div>
+              </div>
+
+              <div className="hidden md:block w-px h-24 bg-white/10 self-center" />
 
               <div className="flex justify-start">
                 <div
@@ -185,7 +193,8 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* 2nd Column: Bio */}
+              
+
               <div className="flex flex-col justify-center relative pr-4">
                 <div className="relative">
                   <span className="absolute -top-4 -left-2 text-4xl text-white/5 font-serif select-none pointer-events-none">"</span>
@@ -195,55 +204,6 @@ export default function Home() {
                   <span className="text-[12px] font-mono text-zinc-400 tracking-widest block text-right mt-4">
                     — just thought of it rn
                   </span>
-                </div>
-              </div>
-
-              {/* Vertical Divider */}
-              <div className="hidden md:block w-px h-32 bg-white/10 self-center" />
-
-              {/* 3rd Column: Game Stats */}
-              <div className="relative p-5 rounded-2xl border border-white/[0.05] bg-[#050505] overflow-hidden group/card hover:border-white/[0.15] transition-colors duration-500 w-full">
-
-                {/* 1. Hardware Grid Background */}
-                <div className="absolute inset-0 opacity-[0.02] group-hover/card:opacity-[0.05] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:12px_12px] transition-opacity duration-500 pointer-events-none" />
-
-                {/* 2. Holo-Foil Hover Glint */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.05] to-transparent -translate-x-[150%] group-hover/card:translate-x-[150%] transition-transform duration-1000 ease-in-out pointer-events-none" />
-
-                {/* 3. Card Header / Serial Number */}
-                <div className="flex justify-between items-center mb-4 pb-2 border-b border-white/[0.05] relative z-10">
-                  <span className="text-[12px] font-mono text-zinc-400 tracking-[0.3em] uppercase">ID</span>
-                  <div className="flex gap-1.5">
-                    <div className="w-1 h-1 bg-zinc-800 rounded-full group-hover/card:bg-zinc-600 transition-colors" />
-                    <div className="w-1 h-1 bg-zinc-800 rounded-full group-hover/card:bg-zinc-500 transition-colors delay-75" />
-                  </div>
-                </div>
-
-                {/* 4. The Stats Data */}
-                <div className="flex flex-col gap-3 w-full relative z-10">
-                  {[
-                    { label: "NAME", value: "MARTHAN LANUZGA" },
-                    { label: "LVL", value: "22" },
-                    { label: "TYPE", value: "COMPUTER ENGINEER" },
-                    { label: "STATUS", value: "UNEMPLOYED" },
-                  ].map((stat) => (
-                    <div key={stat.label} className="group/stat flex items-end justify-between text-[10px] font-mono tracking-[0.2em] relative">
-
-                      {/* Label */}
-                      <span className="text-zinc-600 group-hover/stat:text-zinc-400 transition-colors z-10 bg-[#050505] pr-3">
-                        {stat.label}
-                      </span>
-
-                      {/* Dotted Leader Line */}
-                      <div className="absolute bottom-[3px] left-0 right-0 border-b border-dashed border-zinc-800/50 group-hover/stat:border-zinc-700 transition-colors z-0" />
-
-                      {/* Value */}
-                      <span className="z-10 bg-[#050505] pl-3 flex items-center gap-2 transition-all duration-300 text-zinc-400 group-hover/stat:text-white">
-                        {stat.value}
-                      </span>
-
-                    </div>
-                  ))}
                 </div>
               </div>
 
@@ -257,7 +217,7 @@ export default function Home() {
               href="/cv/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute bottom-8 right-8 px-4 py-2 bg-transparent border border-white/10 text-white/50 font-bold text-[10px] uppercase tracking-widest rounded-lg hover:bg-white hover:text-black hover:text-opacity-100 transition-all duration-300 text-center"
+              className="absolute bottom-8 right-12 px-4 py-2 bg-transparent border border-white/10 text-white/50 font-bold text-[10px] uppercase tracking-widest rounded-lg hover:bg-white hover:text-black hover:text-opacity-100 transition-all duration-300 text-center"
             >
               view cv
             </a>
