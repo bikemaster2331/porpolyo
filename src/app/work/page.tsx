@@ -11,12 +11,12 @@ export default function Work() {
         <Footer />
       </div>
 
-      <div className="max-w-6xl w-full flex-grow pt-4 md:pt-36 relative z-10">
+      <div className="max-w-7xl w-full flex-grow pt-9 md:pt-36 relative z-10">
 
         {/* --- HEADER SECTION --- */}
-        <div className="md:mb-20 mb-8 flex flex-col gap-6 relative mt-4">
+        <div className="md:mb-16 mb-4 flex flex-col gap-3 relative">
 
-          <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase drop-shadow-[4px_4px_0_rgba(0,0,0,1)] text-white font-sans">
+          <h1 className="text-4xl md:text-5xl font-black tracking-tighter uppercase drop-shadow-[4px_4px_0_rgba(0,0,0,1)] text-white font-sans">
             ./WORK
           </h1>
 
