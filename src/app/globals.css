@@ -63,3 +63,14 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Remove default focus ring/borders from model-viewer */
+model-viewer {
+  outline: none !important;
+  border: none !important;
+  --poster-color: transparent;
+}
+
+model-viewer:focus {
+  outline: none !important;
+}
