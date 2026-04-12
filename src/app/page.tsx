@@ -64,8 +64,9 @@ export default function Home() {
         src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"
       />
 
-      {/* 1. BACKGROUND: Changed from pure black to a cutting-mat/notebook grid */}
-      <div className="h-svh w-full bg-[#111] bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:24px_24px] text-white p-4 flex flex-col md:pt-24 pt-4 overflow-hidden">
+      <div className="fixed inset-0 bg-[#111] bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:24px_24px] -z-10" aria-hidden="true" />
+
+      <div className="h-svh w-full text-white p-4 flex flex-col md:pt-24 pt-4 overflow-hidden relative z-10">
 
         <div className="flex-grow grid grid-cols-1 md:grid-cols-[repeat(20,minmax(0,1fr))] grid-rows-[repeat(6,_1fr)] md:grid-rows-[8fr_3fr] gap-4 w-full h-full relative">
 
@@ -73,7 +74,7 @@ export default function Home() {
 
           {/* MLL HERO CARD: Styled like a physical poster taped to the board */}
           <div
-            className={`hidden md:flex bg-zinc-950 p-10 flex-col justify-end group absolute top-4 left-4 w-full md:w-[calc(65%-3.2px)] h-full md:h-[calc(65%-4px)] z-10 transition-all duration-700 -rotate-2 shadow-[5px_5px_15px_rgba(0,0,0,0.8)] border-[4px] border-zinc-900 ${isAnyActive ? 'blur-[6px] opacity-60 pointer-events-none' : ''}`}
+            className={`hidden md:flex bg-zinc-950 p-10 flex-col justify-end group absolute top-4 left-4 w-full md:w-[calc(65%-3.2px)] h-full md:h-[calc(65%-4px)] z-10 transition-all duration-700 -rotate-2 shadow-[5px_5px_15px_rgba(0,0,0,0.8)] border-[4px] border-zinc-900 ${isAnyActive ? 'blur-[6px] brightness-[0.3] pointer-events-none' : ''}`}
           >
             {/* Fake CSS Tape */}
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-white/20 backdrop-blur-md rotate-2 shadow-sm z-50" />
@@ -110,7 +111,7 @@ export default function Home() {
           </div>
 
           {/* BMO STICKER: Wrapped in CSS drop-shadow to create a die-cut sticker look */}
-          <div className="fixed inset-0 md:relative md:inset-auto md:col-span-6 z-20 flex md:block items-center justify-center transition-all duration-700 opacity-100 rotate-3 drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] hover:rotate-0 hover:scale-105">
+          <div className="fixed inset-0 md:relative md:inset-auto md:col-span-6 z-20 flex md:block items-center justify-center transition-all duration-700 opacity-100 md:rotate-3 drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] hover:rotate-0 hover:scale-105">
 
             <div className="absolute top-15 md:top-8 left-8 z-30 pointer-events-auto max-w-[240px] -rotate-6">
               <div className={`transition-all duration-500 transform ${bmoReply ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
@@ -143,7 +144,7 @@ export default function Home() {
           </div>
 
           {/* BOTTOM LEFT BOARD: Pinned items overlapping */}
-          <div className={`hidden md:flex md:col-span-10 p-8 flex-col justify-center gap-6 transition-all duration-700 relative z-10 ${isAnyActive ? 'blur-[6px] opacity-60 pointer-events-none' : 'opacity-100'}`}
+          <div className={`hidden md:flex md:col-span-10 p-8 flex-col justify-center gap-6 transition-all duration-700 relative z-10 ${isAnyActive ? 'blur-[6px] brightness-[0.3] pointer-events-none' : 'opacity-100'}`}
             onMouseEnter={() => {
               setIsHovering(true);
               setBmoReply("TRY HOVERING OVER THE IMAGE! HE'S GOT A SURPRISE");
@@ -154,8 +155,8 @@ export default function Home() {
 
               {/* ID Card as a printed physical object */}
               <div className="relative p-2 bg-white shadow-[0_10px_20px_rgba(0,0,0,0.5)] rotate-[-4deg] w-full max-w-[200px] hover:rotate-0 transition-transform duration-300 z-20">
-                <div className="absolute -top-2 right-4 w-8 h-8 rounded-full bg-red-500/80 shadow-inner z-50 flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-zinc-900" /> {/* Fake Push Pin */}
+                <div className="absolute top-1 right-4 w-4 h-4 rounded-full bg-zinc-300 border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,1)] z-50 flex items-center justify-center">
+                  <div className="w-1 h-1 rounded-full bg-white translate-x-[-1px] translate-y-[-1px]" />
                 </div>
                 <img src="/images/license.png" alt="License" className="w-full h-auto object-contain filter contrast-125" />
               </div>
@@ -234,14 +235,14 @@ export default function Home() {
                 setIsHovering(false);
                 setIsLabExpanded(false);
               }}
-              className={`absolute bottom-8 left-4 w-[calc(55%-4px)] border-4 border-blue-800 p-6 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black rotate-[-3deg] shadow-[5px_5px_0_rgba(0,0,0,1)] ${isLabExpanded ? 'h-[110%] w-[110%] z-40 rotate-0' : 'h-[calc(75%-4px)] z-20'} ${isLabActive ? "z-30 scale-105" : isContactActive ? "blur-[6px] opacity-60 pointer-events-none" : ""}`}
+              className={`absolute bottom-8 left-4 w-[calc(55%-4px)] border-4 border-blue-800 p-6 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black rotate-[-3deg] shadow-[5px_5px_0_rgba(0,0,0,1)] ${isLabExpanded ? 'h-[110%] w-[110%] z-40 rotate-0' : 'h-[calc(75%-4px)] z-20'} ${isLabActive ? "z-30 scale-105" : isContactActive ? "blur-[6px] brightness-[0.3] pointer-events-none" : ""}`}
             >
               {/* Fake CSS Tape */}
-              <div className="absolute -top-3 right-4 w-12 h-6 bg-white/30 backdrop-blur-md -rotate-24 shadow-sm z-50" />
+              <div className="absolute top-1 right-[-20] w-24 h-6 bg-white/30 backdrop-blur-md -rotate-[-24deg] shadow-sm z-50" />
               <div className="z-10 flex justify-between items-center">
-                <span className="text-xs font-mono font-black uppercase tracking-widest bg-black text-blue-400 px-2 py-1">_THE LAB</span>
+                <span className="text-xs font-mono font-black uppercase tracking-widest bg-black text-blue-400 px-2 py-1">_THE VAULT</span>
               </div>
-              <h4 style={{ fontFamily: 'Impact, sans-serif' }} className={`uppercase z-10 leading-none transition-all duration-500 ${isLabExpanded ? 'text-7xl' : 'text-5xl'}`}>
+              <h4 style={{ fontFamily: 'Impact, sans-serif' }} className={`uppercase z-10 leading-none transition-all duration-500 ${isLabExpanded ? 'text-6xl' : 'text-5xl'}`}>
                 VIEW<br />PROJECTS
               </h4>
             </Link>
@@ -254,7 +255,7 @@ export default function Home() {
                 setBmoReply("CONNECT WITH BM? HE'S A BIT SHY...");
               }}
               onMouseLeave={() => setIsHovering(false)}
-              className={`absolute bottom-4 right-4 w-[calc(45%-4px)] h-[calc(50%-4px)] bg-[#fef08a] text-black p-6 flex flex-col justify-center items-center text-center transition-all duration-700 cursor-pointer shadow-[2px_10px_15px_rgba(0,0,0,0.5)] rotate-3 hover:rotate-0 hover:-translate-y-2 ${isContactActive ? 'z-30 scale-105' : isLabActive ? 'blur-[6px] opacity-60 pointer-events-none' : 'z-10'}`}>
+              className={`absolute bottom-4 right-4 w-[calc(45%-4px)] h-[calc(50%-4px)] bg-[#fef08a] text-black p-6 flex flex-col justify-center items-center text-center transition-all duration-700 cursor-pointer shadow-[2px_10px_15px_rgba(0,0,0,0.5)] rotate-3 hover:rotate-0 hover:-translate-y-2 ${isContactActive ? 'z-30 scale-105' : isLabActive ? 'blur-[6px] brightness-[0.3] pointer-events-none' : 'z-10'}`}>
 
               {/* Push Pin */}
               <div className="absolute top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-blue-500 shadow-inner z-50 flex items-center justify-center">
