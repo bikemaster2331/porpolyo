@@ -82,7 +82,7 @@ export default function Home() {
             <div className="relative z-10">
               <div className="flex items-baseline gap-6 mb-1">
                 <span className="font-bold uppercase tracking-[0.15em] bg-white text-black px-2 py-1 text-[10px] -rotate-3 inline-block">
-                  SOMEONE
+                  SOMEONE'S KID
                 </span>
               </div>
 
@@ -121,7 +121,6 @@ export default function Home() {
                   <div className="absolute -top-3 left-4 w-12 h-4 bg-white/40 backdrop-blur-md rotate-6 shadow-sm z-50" />
                   <p className="font-mono text-[11px] leading-relaxed uppercase font-bold tracking-tight text-left w-full break-words relative z-10">
                     {displayedReply}
-                    <span className="font-bold animate-caret-blink">|</span>
                   </p>
                 </div>
               </div>
@@ -181,7 +180,9 @@ export default function Home() {
                     playsInline
                     className="w-full h-full object-cover object-center grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
                   />
-                  <span style={{ fontFamily: 'Bradley Hand, cursive' }} className="absolute bottom-1 left-0 w-full text-center text-black text-xs">meow.</span>
+                  <div className="absolute bottom-2 left-0 w-full flex flex-col items-center gap-0">
+                    <span className="bg-black text-[white] text-[11px] font-black px-3 py-0.5 tracking-[0.2em] uppercase leading-none rounded-sm scale-90">MISSING</span>
+                  </div>
                 </div>
               </div>
 
@@ -191,7 +192,7 @@ export default function Home() {
                   {/* Fake CSS Tape */}
                   <div className="absolute top-1 -right-5 w-15 h-6 bg-white/40 backdrop-blur-md rotate-48 shadow-sm z-50" />
                   <p className="text-sm md:text-sm text-black font-mono leading-relaxed relative z-10">
-                    To tolerate imperfection on the first try is to surrender before the work has even begun.
+                    "To tolerate imperfection on the first try is to surrender before the work has even begun."
                   </p>
                   <span style={{ fontFamily: 'Bradley Hand, cursive' }} className="text-xl text-red-600 block text-right mt-2 -rotate-3">
                     — just thought of it rn
@@ -211,7 +212,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               style={{ fontFamily: 'Bradley Hand, cursive' }}
-              className="absolute bottom-50 right-14 text-white text-2xl rotate-[-5deg] hover:text-yellow-400 hover:scale-110 transition-all duration-300 underline decoration-wavy"
+              className="absolute bottom-50 right-14 text-white text-2xl rotate-[-5deg] hover:text-pink-400 hover:scale-110 transition-all duration-300 underline decoration-wavy"
             >
               view my cv!
             </a>

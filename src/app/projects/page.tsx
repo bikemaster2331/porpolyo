@@ -20,7 +20,6 @@ const TechIcons: Record<string, React.ReactNode> = {
 const TechBadge = ({ name }: { name: string }) => {
   const icon = TechIcons[name] || TechIcons["Algorithms"];
   return (
-    // Scoped aggressive hover to desktop (md:) to prevent mobile stickiness
     <div className="flex items-center gap-1.5 px-2 py-1 bg-black border-2 border-black shadow-[2px_2px_0_rgba(255,255,255,0.2)] md:hover:shadow-[4px_4px_0_rgba(255,255,255,0.4)] md:hover:-translate-y-1 md:hover:-translate-x-1 transition-all group/badge z-20">
       <div className="w-3.5 h-3.5 opacity-90 md:group-hover/badge:opacity-100 transition-opacity drop-shadow-md">
         {icon}
@@ -59,8 +58,9 @@ export default function Projects() {
       longDesc: "Standard AI is usually too vague or outdated to be helpful. Built on a Raspberry Pi, Pathfinder uses a custom database that acts like a local tourist guide.",
       tech: ["Python", "Raspberry Pi", "RAG", "React"],
       link: "https://github.com/bikemaster2331/pathfinder",
-      styles: "bg-[#0b1b3d] text-blue-100 border-4 border-[#071126] shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[-1deg]",
-      tape: "-top-3 right-8 w-16 h-6 bg-white rotate-3 opacity-90 shadow-[2px_2px_0_rgba(0,0,0,0.5)]"
+      styles: "bg-[#0b1b3d] text-blue-100 border-4 border-[#071126] shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[-1deg] rotate-[-2deg]",
+      tape: "md:-top-3 md:right-8 top-[-8px] left-5 w-12 md:w-16 h-4 md:h-6 bg-white rotate-3 opacity-90 shadow-[2px_2px_0_rgba(0,0,0,0.5)]",
+      gridSpan: "col-span-1 md:col-span-6" // 50%
     },
     {
       name: "med-id",
@@ -70,8 +70,9 @@ export default function Projects() {
       longDesc: "I made this to help people identify their medication using just a smartphone camera and deep learning.",
       tech: ["TensorFlow", "OpenCV", "Python"],
       link: "https://github.com/bikemaster2331/med-id",
-      styles: "bg-[#D4C3A3] text-black border-4 border-[#8B7D60] shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[2deg]",
-      tape: "-top-3 left-1/2 -translate-x-1/2 w-14 h-6 bg-zinc-300 -rotate-2 opacity-90 shadow-[2px_2px_0_rgba(0,0,0,0.5)]"
+      styles: "bg-[#D4C3A3] text-black border-4 border-[#8B7D60] shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[2deg] rotate-[2deg]",
+      tape: "md:-top-3 md:left-1/2 md:-translate-x-1/2 top-[-8px] left-8 w-10 md:w-14 h-4 md:h-6 bg-zinc-300 -rotate-2 opacity-90 shadow-[2px_2px_0_rgba(0,0,0,0.5)]",
+      gridSpan: "col-span-1 md:col-span-6" // 50%
     },
     {
       name: "reflex",
@@ -82,7 +83,8 @@ export default function Projects() {
       tech: ["AST", "TypeScript", "Algorithms"],
       link: "https://github.com/bikemaster2331/reflex",
       styles: "bg-zinc-100 text-black border-4 border-zinc-900 shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[-2deg]",
-      tape: "top-4 -left-4 w-12 h-6 bg-blue-600/80 -rotate-12 shadow-[2px_2px_0_rgba(0,0,0,0.5)] border-l-2 border-blue-400/30"
+      tape: "md:top-1 md:-left-4 top-[-10] left-1/3 w-12 md:w-24 md:h-6 md:h-7 h-4.5 bg-blue-600/80 md:-rotate-24 -rotate-4 shadow-[2px_2px_0_rgba(0,0,0,0.5)] border-l-2 border-blue-400/30",
+      gridSpan: "col-span-1 md:col-span-6" // 50%
     },
     {
       name: "pokebind",
@@ -92,8 +94,9 @@ export default function Projects() {
       longDesc: "A passion project for the collector—building a secure, specialized marketplace for Pokémon enthusiasts. I love Giratina.",
       tech: ["Next.js", "Supabase", "Tailwind"],
       link: "https://github.com/bikemaster2331/pokebind",
-      styles: "bg-[#8b1c1c] text-white border-4 border-[#4a0d0d] shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[1deg]",
-      tape: "top-1 right-[-20] w-24 h-6 bg-zinc-300 rotate-36 opacity-90 shadow-[2px_2px_0_rgba(0,0,0,0.5)]"
+      styles: "bg-[#8b1c1c] text-white border-4 border-[#4a0d0d] shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[1deg] rotate-[-2deg]",
+      tape: "md:top-1 md:right-[-20] top-0 right-[-10] md:w-16 md:w-24 w-8 md:h-8 h-3 bg-zinc-300 rotate-36 opacity-90 shadow-[2px_2px_0_rgba(0,0,0,0.5)]",
+      gridSpan: "col-span-1 md:col-span-6" // 50%
     }
   ];
 
@@ -132,13 +135,14 @@ export default function Projects() {
   }, [hoveredIndex]);
 
   return (
-    // Added overflow-x-clip to prevent sideways scrolling caused by shadows/rotations
     <div className="flex flex-col items-center min-h-screen relative text-white pb-24 md:pb-0 px-4 sm:px-6 overflow-x-clip">
       <div className="fixed inset-0 bg-[#111] bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:24px_24px] -z-10" aria-hidden="true" />
+
       <div className="w-full order-first md:order-last">
         <Footer />
       </div>
-      <div className="max-w-5xl w-full flex-grow pt-9 md:pt-36 relative z-10">
+
+      <div className="max-w-7xl w-full flex-grow pt-9 md:pt-36 relative z-10">
 
         <div className="md:mb-16 mb-4 flex flex-col gap-3 min-h-[160px] relative">
 
@@ -147,25 +151,19 @@ export default function Projects() {
           </h1>
 
           <div className="relative bg-zinc-200 p-6 border-4 border-black shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[-1deg] max-w-2xl mt-4 overflow-hidden">
-
-            {/* Hid barcode on very small screens, or forced to top right cleanly */}
             <div className="hidden sm:flex absolute top-0 right-2 w-20 h-10 p-1 flex-col justify-between items-center rotate-1">
               <div className="w-full h-7 bg-[linear-gradient(90deg,#000_1px,transparent_1px,transparent_3px,#000_3px,#000_4px,transparent_4px,transparent_5px,#000_5px,#000_7px,transparent_7px,transparent_8px,#000_8px,#000_9px,transparent_9px,transparent_11px,#000_11px,#000_12px,transparent_12px,transparent_15px,#000_15px,#000_16px,transparent_16px,transparent_17px,#000_17px,#000_20px,transparent_20px,transparent_22px,#000_22px,#000_23px,transparent_23px,transparent_25px,#000_25px,#000_28px)] bg-[length:30px_100%]"></div>
               <span className="text-[6px] font-mono text-black font-bold tracking-widest leading-none">0412-2026-MLL</span>
             </div>
 
-            {/* Fixed the text size typo (md:text-9px -> md:text-3xl) */}
-            <div className="absolute md:top-4 md:right-2 top-1 right-1 border-4 border-red-600 text-red-300 font-bold md:text-2xl text-12px md:text-3xl px-2 py-1 rotate-12 opacity-40 mix-blend-multiply tracking-widest font-mono pointer-events-none">
+            <div className="absolute md:top-4 md:right-2 top-1 right-1 border-4 border-red-600 text-red-300 font-bold md:text-2xl text-[12px] md:text-3xl px-2 py-1 rotate-12 opacity-40 mix-blend-multiply tracking-widest font-mono pointer-events-none">
               CONFIDENTIAL
             </div>
 
-            {/* Red Push Pin */}
             <div className="absolute top-1 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-red-600 border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,1)] z-50 flex items-center justify-center">
-              {/* Pin Indentation/Highlight */}
               <div className="w-1.5 h-1.5 rounded-full bg-black/40 translate-x-[1px] translate-y-[1px]" />
             </div>
 
-            {/* Added pr-0 sm:pr-16 to stop text from running under the barcode on mobile */}
             <p className="text-black font-mono md:text-[14px] text-[12px] leading-relaxed min-h-[64px] font-bold uppercase tracking-tight relative z-10 w-full md:w-[85%] pr-0 sm:pr-16">
               {displayedDesc}
             </p>
@@ -173,8 +171,7 @@ export default function Projects() {
 
         </div>
 
-        {/* 2-COLUMN MOBILE GRID: High-density layout */}
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-12 pb-12 md:pb-16 mt-6 md:mt-12">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-3 md:gap-12 pb-12 md:pb-48 mt-6 md:mt-24">
           {projectData.map((project, i) => (
             <a
               key={project.name}
@@ -183,8 +180,7 @@ export default function Projects() {
               rel="noreferrer"
               onMouseEnter={() => isDesktop && setHoveredIndex(i)}
               onMouseLeave={() => isDesktop && setHoveredIndex(null)}
-              // Scoped the heavy scale/translate hovers to desktop only (md:)
-              className={`group relative p-3 md:p-8 flex flex-col transition-all duration-300 cursor-pointer ${project.styles} md:hover:rotate-0 md:hover:scale-105 md:hover:shadow-[16px_16px_0_rgba(0,0,0,1)] md:hover:-translate-y-1 md:hover:-translate-x-1 hover:!z-30 ${isDesktop && hoveredIndex !== null && hoveredIndex !== i
+              className={`group relative p-3 md:p-8 flex flex-col transition-all duration-300 cursor-pointer ${project.styles} ${project.gridSpan} md:hover:rotate-0 md:hover:scale-105 md:hover:shadow-[16px_16px_0_rgba(0,0,0,1)] md:hover:-translate-y-1 md:hover:-translate-x-1 hover:!z-30 ${isDesktop && hoveredIndex !== null && hoveredIndex !== i
                 ? 'blur-[4px] brightness-[0.4] grayscale'
                 : 'blur-0 opacity-100 grayscale-0'
                 }`}
@@ -209,7 +205,6 @@ export default function Projects() {
               </p>
 
               <div className="flex items-center justify-between mt-auto pt-4 border-t-2 border-black/20">
-                {/* Changed flex-nowrap to flex-wrap so badges stack nicely on small screens */}
                 <div className="flex flex-wrap gap-2 relative z-20">
                   {project.tech.map(t => (
                     <TechBadge key={t} name={t} />
@@ -219,7 +214,7 @@ export default function Projects() {
             </a>
           ))}
         </div>
-       </div>
-     </div>
+      </div>
+    </div>
   );
 }
