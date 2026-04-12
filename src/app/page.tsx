@@ -104,7 +104,7 @@ export default function Home() {
           </div>
 
           {/* New 3D Model Box replacing Projects and Stack */}
-          <div className="fixed inset-0 md:relative md:inset-auto md:col-span-6 bg-black md:rounded-2xl z-0 flex md:block items-center justify-center overflow-hidden group transition-all duration-700 opacity-100 border-2 border-zinc-800">
+          <div className="fixed inset-0 md:relative md:inset-auto md:col-span-6 bg-black md:rounded-2xl z-0 flex md:block items-center justify-center overflow-hidden group transition-all duration-700 opacity-100 md:border-2 md:border-zinc-800">
             <div className="absolute top-15 md:top-8 left-8 z-20 pointer-events-auto max-w-[240px]">
               <div className={`transition-all duration-500 transform ${bmoReply ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
 
