@@ -186,9 +186,9 @@ export default function Home() {
 
               {/* Typed Quote with Marker Annotation */}
               <div className="flex flex-col justify-center relative pl-8 mt-8">
-                <div className="bg-zinc-100 p-4 shadow-md rotate-[-1deg] max-w-sm border-l-4 border-blue-500 relative">
+                <div className="bg-zinc-100 p-4 shadow-md rotate-[5deg] max-w-sm border-l-4 border-blue-500 relative hover:rotate-0 transition-all duration-500">
                   {/* Fake CSS Tape */}
-                  <div className="absolute top-2 -right-4 w-12 h-6 bg-white/40 backdrop-blur-md rotate-12 shadow-sm z-50" />
+                  <div className="absolute top-1 -right-5 w-15 h-6 bg-white/40 backdrop-blur-md rotate-48 shadow-sm z-50" />
                   <p className="text-sm md:text-sm text-black font-mono leading-relaxed relative z-10">
                     To tolerate imperfection on the first try is to surrender before the work has even begun.
                   </p>
@@ -210,7 +210,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               style={{ fontFamily: 'Bradley Hand, cursive' }}
-              className="absolute bottom-4 right-12 text-white text-2xl rotate-[-5deg] hover:text-blue-400 hover:scale-110 transition-all duration-300 underline decoration-wavy"
+              className="absolute bottom-50 right-14 text-white text-2xl rotate-[-5deg] hover:text-yellow-400 hover:scale-110 transition-all duration-300 underline decoration-wavy"
             >
               view my cv!
             </a>
@@ -237,7 +237,7 @@ export default function Home() {
               className={`absolute bottom-8 left-4 w-[calc(55%-4px)] border-4 border-blue-800 p-6 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black rotate-[-3deg] shadow-[5px_5px_0_rgba(0,0,0,1)] ${isLabExpanded ? 'h-[110%] w-[110%] z-40 rotate-0' : 'h-[calc(75%-4px)] z-20'} ${isLabActive ? "z-30 scale-105" : isContactActive ? "blur-[6px] opacity-60 pointer-events-none" : ""}`}
             >
               {/* Fake CSS Tape */}
-              <div className="absolute -top-3 right-4 w-12 h-6 bg-white/30 backdrop-blur-md -rotate-12 shadow-sm z-50" />
+              <div className="absolute -top-3 right-4 w-12 h-6 bg-white/30 backdrop-blur-md -rotate-24 shadow-sm z-50" />
               <div className="z-10 flex justify-between items-center">
                 <span className="text-xs font-mono font-black uppercase tracking-widest bg-black text-blue-400 px-2 py-1">_THE LAB</span>
               </div>
