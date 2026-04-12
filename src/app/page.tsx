@@ -138,7 +138,10 @@ export default function Home() {
                 exposure="1"
                 interaction-prompt="none"
                 style={{ width: '100%', height: '100%', backgroundColor: 'transparent' }}
-              ></model-viewer>
+                {...({ reveal: 'auto' } as any)}
+              >
+                <div slot="progress-bar" />
+              </model-viewer>
             </div>
           </div>
 
