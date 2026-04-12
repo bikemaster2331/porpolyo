@@ -34,3 +34,32 @@ body {
 .animate-caret-blink {
   animation: caret-blink 1s step-end infinite;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #18181b; /* zinc-900 */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #27272a; /* zinc-800 */
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #18181b #000000;
+}
+
+html {
+  scroll-behavior: smooth;
+}
