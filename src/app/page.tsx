@@ -10,7 +10,6 @@ export default function Home() {
   const [isHovering, setIsHovering] = useState(false);
   const catVideoRef = useRef<HTMLVideoElement>(null);
   const quoteIndexRef = useRef(0);
-  
 
   useEffect(() => {
     if (isHovering) return;
@@ -64,150 +63,143 @@ export default function Home() {
         type="module"
         src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"
       />
-      <div className="h-svh w-full bg-black text-white p-4 flex flex-col md:pt-24 pt-4 overflow-hidden">
 
-        <div className="flex-grow grid grid-cols-1 md:grid-cols-[repeat(20,minmax(0,1fr))] grid-rows-[repeat(6,_1fr)] md:grid-rows-[8fr_3fr] gap-2 w-full h-full relative">
+      {/* 1. BACKGROUND: Changed from pure black to a cutting-mat/notebook grid */}
+      <div className="h-svh w-full bg-[#111] bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:24px_24px] text-white p-4 flex flex-col md:pt-24 pt-4 overflow-hidden">
+
+        <div className="flex-grow grid grid-cols-1 md:grid-cols-[repeat(20,minmax(0,1fr))] grid-rows-[repeat(6,_1fr)] md:grid-rows-[8fr_3fr] gap-4 w-full h-full relative">
 
           <div className="md:col-span-14 hidden md:block" aria-hidden="true" />
+
+          {/* MLL HERO CARD: Styled like a physical poster taped to the board */}
           <div
-            className={`hidden md:flex bg-zinc-900/40 rounded-2xl p-10 flex-col justify-end overflow-hidden group absolute top-0 left-0 w-full md:w-[calc(70%-3.2px)] h-full md:h-[calc(70%-4px)] z-10 transition-all duration-700 ${isAnyActive ? 'blur-[6px] opacity-60 pointer-events-none' : ''}`}
+            className={`hidden md:flex bg-zinc-950 p-10 flex-col justify-end group absolute top-4 left-4 w-full md:w-[calc(65%-3.2px)] h-full md:h-[calc(65%-4px)] z-10 transition-all duration-700 -rotate-2 shadow-[5px_5px_15px_rgba(0,0,0,0.8)] border-[4px] border-zinc-900 ${isAnyActive ? 'blur-[6px] opacity-60 pointer-events-none' : ''}`}
           >
+            {/* Fake CSS Tape */}
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-white/20 backdrop-blur-md rotate-2 shadow-sm z-50" />
+
             <div className="relative z-10">
-              <div className="flex items-baseline gap-6 transition-all duration-700 ease-in-out z-50 origin-top-left transform translate-y-0 mb-1">
-                <span className="font-bold uppercase tracking-[0.15em] text-zinc-600 text-[10px]">
+              <div className="flex items-baseline gap-6 mb-1">
+                <span className="font-bold uppercase tracking-[0.15em] bg-white text-black px-2 py-1 text-[10px] -rotate-3 inline-block">
                   SOMEONE
                 </span>
               </div>
 
               <div className="relative h-32 w-full mb-1">
-                <h1
-                  className="absolute bottom-0 left-0 font-black tracking-tighter leading-none transition-all duration-1000 ease-in-out text-9xl opacity-100 translate-y-0 scale-100"
-                >
+                <h1 className="absolute bottom-0 left-0 font-black tracking-tighter leading-none text-9xl">
                   MLL
                 </h1>
               </div>
-              <p className="text-zinc-500 text-lg font-medium max-w-sm uppercase tracking-widest">
-                WAHOOOOOOOO DEVELOPER <br />
+
+              {/* Mixed Typography: Marker font style for the joke */}
+              <p style={{ fontFamily: 'Bradley Hand, cursive' }} className="text-white text-3xl lowercase tracking-wide mt-2 -rotate-2">
+                wahoooooooo developer
+              </p>
+              <p className="text-zinc-500 text-sm font-mono uppercase tracking-widest mt-2">
                 / BIKEMASTER2331
               </p>
             </div>
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/5 via-transparent to-transparent z-10" />
-            <div className="absolute inset-0 opacity-100 pointer-events-none z-0">
+            <div className="absolute inset-0 opacity-40 pointer-events-none z-0 mix-blend-luminosity">
               <img
                 src="/images/gatty.png"
                 alt="Hero Visual"
-                className="w-full h-full object-cover object-center grayscale contrast-110 brightness-[0.67]"
+                className="w-full h-full object-cover object-center grayscale contrast-150"
                 loading="eager"
               />
             </div>
           </div>
 
-          <div className="fixed inset-0 md:relative md:inset-auto md:col-span-6 bg-black md:rounded-2xl z-0 flex md:block items-center justify-center overflow-hidden group transition-all duration-700 opacity-100 md:border-2 md:border-zinc-800">
-            <div className="absolute top-15 md:top-8 left-8 z-20 pointer-events-auto max-w-[240px]">
+          {/* BMO STICKER: Wrapped in CSS drop-shadow to create a die-cut sticker look */}
+          <div className="fixed inset-0 md:relative md:inset-auto md:col-span-6 z-20 flex md:block items-center justify-center transition-all duration-700 opacity-100 rotate-3 drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] hover:rotate-0 hover:scale-105">
+
+            <div className="absolute top-15 md:top-8 left-8 z-30 pointer-events-auto max-w-[240px] -rotate-6">
               <div className={`transition-all duration-500 transform ${bmoReply ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
-
-                <div 
-                  className="relative bg-black/80 backdrop-blur-sm border border-zinc-800 p-4 shadow-2xl transition-all duration-300"
-                >
-
-                  <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-white/40"></div>
-                  <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white/40"></div>
-
-                  <p className="font-mono text-[10px] leading-relaxed uppercase font-bold tracking-widest text-zinc-400 text-left w-full break-words relative z-10">
+                {/* Text Box stylized as a Dymo label or sticky note */}
+                <div className="relative bg-[#ffeb3b] text-black p-3 shadow-xl transition-all duration-300 border-l-4 border-black">
+                  {/* Fake CSS Tape */}
+                  <div className="absolute -top-3 left-4 w-12 h-4 bg-white/40 backdrop-blur-md rotate-6 shadow-sm z-50" />
+                  <p className="font-mono text-[11px] leading-relaxed uppercase font-bold tracking-tight text-left w-full break-words relative z-10">
                     {displayedReply}
                     <span className="font-bold animate-caret-blink">|</span>
                   </p>
-
                 </div>
-
               </div>
             </div>
 
-            <div
-              className="w-full h-full absolute inset-0 md:translate-y-0 translate-y-6"
-              style={{
-                WebkitMaskImage: 'linear-gradient(to top, transparent 5%, black 25%, black 100%)',
-                maskImage: 'linear-gradient(to top, transparent 5%, black 25%, black 100%)'
-              }}
-            >
+            <div className="w-full h-full absolute inset-0 md:translate-y-0 translate-y-6">
               <model-viewer
                 src="/models/bmo.glb"
                 autoplay
                 camera-controls
                 disable-zoom
                 disable-tap
-                shadow-intensity="0"
+                shadow-intensity="2"
                 environment-image="neutral"
-                exposure="0.8"
+                exposure="1"
                 interaction-prompt="none"
                 style={{ width: '100%', height: '100%', backgroundColor: 'transparent' }}
               ></model-viewer>
             </div>
           </div>
 
-          <div className={`hidden md:flex md:col-span-10 rounded-2xl p-8 flex-col justify-center gap-6 transition-all duration-700 relative overflow-hidden ${isAnyActive ? 'blur-[6px] opacity-60 pointer-events-none' : 'opacity-100'}`}
+          {/* BOTTOM LEFT BOARD: Pinned items overlapping */}
+          <div className={`hidden md:flex md:col-span-10 p-8 flex-col justify-center gap-6 transition-all duration-700 relative z-10 ${isAnyActive ? 'blur-[6px] opacity-60 pointer-events-none' : 'opacity-100'}`}
             onMouseEnter={() => {
               setIsHovering(true);
               setBmoReply("TRY HOVERING OVER THE IMAGE! HE'S GOT A SURPRISE");
             }}
             onMouseLeave={() => setIsHovering(false)}
           >
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-white/[0.15] to-transparent z-20" />
-            <div className="absolute inset-0 z-0 mix-blend-overlay">
-              <img src="/images/cattos.png" alt="Background" className="w-full h-full object-cover opacity-[0.06] grayscale" />
-            </div>
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-[auto_auto_1fr] gap-8 w-full items-center">
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-[0.8fr_auto_auto_1.2fr] gap-8 w-full items-center">
-
-              <div className="relative p-0 rounded-2xl border border-white/[0.05] bg-[#050505] overflow-hidden group/card hover:border-white/[0.15] transition-colors duration-500 w-full flex items-center justify-center">
-                <div className="absolute inset-0 opacity-[0.02] group-hover/card:opacity-[0.05] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:12px_12px] transition-opacity duration-500 pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.05] to-transparent -translate-x-[150%] group-hover/card:translate-x-[150%] transition-transform duration-1000 ease-in-out pointer-events-none" />
-                <div className="relative w-full overflow-hidden z-10">
-                  <img 
-                    src="/images/license.png" 
-                    alt="License" 
-                    className="w-full h-auto object-contain transition-all duration-700" 
-                  />
+              {/* ID Card as a printed physical object */}
+              <div className="relative p-2 bg-white shadow-[0_10px_20px_rgba(0,0,0,0.5)] rotate-[-4deg] w-full max-w-[200px] hover:rotate-0 transition-transform duration-300 z-20">
+                <div className="absolute -top-2 right-4 w-8 h-8 rounded-full bg-red-500/80 shadow-inner z-50 flex items-center justify-center">
+                  <div className="w-2 h-2 rounded-full bg-zinc-900" /> {/* Fake Push Pin */}
                 </div>
+                <img src="/images/license.png" alt="License" className="w-full h-auto object-contain filter contrast-125" />
               </div>
 
-              <div className="hidden md:block w-px h-24 bg-white/10 self-center" />
-
-              <div className="flex justify-start">
+              {/* Cat Video as a Polaroid */}
+              <div className="flex justify-start z-10">
                 <div
-                  className="h-24 w-24 bg-zinc-800 rounded-2xl shrink-0 border border-white/10 transition-transform duration-500 hidden sm:block overflow-hidden cursor-pointer"
+                  className="h-28 w-24 bg-white p-2 pb-8 shadow-[0_8px_15px_rgba(0,0,0,0.6)] rotate-6 transition-transform duration-500 hidden sm:block cursor-pointer relative"
                   onMouseEnter={() => catVideoRef.current?.play()}
                   onMouseLeave={() => {
                     catVideoRef.current?.pause();
                     if (catVideoRef.current) catVideoRef.current.currentTime = 0;
                   }}
                 >
+                  {/* Fake CSS Tape */}
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-10 h-4 bg-white/40 backdrop-blur-md -rotate-6 shadow-sm z-50" />
                   <video
                     ref={catVideoRef}
                     src="/images/catcat.mp4"
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-cover object-center grayscale contrast-110 brightness-100 hover:grayscale-0 transition-all duration-700"
+                    className="w-full h-full object-cover object-center grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
                   />
+                  <span style={{ fontFamily: 'Bradley Hand, cursive' }} className="absolute bottom-1 left-0 w-full text-center text-black text-xs">meow.</span>
                 </div>
               </div>
 
-              
-
-              <div className="flex flex-col justify-center relative pr-4">
-                <div className="relative">
-                  <span className="absolute -top-4 -left-2 text-4xl text-white/5 font-serif select-none pointer-events-none">"</span>
-                  <p className="text-sm md:text-sm text-zinc-400 font-light leading-relaxed italic relative z-10">
+              {/* Typed Quote with Marker Annotation */}
+              <div className="flex flex-col justify-center relative pl-8 mt-8">
+                <div className="bg-zinc-100 p-4 shadow-md rotate-[-1deg] max-w-sm border-l-4 border-blue-500 relative">
+                  {/* Fake CSS Tape */}
+                  <div className="absolute top-2 -right-4 w-12 h-6 bg-white/40 backdrop-blur-md rotate-12 shadow-sm z-50" />
+                  <p className="text-sm md:text-sm text-black font-mono leading-relaxed relative z-10">
                     To tolerate imperfection on the first try is to surrender before the work has even begun.
                   </p>
-                  <span className="text-[12px] font-mono text-zinc-400 tracking-widest block text-right mt-4">
+                  <span style={{ fontFamily: 'Bradley Hand, cursive' }} className="text-xl text-red-600 block text-right mt-2 -rotate-3">
                     — just thought of it rn
                   </span>
                 </div>
               </div>
 
             </div>
+
             <a
               onMouseEnter={() => {
                 setIsHovering(true);
@@ -217,17 +209,20 @@ export default function Home() {
               href="/cv/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute bottom-8 right-12 px-4 py-2 bg-transparent border border-white/10 text-white/50 font-bold text-[10px] uppercase tracking-widest rounded-lg hover:bg-white hover:text-black hover:text-opacity-100 transition-all duration-300 text-center"
+              style={{ fontFamily: 'Bradley Hand, cursive' }}
+              className="absolute bottom-4 right-12 text-white text-2xl rotate-[-5deg] hover:text-blue-400 hover:scale-110 transition-all duration-300 underline decoration-wavy"
             >
-              view cv
+              view my cv!
             </a>
           </div>
 
-          <div className="hidden md:grid md:col-span-10 grid-cols-2 gap-2 relative transition-all duration-700 opacity-100">
+          {/* BOTTOM RIGHT GRID: Scraps of colored paper */}
+          <div className="hidden md:grid md:col-span-10 grid-cols-2 gap-6 relative transition-all duration-700 opacity-100 p-4">
 
             <div className="invisible" />
             <div className="invisible" />
 
+            {/* Blue Project Card -> Torn Blue Construction Paper */}
             <Link
               href="/projects"
               onMouseEnter={() => {
@@ -239,19 +234,19 @@ export default function Home() {
                 setIsHovering(false);
                 setIsLabExpanded(false);
               }}
-              className={`absolute bottom-0 left-0 w-[calc(60%-4px)] overflow-hidden border border-zinc-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.3),inset_1px_0_0_rgba(255,255,255,0.2),0_10px_30px_rgba(0,0,0,0.5)] rounded-2xl p-8 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black ${isLabExpanded ? 'h-full w-full z-20' : 'h-[calc(75%-4px)] z-10'} ${isLabActive ? "drop-shadow-[0_0_30px_rgba(37,99,235,0.8)] z-30" : isContactActive ? "blur-[6px] opacity-60 pointer-events-none" : ""}`}
+              className={`absolute bottom-8 left-4 w-[calc(55%-4px)] border-4 border-blue-800 p-6 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black rotate-[-3deg] shadow-[5px_5px_0_rgba(0,0,0,1)] ${isLabExpanded ? 'h-[110%] w-[110%] z-40 rotate-0' : 'h-[calc(75%-4px)] z-20'} ${isLabActive ? "z-30 scale-105" : isContactActive ? "blur-[6px] opacity-60 pointer-events-none" : ""}`}
             >
+              {/* Fake CSS Tape */}
+              <div className="absolute -top-3 right-4 w-12 h-6 bg-white/30 backdrop-blur-md -rotate-12 shadow-sm z-50" />
               <div className="z-10 flex justify-between items-center">
-                <span className="text-[10px] font-black uppercase tracking-widest"> The Lab</span>
+                <span className="text-xs font-mono font-black uppercase tracking-widest bg-black text-blue-400 px-2 py-1">_THE LAB</span>
               </div>
-              <h4 className={`font-black z-10 leading-none transition-all duration-500 ${isLabExpanded ? 'text-6xl' : 'text-4xl'}`}>
+              <h4 style={{ fontFamily: 'Impact, sans-serif' }} className={`uppercase z-10 leading-none transition-all duration-500 ${isLabExpanded ? 'text-7xl' : 'text-5xl'}`}>
                 VIEW<br />PROJECTS
               </h4>
-              <div className={`absolute bottom-8 right-8 z-20 font-black transition-all duration-500 ${isLabExpanded ? 'text-8xl' : 'text-6xl'}`}>
-                →
-              </div>
             </Link>
 
+            {/* White Contact Card -> Sticky Note */}
             <a
               href="mailto:tanlanuzga@gmail.com"
               onMouseEnter={() => {
@@ -259,10 +254,16 @@ export default function Home() {
                 setBmoReply("CONNECT WITH BM? HE'S A BIT SHY...");
               }}
               onMouseLeave={() => setIsHovering(false)}
-              className={`absolute bottom-0 right-0 w-[calc(40%-4px)] h-[calc(45%-4px)] z-0 bg-white text-black rounded-2xl p-8 flex flex-col justify-center items-center text-center hover:invert transition-all duration-700 cursor-pointer ${isContactActive ? 'drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] z-30' : isLabActive ? 'blur-[6px] opacity-60 pointer-events-none' : ''}`}>
-              <div className="flex flex-col items-center text-center">
-                <p className="text-xs font-black uppercase tracking-[0.3em] mb-2 mr-12"> + Let's</p>
-                <span className="text-4xl font-bold break-all ml-8">LINK</span>
+              className={`absolute bottom-4 right-4 w-[calc(45%-4px)] h-[calc(50%-4px)] bg-[#fef08a] text-black p-6 flex flex-col justify-center items-center text-center transition-all duration-700 cursor-pointer shadow-[2px_10px_15px_rgba(0,0,0,0.5)] rotate-3 hover:rotate-0 hover:-translate-y-2 ${isContactActive ? 'z-30 scale-105' : isLabActive ? 'blur-[6px] opacity-60 pointer-events-none' : 'z-10'}`}>
+
+              {/* Push Pin */}
+              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-blue-500 shadow-inner z-50 flex items-center justify-center">
+                <div className="w-1 h-1 rounded-full bg-blue-900" />
+              </div>
+
+              <div className="flex flex-col items-center text-center mt-2">
+                <p style={{ fontFamily: 'Bradley Hand, cursive' }} className="text-xl mb-1 mr-12 text-zinc-700"> + Let's</p>
+                <span style={{ fontFamily: 'Impact, sans-serif' }} className="text-5xl uppercase tracking-tighter ml-8">LINK</span>
               </div>
             </a>
 
