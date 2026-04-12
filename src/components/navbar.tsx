@@ -41,7 +41,7 @@ const Navbar = () => {
     }, [pathname]);
 
     return (
-        <header className="fixed bottom-6 md:bottom-auto md:top-6 inset-x-0 z-50 flex justify-center px-6 pointer-events-none">
+        <header className="fixed bottom-0 md:bottom-auto md:top-6 inset-x-0 z-50 flex justify-center px-6 pb-6 pt-8 md:p-0 pointer-events-none bg-gradient-to-b from-transparent to-[#111] md:bg-none">
             <nav
                 ref={navRef}
                 className="pointer-events-auto relative flex items-center gap-0.5 md:gap-1 p-1 md:p-1.5 rounded-full bg-white/[0.07] backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.12] shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_20px_60px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.12)]"
