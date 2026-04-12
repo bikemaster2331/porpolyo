@@ -59,8 +59,10 @@ export default function Projects() {
       tech: ["Python", "Raspberry Pi", "RAG", "React"],
       link: "https://github.com/bikemaster2331/pathfinder",
       styles: "bg-[#0b1b3d] text-blue-100 border-4 border-[#071126] shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[-1deg] rotate-[-2deg]",
-      tape: "md:-top-3 md:right-8 top-[-8px] left-5 w-12 md:w-16 h-4 md:h-6 bg-white rotate-3 opacity-90 shadow-[2px_2px_0_rgba(0,0,0,0.5)]",
-      gridSpan: "col-span-1 md:col-span-6" // 50%
+      tape: "md:-top-3 md:right-8 top-[-8px] right-6 w-12 md:w-16 h-4 md:h-6 bg-white rotate-3 opacity-90 shadow-[2px_2px_0_rgba(0,0,0,0.5)]",
+      gridSpan: "col-span-1 md:col-span-6", // 50%
+      bgImage: "/images/human.png",
+      bgPos: "bottom-0 right-0"
     },
     {
       name: "med-id",
@@ -72,7 +74,9 @@ export default function Projects() {
       link: "https://github.com/bikemaster2331/med-id",
       styles: "bg-[#D4C3A3] text-black border-4 border-[#8B7D60] shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[2deg] rotate-[2deg]",
       tape: "md:-top-3 md:left-1/2 md:-translate-x-1/2 top-[-8px] left-8 w-10 md:w-14 h-4 md:h-6 bg-zinc-300 -rotate-2 opacity-90 shadow-[2px_2px_0_rgba(0,0,0,0.5)]",
-      gridSpan: "col-span-1 md:col-span-6" // 50%
+      gridSpan: "col-span-1 md:col-span-6", // 50%
+      bgImage: "/images/med.png",
+      bgPos: "bottom-0 right-0"
     },
     {
       name: "reflex",
@@ -84,7 +88,9 @@ export default function Projects() {
       link: "https://github.com/bikemaster2331/reflex",
       styles: "bg-zinc-100 text-black border-4 border-zinc-900 shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[-2deg]",
       tape: "md:top-1 md:-left-4 top-[-10] left-1/3 w-12 md:w-24 md:h-6 md:h-7 h-4.5 bg-blue-600/80 md:-rotate-24 -rotate-4 shadow-[2px_2px_0_rgba(0,0,0,0.5)] border-l-2 border-blue-400/30",
-      gridSpan: "col-span-1 md:col-span-6" // 50%
+      gridSpan: "col-span-1 md:col-span-6", // 50%
+      bgImage: "/images/arm.png",
+      bgPos: "top-0 right-0"
     },
     {
       name: "pokebind",
@@ -96,7 +102,9 @@ export default function Projects() {
       link: "https://github.com/bikemaster2331/pokebind",
       styles: "bg-[#8b1c1c] text-white border-4 border-[#4a0d0d] shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[1deg] rotate-[-2deg]",
       tape: "md:top-1 md:right-[-20] top-0 right-[-10] md:w-16 md:w-24 w-8 md:h-8 h-3 bg-zinc-300 rotate-36 opacity-90 shadow-[2px_2px_0_rgba(0,0,0,0.5)]",
-      gridSpan: "col-span-1 md:col-span-6" // 50%
+      gridSpan: "col-span-1 md:col-span-6", // 50%
+      bgImage: "/images/girat.png",
+      bgPos: "bottom-0 right-0"
     }
   ];
 
@@ -171,7 +179,7 @@ export default function Projects() {
 
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-12 gap-3 md:gap-12 pb-12 md:pb-48 mt-6 md:mt-24">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-3 md:gap-12 pb-6 md:pb-48 mt-16 md:mt-24">
           {projectData.map((project, i) => (
             <a
               key={project.name}
@@ -186,6 +194,14 @@ export default function Projects() {
                 }`}
             >
               <div className={`absolute shadow-sm z-50 ${project.tape}`} />
+
+              {project.bgImage && (
+                <img
+                  src={project.bgImage}
+                  alt=""
+                  className={`absolute ${project.bgPos || 'bottom-0 right-0'} w-32 h-32 md:w-44 md:h-44 opacity-[0.08] md:opacity-[0.3] filter brightness-0 pointer-events-none z-0`}
+                />
+              )}
 
               <div className="flex justify-between items-center mb-2 border-b-2 border-black/20 pb-1">
                 <span className="font-mono text-[7px] md:text-[10px] font-bold uppercase tracking-widest opacity-60">
