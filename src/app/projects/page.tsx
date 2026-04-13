@@ -188,6 +188,7 @@ export default function Projects() {
               rel="noreferrer"
               onMouseEnter={() => isDesktop && setHoveredIndex(i)}
               onMouseLeave={() => isDesktop && setHoveredIndex(null)}
+              onClick={() => !isDesktop && setHoveredIndex(i)}
               className={`group relative p-3 md:p-8 flex flex-col transition-all duration-200 cursor-pointer ${project.styles} ${project.gridSpan} 
                 md:hover:rotate-0 md:hover:scale-[1.02] md:hover:bg-white md:hover:text-black md:hover:border-white md:hover:shadow-[16px_16px_0_rgba(255,255,255,0.1)]
                 active:scale-95 active:brightness-125 hover:!z-30 
