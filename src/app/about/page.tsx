@@ -175,15 +175,15 @@ export default function About() {
               <div className="text-[10px] text-zinc-600 uppercase tracking-widest mb-1 font-bold font-satoshi">
                 // Languages
               </div>
-              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 hover:bg-zinc-800 hover:text-white transition-all duration-300 cursor-default group/item">
+              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
                 <img src="https://cdn.simpleicons.org/python" alt="Python" className="w-5 h-5 opacity-80 group-hover/item:opacity-100 transition-opacity" />
                 <span>Python</span>
               </div>
-              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 hover:bg-zinc-800 hover:text-white transition-all duration-300 cursor-default group/item">
+              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
                 <img src="https://cdn.simpleicons.org/typescript" alt="TypeScript" className="w-5 h-5 opacity-80 group-hover/item:opacity-100 transition-opacity" />
                 <span>TypeScript</span>
               </div>
-              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 hover:bg-zinc-800 hover:text-white transition-all duration-300 cursor-default group/item">
+              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
                 <img src="https://cdn.simpleicons.org/cplusplus" alt="C++" className="w-5 h-5 opacity-80 group-hover/item:opacity-100 transition-opacity" />
                 <span>C++</span>
               </div>
@@ -194,19 +194,19 @@ export default function About() {
               <div className="text-[10px] text-zinc-600 uppercase tracking-widest mb-1 font-bold font-satoshi">
                 // Frameworks
               </div>
-              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 hover:bg-zinc-800 hover:text-white transition-all duration-300 cursor-default group/item">
+              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
                 <img src="https://cdn.simpleicons.org/react" alt="React" className="w-5 h-5 opacity-80 group-hover/item:opacity-100 transition-opacity" />
                 <span>React</span>
               </div>
-              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 hover:bg-zinc-800 hover:text-white transition-all duration-300 cursor-default group/item">
+              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
                 <img src="https://cdn.simpleicons.org/nextdotjs/white" alt="Next.js" className="w-5 h-5 opacity-80 group-hover/item:opacity-100 transition-opacity" />
                 <span>Next.js</span>
               </div>
-              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 hover:bg-zinc-800 hover:text-white transition-all duration-300 cursor-default group/item">
+              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
                 <img src="https://cdn.simpleicons.org/tailwindcss" alt="Tailwind CSS" className="w-5 h-5 opacity-80 group-hover/item:opacity-100 transition-opacity" />
                 <span>Tailwind CSS</span>
               </div>
-              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 hover:bg-zinc-800 hover:text-white transition-all duration-300 cursor-default group/item">
+              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
                 <img src="https://cdn.simpleicons.org/fastapi" alt="FastAPI" className="w-5 h-5 opacity-80 group-hover/item:opacity-100 transition-opacity" />
                 <span>FastAPI</span>
               </div>
@@ -217,15 +217,15 @@ export default function About() {
               <div className="text-[10px] text-zinc-600 uppercase tracking-widest mb-1 font-bold font-satoshi">
                 // AI/ML
               </div>
-              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 hover:bg-zinc-800 hover:text-white transition-all duration-300 cursor-default group/item">
+              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
                 <img src="https://cdn.simpleicons.org/tensorflow" alt="TensorFlow/keras" className="w-5 h-5 opacity-80 group-hover/item:opacity-100 transition-opacity" />
                 <span>TensorFlow/keras</span>
               </div>
-              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 hover:bg-zinc-800 hover:text-white transition-all duration-300 cursor-default group/item">
+              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
                 <img src="https://cdn.simpleicons.org/opencv" alt="OpenCV" className="w-5 h-5 opacity-80 group-hover/item:opacity-100 transition-opacity" />
                 <span>OpenCV</span>
               </div>
-              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 hover:bg-zinc-800 hover:text-white transition-all duration-300 cursor-default group/item">
+              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
                 <svg viewBox="0 0 128 128" className="w-5 h-5 opacity-80 group-hover/item:opacity-100 transition-opacity">
                   <path style={{ stroke: 'none' }} d="M48.697 15.176h12.25v25.437h-12.25zm0 52.251h12.25v25.436h-12.25z" fill="#130754" />
                   <path style={{ stroke: 'none' }} d="M48.697 48.037h12.25v12.001h-12.25z" fill="#ffca00" />
@@ -235,7 +235,7 @@ export default function About() {
                 </svg>
                 <span>Pandas</span>
               </div>
-              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 hover:bg-zinc-800 hover:text-white transition-all duration-300 cursor-default group/item">
+              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
                 <img src="https://cdn.simpleicons.org/numpy" alt="NumPy" className="w-5 h-5 opacity-80 group-hover/item:opacity-100 transition-opacity" />
                 <span>NumPy</span>
               </div>
@@ -246,11 +246,11 @@ export default function About() {
               <div className="text-[10px] text-zinc-600 uppercase tracking-widest mb-1 font-bold font-satoshi">
                 // Database
               </div>
-              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 hover:bg-zinc-800 hover:text-white transition-all duration-300 cursor-default group/item">
+              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
                 <img src="https://cdn.simpleicons.org/postgresql" alt="PostgreSQL" className="w-5 h-5 opacity-80 group-hover/item:opacity-100 transition-opacity" />
                 <span>PostgreSQL</span>
               </div>
-              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 hover:bg-zinc-800 hover:text-white transition-all duration-300 cursor-default group/item">
+              <div className="flex items-center gap-3 border border-zinc-800 bg-zinc-800/40 p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
                 <img src="/images/chromadb.svg" alt="ChromaDB (RAG)" className="w-5 h-5 opacity-80 group-hover/item:opacity-100 transition-opacity" />
                 <span>ChromaDB (RAG)</span>
               </div>
