@@ -182,7 +182,7 @@ export default function Projects() {
               CONFIDENTIAL
             </div>
 
-            <div className="absolute top-1 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-red-600 border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,1)] z-50 flex items-center justify-center">
+            <div className="absolute md:top-1 top-1 md:left-1/2 right-0 -translate-x-1/2 md:w-4 w-2 h-2 md:h-4 rounded-full bg-red-600 border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,1)] z-50 flex items-center justify-center">
               <div className="w-1.5 h-1.5 rounded-full bg-black/40 translate-x-[1px] translate-y-[1px]" />
             </div>
 
@@ -193,7 +193,7 @@ export default function Projects() {
 
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-12 pb-18 md:pb-48 mt-16 md:mt-24">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-12 pb-12 md:pb-48 mt-9 md:mt-24">
           {projectData.map((project, i) => (
             <div
               key={project.name}
@@ -211,7 +211,7 @@ export default function Projects() {
                 }
               }}
               className={`project-card group relative p-3 md:p-8 flex flex-col transition-all duration-200 cursor-pointer ${project.gridSpan} 
-                ${hoveredIndex === i ? 'rotate-0 scale-[1.02] z-40 bg-white text-black border-white shadow-[16px_16px_0_rgba(255,255,255,0.1)]' : project.styles}
+                ${hoveredIndex === i ? 'rotate-0 scale-[1.02] z-40 bg-white text-black border-white shadow-[8px_8px_0_rgba(255,255,255,0.1)] md:shadow-[16px_16px_0_rgba(255,255,255,0.1)]' : project.styles}
                 md:hover:rotate-0 md:hover:scale-[1.02] md:hover:bg-white md:hover:text-black md:hover:border-white md:hover:shadow-[16px_16px_0_rgba(255,255,255,0.1)]
                 active:scale-95 active:brightness-125
                 ${hoveredIndex !== null && hoveredIndex !== i
