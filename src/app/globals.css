@@ -45,14 +45,14 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #18181b; /* zinc-900 */
+  background: #18181b;
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 10px;
   transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #27272a; /* zinc-800 */
+  background: #27272a;
 }
 
 * {
@@ -64,7 +64,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Remove default focus ring/borders from model-viewer */
 model-viewer {
   outline: none !important;
   border: none !important;
