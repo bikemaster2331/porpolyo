@@ -70,13 +70,12 @@ export default function Home() {
 
         <div className="flex-grow grid grid-cols-1 md:grid-cols-[repeat(20,minmax(0,1fr))] grid-rows-[repeat(6,_1fr)] md:grid-rows-[8fr_3fr] gap-4 w-full h-full relative">
 
+
           <div className="md:col-span-14 hidden md:block" aria-hidden="true" />
 
-          {/* MLL HERO CARD: Styled like a physical poster taped to the board */}
           <div
             className={`hidden md:flex bg-zinc-950 p-10 flex-col justify-end group absolute top-4 left-4 w-full md:w-[calc(65%-3.2px)] h-full md:h-[calc(65%-4px)] z-10 transition-all duration-700 -rotate-2 shadow-[5px_5px_15px_rgba(0,0,0,0.8)] border-[4px] border-zinc-900 ${isAnyActive ? 'blur-[6px] brightness-[0.3] pointer-events-none' : ''}`}
           >
-            {/* Fake CSS Tape */}
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-white/20 backdrop-blur-md rotate-2 shadow-sm z-50" />
 
             <div className="relative z-10">
@@ -92,7 +91,6 @@ export default function Home() {
                 </h1>
               </div>
 
-              {/* Mixed Typography: Marker font style for the joke */}
               <p style={{ fontFamily: 'Bradley Hand, cursive' }} className="text-white text-3xl lowercase tracking-wide mt-2 -rotate-2">
                 wahoooooooo developer
               </p>
@@ -110,14 +108,11 @@ export default function Home() {
             </div>
           </div>
 
-          {/* BMO STICKER: Wrapped in CSS drop-shadow to create a die-cut sticker look */}
           <div className="fixed inset-0 md:relative md:inset-auto md:col-span-6 z-20 flex md:block items-center justify-center transition-all duration-700 opacity-100 md:rotate-3 drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] hover:rotate-0 hover:scale-105">
 
             <div className="absolute top-15 md:top-8 left-8 z-30 pointer-events-auto max-w-[240px] -rotate-6">
               <div className={`transition-all duration-500 transform ${bmoReply ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
-                {/* Text Box stylized as a Dymo label or sticky note */}
                 <div className="relative bg-[#ffeb3b] text-black p-3 shadow-xl transition-all duration-300 border-l-4 border-black">
-                  {/* Fake CSS Tape */}
                   <div className="absolute -top-3 left-4 w-12 h-4 bg-white/40 backdrop-blur-md rotate-6 shadow-sm z-50" />
                   <p className="font-mono text-[11px] leading-relaxed uppercase font-bold tracking-tight text-left w-full break-words relative z-10">
                     {displayedReply}
@@ -145,7 +140,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* BOTTOM LEFT BOARD: Pinned items overlapping */}
           <div className={`hidden md:flex md:col-span-10 p-8 flex-col justify-center gap-6 transition-all duration-700 relative z-10 ${isAnyActive ? 'blur-[6px] brightness-[0.3] pointer-events-none' : 'opacity-100'}`}
             onMouseEnter={() => {
               setIsHovering(true);
@@ -155,7 +149,6 @@ export default function Home() {
           >
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-[auto_auto_1fr] gap-8 w-full items-center">
 
-              {/* ID Card as a printed physical object */}
               <div className="relative p-2 bg-white shadow-[0_10px_20px_rgba(0,0,0,0.5)] rotate-[-4deg] w-full max-w-[200px] hover:rotate-0 transition-transform duration-300 z-20">
                 <div className="absolute top-1 right-4 w-4 h-4 rounded-full bg-zinc-300 border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,1)] z-50 flex items-center justify-center">
                   <div className="w-1 h-1 rounded-full bg-white translate-x-[-1px] translate-y-[-1px]" />
@@ -163,17 +156,15 @@ export default function Home() {
                 <img src="/images/license.png" alt="License" className="w-full h-auto object-contain filter contrast-125" />
               </div>
 
-              {/* Cat Video as a Polaroid */}
               <div className="flex justify-start z-10">
                 <div
                   className="h-28 w-24 bg-white p-2 pb-8 shadow-[0_8px_15px_rgba(0,0,0,0.6)] rotate-6 transition-transform duration-500 hidden sm:block cursor-pointer relative"
                   onMouseEnter={() => catVideoRef.current?.play()}
-                  onMouseLeave={() => {
+                   onMouseLeave={() => {
                     catVideoRef.current?.pause();
                     if (catVideoRef.current) catVideoRef.current.currentTime = 0;
                   }}
                 >
-                  {/* Fake CSS Tape */}
                   <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-10 h-4 bg-white/40 backdrop-blur-md -rotate-6 shadow-sm z-50" />
                   <video
                     ref={catVideoRef}
@@ -189,10 +180,8 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Typed Quote with Marker Annotation */}
               <div className="flex flex-col justify-center relative pl-8 mt-8">
                 <div className="bg-zinc-100 p-4 shadow-md rotate-[5deg] max-w-sm border-l-4 border-blue-500 relative hover:rotate-0 transition-all duration-500">
-                  {/* Fake CSS Tape */}
                   <div className="absolute top-1 -right-5 w-15 h-6 bg-white/40 backdrop-blur-md rotate-48 shadow-sm z-50" />
                   <p className="text-sm md:text-sm text-black font-mono leading-relaxed relative z-10">
                     "To tolerate imperfection on the first try is to surrender before the work has even begun."
@@ -221,13 +210,11 @@ export default function Home() {
             </a>
           </div>
 
-          {/* BOTTOM RIGHT GRID: Scraps of colored paper */}
           <div className="hidden md:grid md:col-span-10 grid-cols-2 gap-6 relative transition-all duration-700 opacity-100 p-4">
 
             <div className="invisible" />
             <div className="invisible" />
 
-            {/* Blue Project Card -> Torn Blue Construction Paper */}
             <Link
               href="/projects"
               onMouseEnter={() => {
@@ -239,9 +226,8 @@ export default function Home() {
                 setIsHovering(false);
                 setIsLabExpanded(false);
               }}
-              className={`absolute bottom-8 left-4 w-[calc(55%-4px)] border-4 border-blue-800 p-6 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black rotate-[-3deg] shadow-[5px_5px_0_rgba(0,0,0,1)] ${isLabExpanded ? 'h-[110%] w-[110%] z-40 rotate-0' : 'h-[calc(75%-4px)] z-20'} ${isLabActive ? "z-30 scale-105" : isContactActive ? "blur-[6px] brightness-[0.3] pointer-events-none" : ""}`}
+               className={`absolute bottom-8 left-4 w-[calc(55%-4px)] border-4 border-blue-800 p-6 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black rotate-[-3deg] shadow-[5px_5px_0_rgba(0,0,0,1)] ${isLabExpanded ? 'h-[110%] w-[110%] z-40 rotate-0' : 'h-[calc(75%-4px)] z-20'} ${isLabActive ? "z-30 scale-105" : isContactActive ? "blur-[6px] brightness-[0.3] pointer-events-none" : ""}`}
             >
-              {/* Fake CSS Tape */}
               <div className="absolute top-1 right-[-20] w-24 h-6 bg-white/30 backdrop-blur-md -rotate-[-24deg] shadow-sm z-50" />
               <div className="z-10 flex justify-between items-center">
                 <span className="text-xs font-mono font-black uppercase tracking-widest bg-black text-blue-400 px-2 py-1">_THE VAULT</span>
@@ -251,7 +237,6 @@ export default function Home() {
               </h4>
             </Link>
 
-            {/* White Contact Card -> Sticky Note */}
             <a
               href="mailto:tanlanuzga@gmail.com"
               onMouseEnter={() => {
@@ -259,9 +244,8 @@ export default function Home() {
                 setBmoReply("CONNECT WITH BM? HE'S A BIT SHY...");
               }}
               onMouseLeave={() => setIsHovering(false)}
-              className={`absolute bottom-4 right-4 w-[calc(45%-4px)] h-[calc(50%-4px)] bg-[#fef08a] text-black p-6 flex flex-col justify-center items-center text-center transition-all duration-700 cursor-pointer shadow-[2px_10px_15px_rgba(0,0,0,0.5)] rotate-3 hover:rotate-0 hover:-translate-y-2 ${isContactActive ? 'z-30 scale-105' : isLabActive ? 'blur-[6px] brightness-[0.3] pointer-events-none' : 'z-10'}`}>
+               className={`absolute bottom-4 right-4 w-[calc(45%-4px)] h-[calc(50%-4px)] bg-[#fef08a] text-black p-6 flex flex-col justify-center items-center text-center transition-all duration-700 cursor-pointer shadow-[2px_10px_15px_rgba(0,0,0,0.5)] rotate-3 hover:rotate-0 hover:-translate-y-2 ${isContactActive ? 'z-30 scale-105' : isLabActive ? 'blur-[6px] brightness-[0.3] pointer-events-none' : 'z-10'}`}>
 
-              {/* Push Pin */}
               <div className="absolute top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-blue-500 shadow-inner z-50 flex items-center justify-center">
                 <div className="w-1 h-1 rounded-full bg-blue-900" />
               </div>
