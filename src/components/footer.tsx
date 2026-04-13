@@ -6,12 +6,11 @@ const Footer = () => {
 
       <div className="max-w-5xl mx-auto w-full px-6 py-4 md:py-6 flex flex-row justify-between items-center">
 
-        {/* Left Side: Copyright */}
         <div className="flex items-center gap-4">
           <p className="text-[8px] md:text-[9px] font-mono text-zinc-500 tracking-[0.2em] uppercase">
             © {new Date().getFullYear()} MLL
           </p>
-          <div className="hidden md:block w-px h-3 bg-zinc-800" /> {/* Separator line */}
+          <div className="hidden md:block w-px h-3 bg-zinc-800" />
           <div className="hidden md:flex items-center gap-2">
             <span className="text-[8px] font-mono text-zinc-600 uppercase tracking-[0.2em]">
               BIKEMASTER2331
@@ -19,7 +18,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Right Side: Links */}
         <div className="flex items-center gap-4 md:gap-6">
           <a
             href="https://github.com/bikemaster2331"
