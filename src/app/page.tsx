@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Home() {
   const [isLabExpanded, setIsLabExpanded] = useState(false);
-  const [bmoReply, setBmoReply] = useState("SYSTEM IS READY. BMO IS NOT.");
+  const [bmoReply, setBmoReply] = useState("GREETINGS! GET TO KNOW ME - MARTHAN.");
   const [displayedReply, setDisplayedReply] = useState("");
   const [isHovering, setIsHovering] = useState(false);
   const catVideoRef = useRef<HTMLVideoElement>(null);
