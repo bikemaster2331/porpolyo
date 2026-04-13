@@ -117,8 +117,8 @@ export default function About() {
       <div className="max-w-7xl w-full flex-grow pt-4 md:pt-36">
 
         {/* HEADER */}
-        <div className="md:mb-16 mb-8 flex flex-col gap-3">
-          <h1 className="text-5xl font-satoshi font-bold tracking-tighter text-left">
+        <div className="md:mb-16 mb-12 flex flex-col gap-3">
+          <h1 className="md:text-5xl text-3xl font-satoshi font-bold tracking-tighter text-left mt-6">
             . /about
           </h1>
 
@@ -142,7 +142,7 @@ export default function About() {
         </div>
 
         {/* NARRATIVE SECTION */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:mb-20 mb-16">
           <div className="space-y-6 text-[12px] text-zinc-400 leading-relaxed font-sans">
             <p>
               I started coding in my first year of college, learned C++, C#, JS, coded on paper, made triangles using loops and conditions, and created CRUD systems. It was fun but I did not really took it seriously. <br />
@@ -155,15 +155,13 @@ export default function About() {
           </div>
           <div className="space-y-6 text-[12px] text-zinc-400 leading-relaxed font-sans">
             <p>
-              I love sinigang, road trips, cats, dogs, hiking, and every adventure I can get my hands on. I want to hike Mt. Everest one day, paraglide, skydive, scuba dive, and travel the world. <br />
-              <br />
-              It's currently 12:37 AM while I'm writing this. It's fun to let anyone know what I like, what I do, and what I want to do. I had fun creating this and I hope you had fun knowing me too.
+              I love sinigang, road trips, cats, dogs, hiking, and every adventure I can get my hands on. I want to hike Mt. Everest one day, paraglide, skydive, scuba dive, and travel the world. It's currently 12:37 AM while I'm writing this. It's fun to let anyone know what I like, what I do, and what I want to do. I had fun creating this and I hope you had fun knowing me too.
             </p>
           </div>
         </div>
 
         {/* STACK */}
-        <div className="mb-20">
+        <div className="md:mb-20 mb-16">
           <div className="flex items-center gap-4 mb-10">
             <h2 className="text-[12px] font-black uppercase tracking-[0.3em] text-zinc-500 font-satoshi">STACK</h2>
             <div className="h-px flex-grow bg-gradient-to-r from-zinc-800 to-transparent"></div>
