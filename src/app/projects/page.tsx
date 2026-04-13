@@ -52,21 +52,21 @@ export default function Projects() {
   const projectData = [
     {
       name: "pathfinder",
-      serial: "FILE_01:PTF",
+      serial: "01:PTF",
       clearance: "LEVEL_4",
       desc: "Interactive tourism using Raspberry Pi and RAG.",
       longDesc: "Standard AI is usually too vague or outdated to be helpful. Built on a Raspberry Pi, Pathfinder uses a custom database that acts like a local tourist guide.",
       tech: ["Python", "Raspberry Pi", "RAG", "React"],
       link: "https://github.com/bikemaster2331/pathfinder",
       styles: "bg-[#0b1b3d] text-blue-100 border-4 border-[#071126] shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[-1deg] rotate-[-2deg]",
-      tape: "md:-top-3 md:right-8 top-[-8px] right-6 w-12 md:w-16 h-4 md:h-6 bg-white rotate-3 opacity-90 shadow-[2px_2px_0_rgba(0,0,0,0.5)]",
+      tape: "md:-top-3 md:right-8 top-[-8px] right-6 w-12 md:w-16 h-4 md:h-6 bg-white rotate-3 opacity-90 bg-zinc-300 shadow-[2px_2px_0_rgba(0,0,0,0.5)]",
       gridSpan: "col-span-1 md:col-span-6", // 50%
       bgImage: "/images/human.png",
       bgPos: "bottom-0 right-0"
     },
     {
       name: "med-id",
-      serial: "FILE_02:MID",
+      serial: "02:MID",
       clearance: "RESTRICTED",
       desc: "AI-powered medicine identifier utilizing Computer Vision.",
       longDesc: "I made this to help people identify their medication using just a smartphone camera and deep learning.",
@@ -80,7 +80,7 @@ export default function Projects() {
     },
     {
       name: "reflex",
-      serial: "FILE_03:RFX",
+      serial: "03:RFX",
       clearance: "TOP_SECRET",
       desc: "Coding behavior analysis using AST traversal.",
       longDesc: "Reflex is my exploration into the DNA of code—analyzing developer behavior through structural AST analysis.",
@@ -94,14 +94,14 @@ export default function Projects() {
     },
     {
       name: "pokebind",
-      serial: "EVD_04:PKB",
+      serial: "04:PKB",
       clearance: "EVIDENCE",
       desc: "Specialized marketplace for trading and purchasing booster packs.",
       longDesc: "A passion project for the collector—building a secure, specialized marketplace for Pokémon enthusiasts. I love Giratina.",
       tech: ["Next.js", "Supabase", "Tailwind"],
       link: "https://github.com/bikemaster2331/pokebind",
       styles: "bg-[#8b1c1c] text-white border-4 border-[#4a0d0d] shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[1deg] rotate-[-2deg]",
-      tape: "md:top-1 md:right-[-20] top-0 right-[-10] md:w-16 md:w-24 w-8 md:h-8 h-3 bg-zinc-300 rotate-36 opacity-90 shadow-[2px_2px_0_rgba(0,0,0,0.5)]",
+      tape: "md:top-1 md:right-[-20] top-0 right-[-10] md:w-16 md:w-24 w-8 md:h-8 h-3 bg-zinc-300 rotate-36 opacity-70 shadow-[2px_2px_0_rgba(0,0,0,0.5)]",
       gridSpan: "col-span-1 md:col-span-6", // 50%
       bgImage: "/images/girat.png",
       bgPos: "bottom-0 right-0"
