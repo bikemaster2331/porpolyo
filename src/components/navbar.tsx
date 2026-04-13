@@ -46,7 +46,6 @@ const Navbar = () => {
                 ref={navRef}
                 className="pointer-events-auto relative flex items-center gap-0.5 md:gap-1 p-1 md:p-1.5 rounded-full bg-white/[0.07] backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.12] shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_20px_60px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.12)]"
             >
-                {/* Single pill that moves between links */}
                 <motion.span
                     className="absolute top-1 md:top-1.5 h-[calc(100%-8px)] md:h-[calc(100%-12px)] rounded-full bg-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] pointer-events-none"
                     animate={{
