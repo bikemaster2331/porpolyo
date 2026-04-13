@@ -168,17 +168,17 @@ export default function Projects() {
 
         <div className="md:mb-16 mb-4 flex flex-col gap-3 min-h-[160px] relative">
 
-          <h1 className="text-4xl md:text-5xl font-black tracking-tighter uppercase drop-shadow-[4px_4px_0_rgba(0,0,0,1)] text-white font-sans">
+          <h1 className="text-2xl md:text-5xl font-black tracking-tighter uppercase drop-shadow-[4px_4px_0_rgba(0,0,0,1)] text-white font-sans">
             ./PROJECTS <span className="text-zinc-600">{displayedSuffix}</span>
           </h1>
 
-          <div className="relative bg-zinc-200 p-6 border-4 border-black shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[-1deg] max-w-2xl mt-4 overflow-hidden">
+          <div className="relative bg-zinc-200 p-3 md:p-6 border-4 border-black shadow-[4px_4px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[-1deg] max-w-2xl mt-4 overflow-hidden">
             <div className="hidden sm:flex absolute top-0 right-2 w-20 h-10 p-1 flex-col justify-between items-center rotate-1">
               <div className="w-full h-7 bg-[linear-gradient(90deg,#000_1px,transparent_1px,transparent_3px,#000_3px,#000_4px,transparent_4px,transparent_5px,#000_5px,#000_7px,transparent_7px,transparent_8px,#000_8px,#000_9px,transparent_9px,transparent_11px,#000_11px,#000_12px,transparent_12px,transparent_15px,#000_15px,#000_16px,transparent_16px,transparent_17px,#000_17px,#000_20px,transparent_20px,transparent_22px,#000_22px,#000_23px,transparent_23px,transparent_25px,#000_25px,#000_28px)] bg-[length:30px_100%]"></div>
               <span className="text-[6px] font-mono text-black font-bold tracking-widest leading-none">0412-2026-MLL</span>
             </div>
 
-            <div className="absolute md:top-4 md:right-2 top-1 right-1 border-4 border-red-600 text-red-300 font-bold md:text-2xl text-[12px] md:text-3xl px-2 py-1 rotate-12 opacity-40 mix-blend-multiply tracking-widest font-mono pointer-events-none">
+            <div className="absolute md:top-4 md:right-2 top-1 right-1 border-4 border-red-600 text-red-300 font-bold md:text-2xl text-[10px] md:text-3xl px-2 py-1 rotate-12 opacity-40 mix-blend-multiply tracking-widest font-mono pointer-events-none">
               CONFIDENTIAL
             </div>
 
@@ -186,14 +186,14 @@ export default function Projects() {
               <div className="w-1.5 h-1.5 rounded-full bg-black/40 translate-x-[1px] translate-y-[1px]" />
             </div>
 
-            <p className="text-black font-mono md:text-[14px] text-[12px] leading-relaxed min-h-[64px] font-bold uppercase tracking-tight relative z-10 w-full md:w-[85%] pr-0 sm:pr-16">
+            <p className="text-black font-mono md:text-[14px] text-[10px] leading-relaxed min-h-[48px] md:min-h-[64px] font-bold uppercase tracking-tight relative z-10 w-full md:w-[85%] pr-0 sm:pr-16">
               {displayedDesc}
             </p>
           </div>
 
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-12 gap-3 md:gap-12 pb-6 md:pb-48 mt-16 md:mt-24">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-12 pb-18 md:pb-48 mt-16 md:mt-24">
           {projectData.map((project, i) => (
             <div
               key={project.name}
