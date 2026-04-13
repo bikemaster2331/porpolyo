@@ -59,7 +59,7 @@ const ALBUM_DATA = [
     label: 'cool',
     src: '/images/gatty.png',
     title: 'BG',
-    desc: null,
+    desc: '2:05 AM na currently',
     year: '2026',
     rotate: '-rotate-3',
     aspect: 'aspect-[16/9]'
@@ -147,7 +147,7 @@ export default function About() {
             <p>
               I started coding in my first year of college, learned C++, C#, JS, coded on paper, made triangles using loops and conditions, and created CRUD systems. It was fun but I did not really took it seriously. <br />
               <br />
-              On my 3rd year, I met many peers who are passionate about it and I thank them for inspiring me to become what I could become. It was that year where I took interest in AI and ML.
+              On my 3rd year, I met many peers who are passionate about it and I thank them for inspiring me to become what I could be and it was that same year where I took interest in AI and ML.
             </p>
             <p>
               Currently, I really want to learn everything I can, see where it will lead me, land a job I'm passionate about, and live a comfortable life somewhere silent.
