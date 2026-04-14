@@ -124,6 +124,7 @@ export default function Projects() {
   ];
 
   const selectedIndex = isDesktop ? hoveredIndex : activeIndex;
+  const isInactiveMobileCard = !isDesktop && activeIndex !== null;
 
   useEffect(() => {
     const targetDesc = selectedIndex !== null ? projectData[selectedIndex].longDesc : defaultDesc;
@@ -215,11 +216,11 @@ export default function Projects() {
                   window.open(project.link, '_blank');
                 }
               }}
-              className={`project-card group relative p-3 md:p-8 flex flex-col transition-all duration-200 cursor-pointer ${project.gridSpan} 
+              className={`project-card group relative p-3 md:p-8 flex flex-col transition-all duration-200 cursor-pointer select-none ${project.gridSpan} 
                 ${!isDesktop && activeIndex !== null && activeIndex !== i ? 'cursor-not-allowed' : ''}
                 ${selectedIndex === i ? 'rotate-0 scale-[1.02] z-40 bg-white text-black border-white shadow-[8px_8px_0_rgba(255,255,255,0.1)] md:shadow-[16px_16px_0_rgba(255,255,255,0.1)]' : project.styles}
                 md:hover:rotate-0 md:hover:scale-[1.02] md:hover:bg-white md:hover:text-black md:hover:border-white md:hover:shadow-[16px_16px_0_rgba(255,255,255,0.1)]
-                active:scale-95 active:brightness-125 active:text-sky-400 active:shadow-[0_0_0_10px_rgba(56,189,248,0.15)]
+                ${isInactiveMobileCard && activeIndex !== i ? '' : 'active:scale-95 active:brightness-125 active:text-sky-400 active:shadow-[0_0_0_10px_rgba(56,189,248,0.15)]'}
                 ${selectedIndex !== null && selectedIndex !== i
                   ? 'blur-[4px] brightness-[0.4] grayscale'
                   : 'blur-0 opacity-100 grayscale-0'
