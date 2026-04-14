@@ -4,13 +4,22 @@ import Script from 'next/script';
 import Link from 'next/link';
 
 export default function Home() {
+  const [activeAnimation, setActiveAnimation] = useState("Idle");
   const [isLabExpanded, setIsLabExpanded] = useState(false);
-  const [bmoReply, setBmoReply] = useState("Salutations! i am marthan, perchance");
+  const [modelReply, setModelReply] = useState("Salutations! welcome, perchance");
   const [displayedReply, setDisplayedReply] = useState("");
   const [isHovering, setIsHovering] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
   const catVideoRef = useRef<HTMLVideoElement>(null);
-  const quoteIndexRef = useRef(0);
 
+  const quoteIndexRef = useRef(0);
+  const animTrackerRef = useRef(1); // Starts at 1
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  // 1. Handles the 5-second background quotes
   useEffect(() => {
     if (isHovering) return;
 
@@ -23,7 +32,7 @@ export default function Home() {
       "SCANNING FOR COOL PROJECTS AND POKÉMONS",
       "YOU MIGHT WANT TO CHECK OUT THE PROJECTS FOLDER!",
       "WOWSOMETRIC! ADVENTURE? OKAYLICIOUS!",
-      "KUMUSTA KA? - FROM TAGALOG BMO",
+      "KUMUSTA KA? - FROM TAGALOG MODEL",
       "HUH? NASAAN AKO? SINO KAYO? BAKIT AKO ROBOT?",
       "LET ME TELL YOU SOMETHING ABOUT MLL, HE'S A BIT....",
       "MSG RECEIVED: LET'S WORK TOGETHER - MARTHAN",
@@ -32,29 +41,42 @@ export default function Home() {
     ];
 
     const timer = setInterval(() => {
-      setBmoReply(quotes[quoteIndexRef.current % quotes.length]);
+      setModelReply(quotes[quoteIndexRef.current % quotes.length]);
       quoteIndexRef.current++;
     }, 5000);
 
     return () => clearInterval(timer);
   }, [isHovering]);
 
+  // 2. Handles the typing effect AND the sequential talking animation
   useEffect(() => {
     let i = 0;
     setDisplayedReply("");
-    const targetText = bmoReply || "AWAITING_INPUT";
+    const targetText = modelReply || "AWAITING_INPUT";
+
+    if (!isHovering) {
+      setActiveAnimation(`Chat${animTrackerRef.current}`);
+      animTrackerRef.current = animTrackerRef.current === 3 ? 1 : animTrackerRef.current + 1;
+    }
+
     const interval = setInterval(() => {
       setDisplayedReply(targetText.slice(0, i + 1));
       i++;
       if (i >= targetText.length) {
         clearInterval(interval);
+        // Revert to Idle when text finishes, ONLY if we aren't hovering a specific button
+        if (!isHovering) {
+          setActiveAnimation("Idle");
+        }
       }
     }, 50);
-    return () => clearInterval(interval);
-  }, [bmoReply]);
 
-  const isLabActive = bmoReply === "YOU MIGHT WANT TO CHECK OUT THE PROJECTS FOLDER!";
-  const isContactActive = bmoReply === "MSG RECEIVED: LET'S WORK TOGETHER - MARTHAN";
+    return () => clearInterval(interval);
+  }, [modelReply]);
+
+
+  const isLabActive = modelReply === "YOU MIGHT WANT TO CHECK OUT THE PROJECTS FOLDER!";
+  const isContactActive = modelReply === "MSG RECEIVED: LET'S WORK TOGETHER - MARTHAN";
   const isAnyActive = isLabActive || isContactActive;
 
   return (
@@ -69,7 +91,6 @@ export default function Home() {
       <div className="h-svh w-full text-white p-4 flex flex-col md:pt-24 pt-4 overflow-hidden relative z-10">
 
         <div className="flex-grow grid grid-cols-1 md:grid-cols-[repeat(20,minmax(0,1fr))] grid-rows-[repeat(6,_1fr)] md:grid-rows-[8fr_3fr] gap-4 w-full h-full relative">
-
 
           <div className="md:col-span-14 hidden md:block" aria-hidden="true" />
 
@@ -111,7 +132,7 @@ export default function Home() {
           <div className="fixed inset-0 md:relative md:inset-auto md:col-span-6 z-20 flex md:block items-center justify-center transition-all duration-700 opacity-100 md:rotate-3 drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] hover:rotate-0 hover:scale-105">
 
             <div className="absolute top-15 md:top-8 left-8 z-30 pointer-events-auto max-w-[240px] -rotate-6">
-              <div className={`transition-all duration-500 transform ${bmoReply ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
+              <div className={`transition-all duration-500 transform ${modelReply ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
                 <div className="relative bg-[#ffeb3b] text-black p-3 shadow-xl transition-all duration-300 border-l-4 border-black">
                   <div className="absolute -top-3 left-4 w-12 h-4 bg-white/40 backdrop-blur-md rotate-6 shadow-sm z-50" />
                   <p className="font-mono text-[11px] leading-relaxed uppercase font-bold tracking-tight text-left w-full break-words relative z-10">
@@ -122,28 +143,32 @@ export default function Home() {
             </div>
 
             <div className="w-full h-full absolute inset-0 md:translate-y-0 translate-y-6">
-              <model-viewer
-                src="/models/bmo.glb"
-                autoplay
-                camera-controls
-                disable-zoom
-                disable-tap
-                shadow-intensity="2"
-                environment-image="neutral"
-                exposure="1"
-                interaction-prompt="none"
-                style={{ width: '100%', height: '100%', backgroundColor: 'transparent' }}
-                {...({ reveal: 'auto' } as any)}
-              >
-                <div slot="progress-bar" />
-              </model-viewer>
+              {hasMounted && (
+                <model-viewer
+                  src="/models/jake.glb"
+                  autoplay
+                  animation-name={activeAnimation}
+                  animation-crossfade-duration="300"
+                  camera-controls
+                  disable-zoom
+                  disable-tap
+                  shadow-intensity="2"
+                  environment-image="neutral"
+                  exposure="1"
+                  interaction-prompt="none"
+                  style={{ width: '100%', height: '100%', backgroundColor: 'transparent' }}
+                  {...({ reveal: 'auto' } as any)}
+                >
+                  <div slot="progress-bar" />
+                </model-viewer>
+              )}
             </div>
           </div>
 
           <div className={`hidden md:flex md:col-span-10 p-8 flex-col justify-center gap-6 transition-all duration-700 relative z-10 ${isAnyActive ? 'blur-[6px] brightness-[0.3] pointer-events-none' : 'opacity-100'}`}
             onMouseEnter={() => {
               setIsHovering(true);
-              setBmoReply("TRY HOVERING OVER THE IMAGE! HE'S GOT A SURPRISE");
+              setModelReply("TRY HOVERING OVER THE IMAGE! HE'S GOT A SURPRISE");
             }}
             onMouseLeave={() => setIsHovering(false)}
           >
@@ -160,7 +185,7 @@ export default function Home() {
                 <div
                   className="h-28 w-24 bg-white p-2 pb-8 shadow-[0_8px_15px_rgba(0,0,0,0.6)] rotate-6 transition-transform duration-500 hidden sm:block cursor-pointer relative"
                   onMouseEnter={() => catVideoRef.current?.play()}
-                   onMouseLeave={() => {
+                  onMouseLeave={() => {
                     catVideoRef.current?.pause();
                     if (catVideoRef.current) catVideoRef.current.currentTime = 0;
                   }}
@@ -197,9 +222,13 @@ export default function Home() {
             <a
               onMouseEnter={() => {
                 setIsHovering(true);
-                setBmoReply("YOU WANNA VIEW BM'S CV? HERE YOU GO!");
+                setModelReply("YOU WANNA VIEW THE CV? HERE YOU GO!");
+                setActiveAnimation("Chat3");
               }}
-              onMouseLeave={() => setIsHovering(false)}
+              onMouseLeave={() => {
+                setIsHovering(false);
+                setActiveAnimation("Idle");
+              }}
               href="/cv/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -220,13 +249,15 @@ export default function Home() {
               onMouseEnter={() => {
                 setIsHovering(true);
                 setIsLabExpanded(true);
-                setBmoReply("YOU WANNA VIEW BM'S PROJECTS? LET'S GO!");
+                setModelReply("YOU WANNA VIEW THE PROJECTS? LET'S GO!");
+                setActiveAnimation("Chat1");
               }}
               onMouseLeave={() => {
                 setIsHovering(false);
                 setIsLabExpanded(false);
+                setActiveAnimation("Idle");
               }}
-               className={`absolute bottom-8 left-4 w-[calc(55%-4px)] border-4 border-blue-800 p-6 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black rotate-[-3deg] shadow-[5px_5px_0_rgba(0,0,0,1)] ${isLabExpanded ? 'h-[110%] w-[110%] z-40 rotate-0' : 'h-[calc(75%-4px)] z-20'} ${isLabActive ? "z-30 scale-105" : isContactActive ? "blur-[6px] brightness-[0.3] pointer-events-none" : ""}`}
+              className={`absolute bottom-8 left-4 w-[calc(55%-4px)] border-4 border-blue-800 p-6 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black rotate-[-3deg] shadow-[5px_5px_0_rgba(0,0,0,1)] ${isLabExpanded ? 'h-[110%] w-[110%] z-40 rotate-0' : 'h-[calc(75%-4px)] z-20'} ${isLabActive ? "z-30 scale-105" : isContactActive ? "blur-[6px] brightness-[0.3] pointer-events-none" : ""}`}
             >
               <div className="absolute top-1 right-[-20] w-24 h-6 bg-white/30 backdrop-blur-md -rotate-[-24deg] shadow-sm z-50" />
               <div className="z-10 flex justify-between items-center">
@@ -241,10 +272,14 @@ export default function Home() {
               href="mailto:tanlanuzga@gmail.com"
               onMouseEnter={() => {
                 setIsHovering(true);
-                setBmoReply("CONNECT WITH BM? HE'S A BIT SHY...");
+                setModelReply("CONNECT WITH ME? I'M A BIT SHY...");
+                setActiveAnimation("Chat2");
               }}
-              onMouseLeave={() => setIsHovering(false)}
-               className={`absolute bottom-4 right-4 w-[calc(45%-4px)] h-[calc(50%-4px)] bg-[#fef08a] text-black p-6 flex flex-col justify-center items-center text-center transition-all duration-700 cursor-pointer shadow-[2px_10px_15px_rgba(0,0,0,0.5)] rotate-3 hover:rotate-0 hover:-translate-y-2 ${isContactActive ? 'z-30 scale-105' : isLabActive ? 'blur-[6px] brightness-[0.3] pointer-events-none' : 'z-10'}`}>
+              onMouseLeave={() => {
+                setIsHovering(false);
+                setActiveAnimation("Idle");
+              }}
+              className={`absolute bottom-4 right-4 w-[calc(45%-4px)] h-[calc(50%-4px)] bg-[#fef08a] text-black p-6 flex flex-col justify-center items-center text-center transition-all duration-700 cursor-pointer shadow-[2px_10px_15px_rgba(0,0,0,0.5)] rotate-3 hover:rotate-0 hover:-translate-y-2 ${isContactActive ? 'z-30 scale-105' : isLabActive ? 'blur-[6px] brightness-[0.3] pointer-events-none' : 'z-10'}`}>
 
               <div className="absolute top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-blue-500 shadow-inner z-50 flex items-center justify-center">
                 <div className="w-1 h-1 rounded-full bg-blue-900" />

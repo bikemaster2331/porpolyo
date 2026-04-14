@@ -132,7 +132,7 @@ export default function About() {
             </span>
 
             <span className="text-zinc-500 font-satoshi lowercase md:text-[14px] text-[10px] hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] transition-all duration-300 italic flex items-center gap-2 group">
-              Male, 23, Robot, food lover, cat and dog dad (soon)
+              Male, 23, Robot, food lover, travel junkie, cat & dog dad (soon)
               <div className="flex items-center gap-1.5 ml-1">
                 <img src="/images/dog.png" alt="Dog" className="h-4 w-4 brightness-0 invert opacity-40 group-hover:opacity-100 transition-opacity" />
                 <img src="/images/catdad.png" alt="Cat Dad" className="h-4 w-4 brightness-0 invert opacity-40 group-hover:opacity-100 transition-opacity" />
@@ -304,7 +304,7 @@ export default function About() {
             Acknowledgements:
           </div>
           <div className="text-[10px] font-satoshi text-zinc-500 uppercase tracking-widest flex flex-col gap-2">
-            <span>BMO 3D Model provided by <a href="https://sketchfab.com/mikeinel" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-700 underline-offset-4 transition-colors">mikeinel</a></span>
+            <span>3D Models provided by <a href="https://sketchfab.com/mikeinel" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-700 underline-offset-4 transition-colors">mikeinel</a></span>
             <span>Hosted on <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-700 underline-offset-4 transition-colors">Vercel</a></span>
           </div>
         </div>

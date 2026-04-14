@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Script from 'next/script';
 import Footer from '@/components/footer';
 
 const TechIcons: Record<string, React.ReactNode> = {
@@ -20,8 +21,8 @@ const TechIcons: Record<string, React.ReactNode> = {
 const TechBadge = ({ name }: { name: string }) => {
   const icon = TechIcons[name] || TechIcons["Algorithms"];
   return (
-    <div className="flex items-center gap-1.5 px-2 py-1 bg-black border-2 border-black shadow-[2px_2px_0_rgba(255,255,255,0.2)] md:hover:shadow-[4px_4px_0_rgba(255,255,255,0.4)] md:hover:-translate-y-1 md:hover:-translate-x-1 transition-all group/badge z-20">
-      <div className="w-3.5 h-3.5 opacity-90 md:group-hover/badge:opacity-100 transition-opacity drop-shadow-md">
+    <div className="flex items-center gap-1 md:gap-1.5 px-1.5 py-0.5 md:px-2 md:py-1 bg-black border-2 border-black shadow-[2px_2px_0_rgba(255,255,255,0.2)] md:hover:shadow-[4px_4px_0_rgba(255,255,255,0.4)] md:hover:-translate-y-1 md:hover:-translate-x-1 transition-all group/badge z-20">
+      <div className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 opacity-90 md:group-hover/badge:opacity-100 transition-opacity drop-shadow-md">
         {icon}
       </div>
       <span className="hidden md:block text-[10px] font-mono font-bold text-white uppercase tracking-widest leading-none">
@@ -36,7 +37,13 @@ export default function Projects() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [displayedDesc, setDisplayedDesc] = useState("");
   const [displayedSuffix, setDisplayedSuffix] = useState("");
+  const [activeAnimation, setActiveAnimation] = useState("Idle");
   const [isDesktop, setIsDesktop] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   useEffect(() => {
     const checkViewport = () => {
@@ -126,8 +133,9 @@ export default function Projects() {
   const selectedIndex = isDesktop ? hoveredIndex : activeIndex;
   const isInactiveMobileCard = !isDesktop && activeIndex !== null;
 
+  const targetDesc = selectedIndex !== null ? projectData[selectedIndex].longDesc : defaultDesc;
+
   useEffect(() => {
-    const targetDesc = selectedIndex !== null ? projectData[selectedIndex].longDesc : defaultDesc;
     const targetSuffix = selectedIndex !== null ? `/${projectData[selectedIndex].name}` : "";
 
     setDisplayedDesc("");
@@ -157,11 +165,29 @@ export default function Projects() {
 
     typeH1();
 
-    return () => clearTimeout(sequenceTimeout);
+    return () => {
+      clearTimeout(sequenceTimeout);
+    };
+  }, [selectedIndex]);
+
+  const modelRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (modelRef.current) {
+      if (selectedIndex !== null) {
+        modelRef.current.pause();
+      } else {
+        modelRef.current.play();
+      }
+    }
   }, [selectedIndex]);
 
   return (
     <div className="flex flex-col items-center min-h-screen relative text-white pb-24 md:pb-0 px-4 sm:px-6 overflow-x-clip">
+      <Script
+        type="module"
+        src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"
+      />
       <div className="fixed inset-0 bg-[#111] bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:24px_24px] -z-10" aria-hidden="true" />
 
       <div className="w-full order-first md:order-last">
@@ -170,41 +196,65 @@ export default function Projects() {
 
       <div className="max-w-7xl w-full flex-grow pt-9 md:pt-36 relative z-10">
 
-        <div className="md:mb-16 mb-4 flex flex-col gap-3 min-h-[160px] relative">
-
+        <div className="md:mb-16 mb-4 flex flex-col gap-3 relative">
           <h1 className="text-2xl md:text-5xl font-black tracking-tighter uppercase drop-shadow-[4px_4px_0_rgba(0,0,0,1)] text-white font-sans">
             ./PROJECTS <span className="text-zinc-600">{displayedSuffix}</span>
           </h1>
 
-          <div className="relative bg-zinc-200 p-3 md:p-6 border-4 border-black shadow-[4px_4px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[-1deg] max-w-2xl mt-4 overflow-hidden">
-            <div className="hidden sm:flex absolute top-0 right-2 w-20 h-10 p-1 flex-col justify-between items-center rotate-1">
-              <div className="w-full h-7 bg-[linear-gradient(90deg,#000_1px,transparent_1px,transparent_3px,#000_3px,#000_4px,transparent_4px,transparent_5px,#000_5px,#000_7px,transparent_7px,transparent_8px,#000_8px,#000_9px,transparent_9px,transparent_11px,#000_11px,#000_12px,transparent_12px,transparent_15px,#000_15px,#000_16px,transparent_16px,transparent_17px,#000_17px,#000_20px,transparent_20px,transparent_22px,#000_22px,#000_23px,transparent_23px,transparent_25px,#000_25px,#000_28px)] bg-[length:30px_100%]"></div>
-              <span className="text-[6px] font-mono text-black font-bold tracking-widest leading-none">0412-2026-MLL</span>
+          <div className="flex flex-row items-end gap-2 md:gap-8 min-h-[100px] relative">
+            <div className="relative bg-zinc-200 p-2 md:p-6 border-4 border-black shadow-[4px_4px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[-1deg] max-w-2xl flex-grow overflow-hidden">
+              <div className="hidden sm:flex absolute top-0 right-2 w-20 h-10 p-1 flex-col justify-between items-center rotate-1">
+                <div className="w-full h-7 bg-[linear-gradient(90deg,#000_1px,transparent_1px,transparent_3px,#000_3px,#000_4px,transparent_4px,transparent_5px,#000_5px,#000_7px,transparent_7px,transparent_8px,#000_8px,#000_9px,transparent_9px,transparent_11px,#000_11px,#000_12px,transparent_12px,transparent_15px,#000_15px,#000_16px,transparent_16px,transparent_17px,#000_17px,#000_20px,transparent_20px,transparent_22px,#000_22px,#000_23px,transparent_23px,transparent_25px,#000_25px,#000_28px)] bg-[length:30px_100%]"></div>
+                <span className="text-[6px] font-mono text-black font-bold tracking-widest leading-none">0412-2026-MLL</span>
+              </div>
+
+              <div className="absolute md:top-4 md:right-2 top-1 right-1 border-4 border-red-600 text-red-300 font-bold md:text-2xl text-[10px] md:text-3xl px-2 py-1 rotate-12 opacity-40 mix-blend-multiply tracking-widest font-mono pointer-events-none">
+                CONFIDENTIAL
+              </div>
+
+              <div className="absolute md:top-1 top-1 md:left-1/2 right-0 -translate-x-1/2 md:w-4 w-2 h-2 md:h-4 rounded-full bg-red-600 border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,1)] z-50 flex items-center justify-center">
+                <div className="w-1.5 h-1.5 rounded-full bg-black/40 translate-x-[1px] translate-y-[1px]" />
+              </div>
+
+              <p className="text-black font-mono md:text-[14px] text-[10px] leading-tight md:leading-relaxed min-h-[48px] md:min-h-[64px] font-bold uppercase tracking-tight relative z-10 w-full md:w-[85%]">
+                <span className="invisible select-none" aria-hidden="true">
+                  {targetDesc}
+                </span>
+                <span className="absolute top-0 left-0 w-full pr-0 sm:pr-16">
+                  {displayedDesc}
+                </span>
+              </p>
             </div>
 
-            <div className="absolute md:top-4 md:right-2 top-1 right-1 border-4 border-red-600 text-red-300 font-bold md:text-2xl text-[10px] md:text-3xl px-2 py-1 rotate-12 opacity-40 mix-blend-multiply tracking-widest font-mono pointer-events-none">
-              CONFIDENTIAL
+            <div className={`w-24 h-24 md:w-48 md:h-48 shrink-0 relative transition-all duration-300 drop-shadow-[0_4px_24px_rgba(255,255,255,0.2)] ${selectedIndex !== null ? 'blur-[4px] brightness-[0.4] grayscale' : ''}`}>
+              {hasMounted && (
+                <model-viewer
+                  ref={modelRef}
+                  src="/models/bmo.glb"
+                  autoplay
+                  animation-name={activeAnimation}
+                  animation-crossfade-duration="300"
+                  camera-orbit="0deg 75deg 105%"
+                  camera-controls
+                  disable-zoom
+                  disable-tap
+                  shadow-intensity="1"
+                  environment-image="neutral"
+                  exposure="1"
+                  interaction-prompt="none"
+                  style={{ width: '100%', height: '100%', backgroundColor: 'transparent' }}
+                  {...({ reveal: 'auto' } as any)}
+                >
+                  <div slot="progress-bar" />
+                </model-viewer>
+              )}
             </div>
-
-            <div className="absolute md:top-1 top-1 md:left-1/2 right-0 -translate-x-1/2 md:w-4 w-2 h-2 md:h-4 rounded-full bg-red-600 border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,1)] z-50 flex items-center justify-center">
-              <div className="w-1.5 h-1.5 rounded-full bg-black/40 translate-x-[1px] translate-y-[1px]" />
-            </div>
-
-            <p className="text-black font-mono md:text-[14px] text-[10px] leading-relaxed min-h-[48px] md:min-h-[64px] font-bold uppercase tracking-tight relative z-10 w-full md:w-[85%] pr-0 sm:pr-16">
-              {displayedDesc}
-            </p>
           </div>
-
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-12 pb-12 md:pb-48 mt-9 md:mt-24">
           {projectData.map((project, i) => (
-            <div key={project.name} className="relative">
-              {!isDesktop && activeIndex === i && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 w-full text-center text-[8px] uppercase tracking-[0.25em] font-mono text-white/70 animate-subtle-float pointer-events-none">
-                  tap again to open repo
-                </div>
-              )}
+            <div key={project.name} className={`relative flex flex-col ${project.gridSpan}`}>
               <div
                 onMouseEnter={() => isDesktop && setHoveredIndex(i)}
                 onMouseLeave={() => isDesktop && setHoveredIndex(null)}
@@ -221,7 +271,7 @@ export default function Projects() {
                     window.open(project.link, '_blank');
                   }
                 }}
-                className={`project-card group relative p-3 md:p-8 flex flex-col transition-all duration-200 cursor-pointer select-none ${project.gridSpan} 
+                className={`project-card group relative p-3 md:p-8 flex flex-col transition-all duration-200 cursor-pointer select-none 
                   ${!isDesktop && activeIndex !== null && activeIndex !== i ? 'cursor-not-allowed' : ''}
                   ${selectedIndex === i ? 'rotate-0 scale-[1.02] z-40 bg-white text-black border-white shadow-[8px_8px_0_rgba(255,255,255,0.1)] md:shadow-[16px_16px_0_rgba(255,255,255,0.1)]' : project.styles}
                   md:hover:rotate-0 md:hover:scale-[1.02] md:hover:bg-white md:hover:text-black md:hover:border-white md:hover:shadow-[16px_16px_0_rgba(255,255,255,0.1)]
@@ -266,6 +316,11 @@ export default function Projects() {
                 </div>
               </div>
             </div>
+            {!isDesktop && activeIndex === i && (
+              <div className="relative mt-4 z-10 w-full text-center text-[8px] uppercase tracking-[0.25em] font-mono text-white/70 animate-subtle-float pointer-events-none">
+                [tap to open]
+              </div>
+            )}
           </div>
           ))}
         </div>
