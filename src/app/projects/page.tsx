@@ -199,33 +199,38 @@ export default function Projects() {
 
         <div className="grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-12 pb-12 md:pb-48 mt-9 md:mt-24">
           {projectData.map((project, i) => (
-            <div
-              key={project.name}
-              onMouseEnter={() => isDesktop && setHoveredIndex(i)}
-              onMouseLeave={() => isDesktop && setHoveredIndex(null)}
-              onClick={() => {
-                if (!isDesktop) {
-                  if (activeIndex === i) {
-                    window.open(project.link, '_blank');
-                  } else if (activeIndex !== null) {
-                    setActiveIndex(null);
+            <div key={project.name} className="relative">
+              {!isDesktop && activeIndex === i && (
+                <div className="mb-2 text-[8px] uppercase tracking-[0.25em] font-mono text-black/70 animate-subtle-float">
+                  tap again to open repo
+                </div>
+              )}
+              <div
+                onMouseEnter={() => isDesktop && setHoveredIndex(i)}
+                onMouseLeave={() => isDesktop && setHoveredIndex(null)}
+                onClick={() => {
+                  if (!isDesktop) {
+                    if (activeIndex === i) {
+                      window.open(project.link, '_blank');
+                    } else if (activeIndex !== null) {
+                      setActiveIndex(null);
+                    } else {
+                      setActiveIndex(i);
+                    }
                   } else {
-                    setActiveIndex(i);
+                    window.open(project.link, '_blank');
                   }
-                } else {
-                  window.open(project.link, '_blank');
-                }
-              }}
-              className={`project-card group relative p-3 md:p-8 flex flex-col transition-all duration-200 cursor-pointer select-none ${project.gridSpan} 
-                ${!isDesktop && activeIndex !== null && activeIndex !== i ? 'cursor-not-allowed' : ''}
-                ${selectedIndex === i ? 'rotate-0 scale-[1.02] z-40 bg-white text-black border-white shadow-[8px_8px_0_rgba(255,255,255,0.1)] md:shadow-[16px_16px_0_rgba(255,255,255,0.1)]' : project.styles}
-                md:hover:rotate-0 md:hover:scale-[1.02] md:hover:bg-white md:hover:text-black md:hover:border-white md:hover:shadow-[16px_16px_0_rgba(255,255,255,0.1)]
-                ${isInactiveMobileCard && activeIndex !== i ? '' : 'active:scale-95 active:brightness-125 active:text-sky-400 active:shadow-[0_0_0_10px_rgba(56,189,248,0.15)]'}
-                ${selectedIndex !== null && selectedIndex !== i
-                  ? 'blur-[4px] brightness-[0.4] grayscale'
-                  : 'blur-0 opacity-100 grayscale-0'
-                }`}
-            >
+                }}
+                className={`project-card group relative p-3 md:p-8 flex flex-col transition-all duration-200 cursor-pointer select-none ${project.gridSpan} 
+                  ${!isDesktop && activeIndex !== null && activeIndex !== i ? 'cursor-not-allowed' : ''}
+                  ${selectedIndex === i ? 'rotate-0 scale-[1.02] z-40 bg-white text-black border-white shadow-[8px_8px_0_rgba(255,255,255,0.1)] md:shadow-[16px_16px_0_rgba(255,255,255,0.1)]' : project.styles}
+                  md:hover:rotate-0 md:hover:scale-[1.02] md:hover:bg-white md:hover:text-black md:hover:border-white md:hover:shadow-[16px_16px_0_rgba(255,255,255,0.1)]
+                  ${isInactiveMobileCard && activeIndex !== i ? '' : 'active:scale-95 active:brightness-125 active:text-sky-400 active:shadow-[0_0_0_10px_rgba(56,189,248,0.15)]'}
+                  ${selectedIndex !== null && selectedIndex !== i
+                    ? 'blur-[4px] brightness-[0.4] grayscale'
+                    : 'blur-0 opacity-100 grayscale-0'
+                  }`}
+              >
               <div className={`absolute shadow-sm z-50 ${project.tape}`} />
 
               {project.bgImage && (
@@ -253,12 +258,6 @@ export default function Projects() {
                 {project.desc}
               </p>
 
-              {!isDesktop && activeIndex === i && (
-                <p className="text-[10px] uppercase tracking-[0.25em] font-mono text-black/70 mb-4 animate-subtle-float">
-                  Tap again to open this repo
-                </p>
-              )}
-
               <div className="flex items-center justify-between mt-auto pt-4 border-t-2 border-black/20">
                 <div className="flex flex-wrap gap-2 relative z-20">
                   {project.tech.map(t => (
@@ -267,6 +266,7 @@ export default function Projects() {
                 </div>
               </div>
             </div>
+          </div>
           ))}
         </div>
       </div>
