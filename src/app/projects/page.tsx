@@ -201,7 +201,7 @@ export default function Projects() {
           {projectData.map((project, i) => (
             <div key={project.name} className="relative">
               {!isDesktop && activeIndex === i && (
-                <div className="mb-2 text-[8px] uppercase tracking-[0.25em] font-mono text-black/70 animate-subtle-float">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 w-full text-center text-[8px] uppercase tracking-[0.25em] font-mono text-white/70 animate-subtle-float pointer-events-none">
                   tap again to open repo
                 </div>
               )}
@@ -225,7 +225,7 @@ export default function Projects() {
                   ${!isDesktop && activeIndex !== null && activeIndex !== i ? 'cursor-not-allowed' : ''}
                   ${selectedIndex === i ? 'rotate-0 scale-[1.02] z-40 bg-white text-black border-white shadow-[8px_8px_0_rgba(255,255,255,0.1)] md:shadow-[16px_16px_0_rgba(255,255,255,0.1)]' : project.styles}
                   md:hover:rotate-0 md:hover:scale-[1.02] md:hover:bg-white md:hover:text-black md:hover:border-white md:hover:shadow-[16px_16px_0_rgba(255,255,255,0.1)]
-                  ${isInactiveMobileCard && activeIndex !== i ? '' : 'active:scale-95 active:brightness-125 active:text-sky-400 active:shadow-[0_0_0_10px_rgba(56,189,248,0.15)]'}
+                  ${isInactiveMobileCard && activeIndex !== i ? '' : 'active:scale-95'}
                   ${selectedIndex !== null && selectedIndex !== i
                     ? 'blur-[4px] brightness-[0.4] grayscale'
                     : 'blur-0 opacity-100 grayscale-0'
