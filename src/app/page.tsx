@@ -1,10 +1,8 @@
 "use client";
 import { useState, useRef, useEffect } from 'react';
-import Script from 'next/script';
 import Link from 'next/link';
 
 export default function Home() {
-  const [activeAnimation, setActiveAnimation] = useState("Idle");
   const [isLabExpanded, setIsLabExpanded] = useState(false);
   const [modelReply, setModelReply] = useState("Salutations! welcome, perchance");
   const [displayedReply, setDisplayedReply] = useState("");
@@ -13,7 +11,6 @@ export default function Home() {
   const catVideoRef = useRef<HTMLVideoElement>(null);
 
   const quoteIndexRef = useRef(0);
-  const animTrackerRef = useRef(1); // Starts at 1
 
   useEffect(() => {
     setHasMounted(true);
@@ -48,26 +45,16 @@ export default function Home() {
     return () => clearInterval(timer);
   }, [isHovering]);
 
-  // 2. Handles the typing effect AND the sequential talking animation
   useEffect(() => {
     let i = 0;
     setDisplayedReply("");
     const targetText = modelReply || "AWAITING_INPUT";
-
-    if (!isHovering) {
-      setActiveAnimation(`Chat${animTrackerRef.current}`);
-      animTrackerRef.current = animTrackerRef.current === 3 ? 1 : animTrackerRef.current + 1;
-    }
 
     const interval = setInterval(() => {
       setDisplayedReply(targetText.slice(0, i + 1));
       i++;
       if (i >= targetText.length) {
         clearInterval(interval);
-        // Revert to Idle when text finishes, ONLY if we aren't hovering a specific button
-        if (!isHovering) {
-          setActiveAnimation("Idle");
-        }
       }
     }, 50);
 
@@ -81,11 +68,6 @@ export default function Home() {
 
   return (
     <>
-      <Script
-        type="module"
-        src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"
-      />
-
       <div className="fixed inset-0 bg-[#111] bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:24px_24px] -z-10" aria-hidden="true" />
 
       <div className="h-svh w-full text-white p-4 flex flex-col md:pt-24 pt-4 overflow-hidden relative z-10">
@@ -145,16 +127,15 @@ export default function Home() {
             <div className="w-full h-full absolute inset-0 md:translate-y-0 translate-y-6">
               {hasMounted && (
                 <model-viewer
-                  src="/models/jake.glb"
+                  src="/models/pysch.glb"
                   autoplay
-                  animation-name={activeAnimation}
+                  animation-name="Idle"
                   animation-crossfade-duration="300"
                   camera-controls
                   disable-zoom
                   disable-tap
-                  shadow-intensity="2"
-                  environment-image="neutral"
-                  exposure="1"
+                  exposure="0.5"
+                  shadow-intensity="1"
                   interaction-prompt="none"
                   style={{ width: '100%', height: '100%', backgroundColor: 'transparent' }}
                   {...({ reveal: 'auto' } as any)}
@@ -209,7 +190,7 @@ export default function Home() {
                 <div className="bg-zinc-100 p-4 shadow-md rotate-[5deg] max-w-sm border-l-4 border-blue-500 relative hover:rotate-0 transition-all duration-500">
                   <div className="absolute top-1 -right-5 w-15 h-6 bg-white/40 backdrop-blur-md rotate-48 shadow-sm z-50" />
                   <p className="text-sm md:text-sm text-black font-mono leading-relaxed relative z-10">
-                    "To tolerate imperfection on the first try is to surrender before the work has even begun."
+                    &quot;To tolerate imperfection on the first try is to surrender before the work has even begun.&quot;
                   </p>
                   <span style={{ fontFamily: 'Bradley Hand, cursive' }} className="text-xl text-red-600 block text-right mt-2 -rotate-3">
                     — just thought of it rn
@@ -223,11 +204,9 @@ export default function Home() {
               onMouseEnter={() => {
                 setIsHovering(true);
                 setModelReply("YOU WANNA VIEW THE CV? HERE YOU GO!");
-                setActiveAnimation("Chat3");
               }}
               onMouseLeave={() => {
                 setIsHovering(false);
-                setActiveAnimation("Idle");
               }}
               href="/cv/resume.pdf"
               target="_blank"
@@ -250,12 +229,10 @@ export default function Home() {
                 setIsHovering(true);
                 setIsLabExpanded(true);
                 setModelReply("YOU WANNA VIEW THE PROJECTS? LET'S GO!");
-                setActiveAnimation("Chat1");
               }}
               onMouseLeave={() => {
                 setIsHovering(false);
                 setIsLabExpanded(false);
-                setActiveAnimation("Idle");
               }}
               className={`absolute bottom-8 left-4 w-[calc(55%-4px)] border-4 border-blue-800 p-6 flex flex-col justify-between group cursor-pointer transition-all duration-500 ease-in-out bg-blue-600 text-black rotate-[-3deg] shadow-[5px_5px_0_rgba(0,0,0,1)] ${isLabExpanded ? 'h-[110%] w-[110%] z-40 rotate-0' : 'h-[calc(75%-4px)] z-20'} ${isLabActive ? "z-30 scale-105" : isContactActive ? "blur-[6px] brightness-[0.3] pointer-events-none" : ""}`}
             >
@@ -273,11 +250,9 @@ export default function Home() {
               onMouseEnter={() => {
                 setIsHovering(true);
                 setModelReply("CONNECT WITH ME? I'M A BIT SHY...");
-                setActiveAnimation("Chat2");
               }}
               onMouseLeave={() => {
                 setIsHovering(false);
-                setActiveAnimation("Idle");
               }}
               className={`absolute bottom-4 right-4 w-[calc(45%-4px)] h-[calc(50%-4px)] bg-[#fef08a] text-black p-6 flex flex-col justify-center items-center text-center transition-all duration-700 cursor-pointer shadow-[2px_10px_15px_rgba(0,0,0,0.5)] rotate-3 hover:rotate-0 hover:-translate-y-2 ${isContactActive ? 'z-30 scale-105' : isLabActive ? 'blur-[6px] brightness-[0.3] pointer-events-none' : 'z-10'}`}>
 
@@ -286,7 +261,7 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col items-center text-center mt-2">
-                <p style={{ fontFamily: 'Bradley Hand, cursive' }} className="text-xl mb-1 mr-12 text-zinc-700"> + Let's</p>
+                <p style={{ fontFamily: 'Bradley Hand, cursive' }} className="text-xl mb-1 mr-12 text-zinc-700"> + Let&apos;s</p>
                 <span style={{ fontFamily: 'Impact, sans-serif' }} className="text-5xl uppercase tracking-tighter ml-8">LINK</span>
               </div>
             </a>

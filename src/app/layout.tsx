@@ -25,6 +25,8 @@ export const metadata: Metadata = {
   description: "Portfolio of Marthan Lanuzga - Lead Developer & AI Specialist",
 };
 
+import Script from "next/script";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,8 +36,18 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${satoshi.variable} h-full antialiased dark`}
+      data-scroll-behavior="smooth"
     >
       <body className="min-h-full flex flex-col">
+        <Script
+          src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"
+          strategy="afterInteractive"
+          type="module"
+        />
+        <Script
+          src="https://unpkg.com/meshoptimizer@0.19.0/meshopt_decoder.js"
+          strategy="afterInteractive"
+        />
         <Navbar />
         <main className="flex-grow">{children}</main>
       </body>

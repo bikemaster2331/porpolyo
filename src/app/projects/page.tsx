@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import Script from 'next/script';
 import Footer from '@/components/footer';
+import Script from 'next/script';
 
 const TechIcons: Record<string, React.ReactNode> = {
   TypeScript: (<svg viewBox="0 0 128 128" className="w-full h-full"><path fill="#fff" d="M22.67 47h99.67v73.67H22.67z" /><path data-name="original" fill="#007acc" d="M1.5 63.91v62.5h125v-125H1.5zm100.73-5a15.56 15.56 0 017.82 4.5 20.58 20.58 0 013 4c0 .16-5.4 3.81-8.69 5.85-.12.08-.6-.44-1.13-1.23a7.09 7.09 0 00-5.87-3.53c-3.79-.26-6.23 1.73-6.21 5a4.58 4.58 0 00.54 2.34c.83 1.73 2.38 2.76 7.24 4.86 8.95 3.85 12.78 6.39 15.16 10 2.66 4 3.25 10.46 1.45 15.24-2 5.2-6.9 8.73-13.83 9.9a38.32 38.32 0 01-9.52-.1 23 23 0 01-12.72-6.63c-1.15-1.27-3.39-4.58-3.25-4.82a9.34 9.34 0 011.15-.73L82 101l3.59-2.08.75 1.11a16.78 16.78 0 004.74 4.54c4 2.1 9.46 1.81 12.16-.62a5.43 5.43 0 00.69-6.92c-1-1.39-3-2.56-8.59-5-6.45-2.78-9.23-4.5-11.77-7.24a16.48 16.48 0 01-3.43-6.25 25 25 0 01-.22-8c1.33-6.23 6-10.58 12.82-11.87a31.66 31.66 0 019.49.26zm-29.34 5.24v5.12H56.66v46.23H45.15V69.26H28.88v-5a49.19 49.19 0 01.12-5.17C29.08 59 39 59 51 59h21.83z" /></svg>),
@@ -43,9 +43,6 @@ export default function Projects() {
 
   useEffect(() => {
     setHasMounted(true);
-  }, []);
-
-  useEffect(() => {
     const checkViewport = () => {
       setIsDesktop(window.innerWidth >= 768);
     };
@@ -77,7 +74,7 @@ export default function Projects() {
       serial: "01:PTF",
       clearance: "LEVEL_4",
       desc: "Interactive tourism using Raspberry Pi and RAG.",
-      longDesc: "Standard AI is usually too vague or outdated to be helpful. Built on a Raspberry Pi, Pathfinder uses a custom database that acts like a local tourist guide.",
+      longDesc: "Standard AI is too vague to be helpful. Pathfinder uses a custom database that acts like a local tourist guide.",
       tech: ["Python", "Raspberry Pi", "RAG", "React"],
       link: "https://github.com/bikemaster2331/pathfinder",
       styles: "bg-[#0b1b3d] text-blue-100 border-4 border-[#071126] shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[-1deg] rotate-[-2deg]",
@@ -184,17 +181,13 @@ export default function Projects() {
 
   return (
     <div className="flex flex-col items-center min-h-screen relative text-white pb-24 md:pb-0 px-4 sm:px-6 overflow-x-clip">
-      <Script
-        type="module"
-        src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"
-      />
       <div className="fixed inset-0 bg-[#111] bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:24px_24px] -z-10" aria-hidden="true" />
 
       <div className="w-full order-first md:order-last">
         <Footer />
       </div>
 
-      <div className="max-w-7xl w-full flex-grow pt-9 md:pt-36 relative z-10">
+      <div className="max-w-[1600px] px-4 md:px-12 w-full flex-grow pt-9 md:pt-36 relative z-10">
 
         <div className="md:mb-16 mb-4 flex flex-col gap-3 relative">
           <h1 className="text-2xl md:text-5xl font-black tracking-tighter uppercase drop-shadow-[4px_4px_0_rgba(0,0,0,1)] text-white font-sans">
@@ -208,7 +201,7 @@ export default function Projects() {
                 <span className="text-[6px] font-mono text-black font-bold tracking-widest leading-none">0412-2026-MLL</span>
               </div>
 
-              <div className="absolute md:top-4 md:right-2 top-1 right-1 border-4 border-red-600 text-red-300 font-bold md:text-2xl text-[10px] md:text-3xl px-2 py-1 rotate-12 opacity-40 mix-blend-multiply tracking-widest font-mono pointer-events-none">
+              <div className="absolute md:top-4 md:right-2 top-1 right-1 md:border-4 border-2 border-red-600 text-red-300 font-bold md:text-2xl text-[9px] md:text-3xl px-2 py-1 rotate-12 opacity-40 mix-blend-multiply tracking-widest font-mono pointer-events-none">
                 CONFIDENTIAL
               </div>
 
@@ -230,11 +223,11 @@ export default function Projects() {
               {hasMounted && (
                 <model-viewer
                   ref={modelRef}
-                  src="/models/bmo.glb"
+                  src="/models/animcat.glb"
                   autoplay
                   animation-name={activeAnimation}
                   animation-crossfade-duration="300"
-                  camera-orbit="0deg 75deg 105%"
+                  camera-orbit="-222deg 75deg 105%"
                   camera-controls
                   disable-zoom
                   disable-tap

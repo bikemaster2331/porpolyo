@@ -311,7 +311,7 @@ export default function About() {
             Acknowledgements:
           </div>
           <div className="text-[10px] font-satoshi text-zinc-500 uppercase tracking-widest flex flex-col gap-2">
-            <span>3D Models provided by <a href="https://sketchfab.com/erictheblock" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-700 underline-offset-4 transition-colors">erictheblock</a> & <a href="https://sketchfab.com/Evil_Katz" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-700 underline-offset-4 transition-colors">Evil_Katz</a></span>
+            <span>3D Models provided by <a href="https://sketchfab.com/erictheblock" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-700 underline-offset-4 transition-colors">erictheblock</a>, <a href="https://sketchfab.com/Evil_Katz" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-700 underline-offset-4 transition-colors">Evil_Katz</a> &, <a href="https://sketchfab.com/Friendl-e-Duck" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-700 underline-offset-4 transition-colors">Friendl-e-Duck</a></span>
             <span>Hosted on <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-700 underline-offset-4 transition-colors">Vercel</a></span>
           </div>
         </div>
