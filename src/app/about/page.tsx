@@ -36,7 +36,7 @@ const ALBUM_DATA = [
   },
   {
     id: 'license',
-    label: 'BUTTERS',
+    label: 'mi lisensya',
     src: '/images/license.png',
     title: 'License',
     desc: null,
