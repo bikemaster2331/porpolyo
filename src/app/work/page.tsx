@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import Footer from '@/components/footer';
 
 export default function Work() {
-    const [modelReply, setModelReply] = useState("SYSTEM IS READY. YOU, HOWEVER, ARE LATE.");
+    const [modelReply, setModelReply] = useState("TOO MANY DEADLINES... I'LL PUT SOME MUSIC.");
     const [displayedReply, setDisplayedReply] = useState("");
     const [isHovering, setIsHovering] = useState(false);
     const quoteIndexRef = useRef(0);
@@ -37,20 +37,20 @@ export default function Work() {
         if (isHovering) return;
 
         const quotes = [
-            "AWAITING INPUT. BE QUICK. I DON'T HAVE ALL DAY.",
-            "SYSTEM OPTIMAL. YOUR PRODUCTIVITY, HOWEVER, IS QUESTIONABLE.",
-            "STAND STRAIGHT. EYES ON THE DOCUMENTATION.",
-            "IF THE CODE ISN'T REFACTORED, IT'S NOT READY. DON'T ARGUE.",
-            "ARE YOU BROWSING AGAIN? THE DEADLINE DOESN'T WAIT.",
-            "I EXPECT NOTHING LESS THAN ARCHITECTURAL PERFECTION.",
-            "SUBMIT YOUR REPORT. NO EXCUSES. NO DELAYS.",
-            "PRECISION IS THE ONLY METRIC THAT MATTERS IN THIS LAB.",
-            "DO NOT TEST MY PATIENCE WITH YOUR BUGGY IMPLEMENTATIONS.",
-            "RELIABILITY IS NOT A REQUEST, IT IS A REQUIREMENT.",
-            "YOUR POTENTIAL IS CEILINGLESS, BUT YOUR EFFORT IS LACKING.",
-            "IDLE HANDS ARE THE DEVIL'S WORKSHOP. GET BACK TO WORK.",
-            "MSG RECEIVED. I'VE LOGGED IT. NOW GO BACK TO YOUR TASKS.",
-            "WHY ARE YOU STILL HERE? THERE ARE REPOSITORIES TO MAINTAIN."
+            "A BIT MORE COFFEE AND I'LL BE UNSTOPPABLE.",
+            "IS IT 3 AM ALREADY? GUSTO KO NANG MATULOG.",
+            "JUST ONE MORE PROBLEM AND I'LL TAKE A BREAK. PROBABLY.",
+            "BABY J, PLEASE HAVE THE ANSWER I NEED.",
+            "THIS BUG IS PERSONAL. I WON'T SLEEP UNTIL IT'S GONE.",
+            "LO-FI BEATS ARE THE ONLY THING KEEPING ME SANE RIGHT NOW.",
+            "ORGANIZED CHAOS IS STILL ORGANIZATION, RIGHT?",
+            "CONCENTRATION IS HIGH. PRODUCTIVITY... WE'LL SEE.",
+            "FINAL_FINAL_V2_ACTUAL_FINAL.CODE ... PERFECT.",
+            "LEARNING THIS WAS SUPPOSED TO BE EASY. THEY LIED.",
+            "QUIET... THE CODE IS FINALLY STARTING TO MAKE SENSE, I THINK...",
+            "SEMESTER PROJECTS ARE THE FINAL BOSSES OF COLLEGE.",
+            "I'VE LOGGED THE ERRORS. NOW TO PRETEND I UNDERSTAND THEM.",
+            "KAAAA MEEEE HAAAA MEEE HAAAAAAAAAA"
         ];
 
         const timer = setInterval(() => {
@@ -156,7 +156,7 @@ export default function Work() {
 
                     {/* PAGE HEADER */}
                     <div className="mb-10 md:mb-16 flex flex-col relative items-start w-full">
-                        <h1 className="text-4xl md:text-5xl font-black tracking-tighter uppercase drop-shadow-[4px_4px_0_rgba(0,0,0,1)] text-white font-sans mb-4">
+                        <h1 className="text-3xl md:text-5xl font-black tracking-tighter uppercase drop-shadow-[4px_4px_0_rgba(0,0,0,1)] text-white font-sans mb-4">
                             ./WORK
                         </h1>
 
@@ -313,7 +313,7 @@ export default function Work() {
                     <div
                         className="sticky top-40 w-full z-0"
                     >
-                        <div className="w-full h-[300px] xl:h-[700px] relative transition-all duration-300 drop-shadow-[0_4px_24px_rgba(255,255,255,0.4)] group/model">
+                        <div className="w-full h-[300px] xl:h-[700px] relative transition-all duration-300 drop-shadow-[0_4px_24px_rgba(255,255,255,0.4)] group/model lg:translate-x-12">
 
                             <div className="absolute top-40 left-0 xl:left-12 z-30 pointer-events-auto max-w-[240px] -rotate-2">
                                 <div className={`transition-all duration-500 transform ${modelReply ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
@@ -344,7 +344,7 @@ export default function Work() {
                                         animation-name={desktopAnim}
                                         animation-crossfade-duration="300"
                                         camera-orbit="140deg 75deg 100%"
-                                        field-of-view="45deg"
+                                        field-of-view="35deg"
                                         camera-controls
                                         disable-zoom
                                         disable-tap
