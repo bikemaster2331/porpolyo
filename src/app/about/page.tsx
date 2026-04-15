@@ -145,17 +145,17 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:mb-20 mb-16">
           <div className="space-y-6 text-[12px] text-zinc-400 leading-relaxed font-sans">
             <p>
-              I started coding in my first year of college, learned C++, C#, JS, coded on paper, made triangles using loops and conditions, and created CRUD systems. It was fun but I did not really took it seriously. <br />
+              I started coding during first year of college, learned C++, C#, JS, coded on paper, made triangles using loops and conditions, and created CRUD systems. It was fun but I did not really take it seriously. <br />
               <br />
-              On my 3rd year, I met many peers who are passionate about it and I thank them for inspiring me to become what I could be and it was that same year where I took interest in AI and ML.
+              Everything changed in my third year when I met many peers who are truly passionate about development. I'm grateful for them for inspiring me to become what I could be, and it was that same year where I took interest in AI and ML.
             </p>
             <p>
-              Currently, I really want to learn everything I can, see where it will lead me, land a job I'm passionate about, and live a comfortable life somewhere silent.
+              Currently, I really want to learn everything I can, see where it will lead me, land a job I'm passionate about, and live a comfortable life somewhere quiet.
             </p>
           </div>
           <div className="space-y-6 text-[12px] text-zinc-400 leading-relaxed font-sans">
             <p>
-              I love sinigang, road trips, cats, dogs, hiking, and every adventure I can get my hands on. I want to hike Mt. Everest one day, paraglide, skydive, scuba dive, and travel the world. It's currently 12:37 AM while I'm writing this. It's fun to let anyone know what I like, what I do, and what I want to do. I had fun creating this and I hope you had fun knowing me too.
+              It's currently 12:37 AM while I'm writing this. I love sinigang, road trips, cats, dogs, hiking, and every adventure I can get my hands on. I really want to conquer Mt. Everest one day, paraglide, skydive, scuba dive, and travel the world. It's fun to let anyone know what I like, what I do, and what I want to do. I had fun creating this and I hope you had fun knowing me too.
             </p>
           </div>
         </div>
