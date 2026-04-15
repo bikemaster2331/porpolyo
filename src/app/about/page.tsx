@@ -145,7 +145,7 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:mb-20 mb-16">
           <div className="space-y-6 text-[12px] text-zinc-400 leading-relaxed font-sans">
             <p>
-              I started coding during first year of college, learned C++, C#, JS, coded on paper, made triangles using loops and conditions, and created CRUD systems. It was fun but I did not really take it seriously. <br />
+              I started coding during my first year of college, learned C++, C#, JS, coded on paper, made triangles using loops and conditions, and created CRUD systems. It was fun but I did not really take it seriously. <br />
               <br />
               Everything changed in my third year when I met many peers who are truly passionate about development. I'm grateful for them for inspiring me to become what I could be, and it was that same year where I took interest in AI and ML.
             </p>
