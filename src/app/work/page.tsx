@@ -2,6 +2,8 @@
 import { useState, useRef, useEffect } from 'react';
 import Footer from '@/components/footer';
 
+// just add new entries here
+
 const EXPERIENCE_DATA = [
   {
     title: "Lead Developer",
@@ -69,8 +71,6 @@ export default function Work() {
     const [displayedReply, setDisplayedReply] = useState("");
     const [isHovering, setIsHovering] = useState(false);
     const quoteIndexRef = useRef(0);
-
-    // --- EXACT ANIMATION NAMES ---
     const [desktopAnim, setDesktopAnim] = useState("FloatIdle");
     const [mobileAnim, setMobileAnim] = useState("CouchIdle");
     const [hasMounted, setHasMounted] = useState(false);
@@ -128,7 +128,6 @@ export default function Work() {
         setDisplayedReply("");
         const targetText = modelReply || "AWAITING_INPUT";
 
-        // Applying the Chat animations with the tracker (1 through 4)
         setDesktopAnim(`FloatChat${animTrackerRef.current}`);
         setMobileAnim(`CouchChat${animTrackerRef.current}`);
 
@@ -139,7 +138,6 @@ export default function Work() {
             i++;
             if (i >= targetText.length) {
                 clearInterval(interval);
-                // Reverting back to idle states
                 setDesktopAnim("FloatIdle");
                 setMobileAnim("CouchIdle");
             }
@@ -159,15 +157,12 @@ export default function Work() {
 
             <div className="max-w-[1600px] mx-auto w-full flex-grow md:pt-36 relative z-10 px-2 sm:px-4 md:px-12 flex flex-col lg:flex-row">
 
-                {/* MOBILE ONLY 3D MODEL */}
                 <div className="flex lg:hidden items-center justify-center drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] w-full mt-10">
-                    {/* Outer wrapper: fixed tall container so the model has real estate */}
                     <div className="w-full max-w-[380px] h-[240px] relative">
 
                         <div className="absolute -top-6 left-0 z-30 pointer-events-auto w-[220px] -rotate-3">
                             <div className={`transition-all duration-500 transform ${modelReply ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
 
-                                {/* Main Thought Cloud - Preservation of size, font, and rotation */}
                                 <div className="relative bg-[#ffeb3b] text-black p-3 rounded-2xl border-2 border-black shadow-[4px_4px_0_rgba(0,0,0,1)] transition-all duration-300">
 
                                     <p className="font-mono text-[10px] leading-snug uppercase font-bold tracking-tight text-center w-full break-words relative z-10">
@@ -179,10 +174,8 @@ export default function Work() {
                                         </span>
                                     </p>
 
-                                    {/* Middle trailing bubble */}
                                     <div className="absolute -bottom-3.5 left-6 w-4 h-4 bg-[#ffeb3b] border-2 border-black rounded-full shadow-[2px_2px_0_rgba(0,0,0,1)]" />
 
-                                    {/* Smallest trailing bubble */}
                                     <div className="absolute -bottom-6 left-10 w-2.5 h-2.5 bg-[#ffeb3b] border-2 border-black rounded-full shadow-[1px_1px_0_rgba(0,0,0,1)]" />
 
                                 </div>
@@ -218,19 +211,15 @@ export default function Work() {
                     </div>
                 </div>
 
-                {/* LEFT SIDE: TEXT ZONE */}
                 <div className="w-full lg:w-[65%] xl:w-[70%] flex flex-col relative z-10">
 
-                    {/* PAGE HEADER */}
                     <div className="mb-10 md:mb-16 flex flex-col relative items-start w-full">
                         <h1 className="text-2xl md:text-5xl font-black tracking-tighter uppercase drop-shadow-[4px_4px_0_rgba(0,0,0,1)] text-white font-sans mb-4">
                             ./WORK
                         </h1>
 
                         <div className="relative bg-[#fefdf8] p-5 md:p-8 border-2 border-black shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] rotate-[-1deg] w-full max-w-4xl mt-2 overflow-hidden group hover:rotate-0 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[12px_12px_0_rgba(0,0,0,1)] transition-all duration-300">
-                            {/* Notebook Blue Lines */}
                             <div className="absolute inset-0 pointer-events-none opacity-[0.15] z-0" style={{ backgroundImage: 'repeating-linear-gradient(transparent, transparent 23px, #3b82f6 24px)' }} />
-                            {/* Notebook Red Margin */}
                             <div className="absolute top-0 bottom-0 left-6 md:left-8 w-0.5 bg-red-400/40 pointer-events-none z-0" />
 
                             <div className="relative z-10 pl-4 md:pl-6">
@@ -245,10 +234,8 @@ export default function Work() {
                         </div>
                     </div>
 
-                    {/* EXPERIENCE + PROJECTS GRID */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-14 mb-16 mt-4 md:mt-12 relative w-full">
 
-                        {/* COLUMN 1: EXPERIENCE */}
                         <div className="flex flex-col gap-6 md:gap-8 w-full">
                             <div className="items-center gap-4 mb-2 flex">
                                 <div className="inline-block px-3 py-1 bg-white border-2 border-black shadow-[2px_2px_0_rgba(255,255,255,0.2)] z-20 rotate-[-1deg]">
@@ -281,7 +268,6 @@ export default function Work() {
                             </div>
                         </div>
 
-                        {/* COLUMN 2: CURRENT PROJECTS */}
                         <div className="flex flex-col gap-6 md:gap-8 w-full">
                             <div className="items-center gap-4 mb-2 flex">
                                 <div className="inline-block px-3 py-1 bg-white border-2 border-black shadow-[2px_2px_0_rgba(255,255,255,0.2)] z-20 rotate-1">
@@ -316,7 +302,6 @@ export default function Work() {
                         </div>
                     </div>
 
-                    {/* SOCIAL LINKS */}
                     <div className="flex flex-wrap gap-4 md:gap-6 w-full mt-4 md:mt-4 pl-1 md:pl-2 pb-8 relative z-20">
                         <a
                             href="mailto:tanlanuzga@gmail.com"
@@ -352,7 +337,6 @@ export default function Work() {
                     </div>
                 </div>
 
-                {/* RIGHT SIDE: MODEL ZONE */}
                 <div className="hidden lg:flex flex-col relative w-[35%] xl:w-[30%]">
                     <div
                         className="sticky top-40 w-full z-0"
@@ -362,7 +346,6 @@ export default function Work() {
                             <div className="absolute top-40 left-0 xl:left-12 z-30 pointer-events-auto max-w-[240px] -rotate-2">
                                 <div className={`transition-all duration-500 transform ${modelReply ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
 
-                                    {/* Main Thought Cloud */}
                                     <div className="relative bg-[#ffeb3b] text-black px-4 py-3 rounded-2xl border-2 border-black shadow-[4px_4px_0_rgba(0,0,0,1)] transition-all duration-300">
 
                                         <p className="font-mono text-[10px] leading-relaxed uppercase font-bold tracking-tight text-center w-full break-words relative z-10">
@@ -374,10 +357,8 @@ export default function Work() {
                                             </span>
                                         </p>
 
-                                        {/* Middle trailing bubble */}
                                         <div className="absolute -bottom-4.5 left-8 w-5 h-5 bg-[#ffeb3b] border-2 border-black rounded-full shadow-[2px_2px_0_rgba(0,0,0,1)]" />
 
-                                        {/* Smallest trailing bubble */}
                                         <div className="absolute -bottom-7.5 left-12 w-3 h-3 bg-[#ffeb3b] border-2 border-black rounded-full shadow-[1px_1px_0_rgba(0,0,0,1)]" />
 
                                     </div>

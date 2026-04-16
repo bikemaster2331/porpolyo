@@ -16,7 +16,7 @@ export default function Home() {
     setHasMounted(true);
   }, []);
 
-  // I like to think i'm funny kaya gan'to yung quotes, sorry...
+  // I like to think i'm funny that's why ganito yung quotes,,,
   
   useEffect(() => {
     if (isHovering) return;

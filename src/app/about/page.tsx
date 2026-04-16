@@ -135,7 +135,6 @@ const STACK_DATA = [
 export default function About() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // Close modal on escape key
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setSelectedImage(null);
@@ -152,7 +151,6 @@ export default function About() {
 
       <div className="max-w-7xl w-full flex-grow pt-4 md:pt-36">
 
-        {/* HEADER */}
         <div className="md:mb-16 mb-12 flex flex-col gap-3">
           <h1 className="md:text-5xl text-3xl font-satoshi font-bold tracking-tighter text-left mt-6">
             . /about
@@ -177,7 +175,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* NARRATIVE SECTION */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:mb-20 mb-16">
           <div className="space-y-6 text-[12px] text-zinc-400 leading-relaxed font-sans">
             <p>
@@ -196,7 +193,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* STACK */}
         <div className="md:mb-20 mb-16">
           <div className="flex items-center gap-4 mb-10">
             <h2 className="text-[12px] font-black uppercase tracking-[0.3em] text-zinc-500 font-satoshi">STACK</h2>
@@ -206,9 +202,6 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 font-mono text-[12px] text-zinc-400">
             {STACK_DATA.map((col) => (
               <div key={col.category} className="flex flex-col gap-3">
-                <div className="text-[10px] text-zinc-600 uppercase tracking-widest mb-1 font-bold font-satoshi">
-                  // {col.category}
-                </div>
                 <div className="grid grid-cols-2 md:grid-cols-1 gap-2 md:gap-3">
                   {col.items.map((item: any) => (
                     <div key={item.name} className="flex items-center gap-2 md:gap-3 border border-zinc-800 bg-zinc-800/40 p-2 md:p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
@@ -236,7 +229,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* ALBUM SECTION */}
         <div className="mb-20">
           <div className="flex items-center gap-4 mb-12">
             <h2 className="text-[12px] font-black uppercase tracking-[0.3em] text-zinc-500 font-satoshi">ALBUM</h2>
@@ -277,7 +269,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* ACKNOWLEDGEMENTS */}
         <div className="mt-24 border-t border-zinc-900 pt-8 pb-12 flex flex-col gap-4">
           <div className="text-[10px] font-satoshi text-zinc-400 uppercase tracking-widest">
             Acknowledgements:
@@ -290,7 +281,6 @@ export default function About() {
 
       </div>
 
-      {/* LIGHTBOX MODAL */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
