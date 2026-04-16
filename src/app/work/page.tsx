@@ -109,7 +109,12 @@ export default function Work() {
                                 <div className="relative bg-[#ffeb3b] text-black p-3 rounded-2xl border-2 border-black shadow-[4px_4px_0_rgba(0,0,0,1)] transition-all duration-300">
 
                                     <p className="font-mono text-[10px] leading-snug uppercase font-bold tracking-tight text-center w-full break-words relative z-10">
-                                        {displayedReply}
+                                        <span className="invisible select-none" aria-hidden="true">
+                                            {modelReply || "AWAITING_INPUT"}
+                                        </span>
+                                        <span className="absolute top-0 left-0 w-full">
+                                            {displayedReply}
+                                        </span>
                                     </p>
 
                                     {/* Middle trailing bubble */}
@@ -322,7 +327,12 @@ export default function Work() {
                                     <div className="relative bg-[#ffeb3b] text-black px-4 py-3 rounded-2xl border-2 border-black shadow-[4px_4px_0_rgba(0,0,0,1)] transition-all duration-300">
 
                                         <p className="font-mono text-[10px] leading-relaxed uppercase font-bold tracking-tight text-center w-full break-words relative z-10">
-                                            {displayedReply}
+                                            <span className="invisible select-none" aria-hidden="true">
+                                                {modelReply || "AWAITING_INPUT"}
+                                            </span>
+                                            <span className="absolute top-0 left-0 w-full">
+                                                {displayedReply}
+                                            </span>
                                         </p>
 
                                         {/* Middle trailing bubble */}

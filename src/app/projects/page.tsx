@@ -190,8 +190,16 @@ export default function Projects() {
       <div className="max-w-[1600px] px-4 md:px-12 w-full flex-grow pt-9 md:pt-36 relative z-10">
 
         <div className="md:mb-16 mb-4 flex flex-col gap-3 relative">
-          <h1 className="text-2xl md:text-5xl font-black tracking-tighter uppercase drop-shadow-[4px_4px_0_rgba(0,0,0,1)] text-white font-sans">
-            ./PROJECTS <span className="text-zinc-600">{displayedSuffix}</span>
+          <h1 className="text-2xl md:text-5xl font-black tracking-tighter uppercase drop-shadow-[4px_4px_0_rgba(0,0,0,1)] text-white font-sans flex items-baseline">
+            ./PROJECTS&nbsp;
+            <span className="relative text-zinc-600">
+              <span className="invisible select-none" aria-hidden="true">
+                {selectedIndex !== null ? `/${projectData[selectedIndex].name}` : ""}
+              </span>
+              <span className="absolute top-0 left-0">
+                {displayedSuffix}
+              </span>
+            </span>
           </h1>
 
           <div className="flex flex-row items-end gap-2 md:gap-8 min-h-[100px] relative">
@@ -266,9 +274,9 @@ export default function Projects() {
                 }}
                 className={`project-card group relative p-3 md:p-8 flex flex-col transition-all duration-200 cursor-pointer select-none 
                   ${!isDesktop && activeIndex !== null && activeIndex !== i ? 'cursor-not-allowed' : ''}
-                  ${selectedIndex === i ? 'rotate-0 scale-[1.02] z-40 bg-white text-black border-white shadow-[8px_8px_0_rgba(255,255,255,0.1)] md:shadow-[16px_16px_0_rgba(255,255,255,0.1)]' : project.styles}
-                  md:hover:rotate-0 md:hover:scale-[1.02] md:hover:bg-white md:hover:text-black md:hover:border-white md:hover:shadow-[16px_16px_0_rgba(255,255,255,0.1)]
-                  ${isInactiveMobileCard && activeIndex !== i ? '' : 'active:scale-95'}
+                   ${selectedIndex === i ? 'rotate-0 z-40 bg-white text-black border-white shadow-[8px_8px_0_rgba(255,255,255,0.3)]' : project.styles}
+                  md:hover:rotate-0 md:hover:bg-white md:hover:text-black md:hover:border-white md:hover:shadow-[8px_8px_0_rgba(255,255,255,0.3)]
+                  ${isInactiveMobileCard && activeIndex !== i ? '' : 'active:opacity-80'}
                   ${selectedIndex !== null && selectedIndex !== i
                     ? 'blur-[4px] brightness-[0.4] grayscale'
                     : 'blur-0 opacity-100 grayscale-0'

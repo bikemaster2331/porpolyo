@@ -16,7 +16,8 @@ export default function Home() {
     setHasMounted(true);
   }, []);
 
-  // 1. Handles the 5-second background quotes
+  // I like to think i'm funny kaya gan'to yung quotes, sorry...
+  
   useEffect(() => {
     if (isHovering) return;
 
@@ -29,7 +30,7 @@ export default function Home() {
       "SCANNING FOR COOL PROJECTS AND POKÉMONS",
       "YOU MIGHT WANT TO CHECK OUT THE PROJECTS FOLDER!",
       "WOWSOMETRIC! ADVENTURE? OKAYLICIOUS!",
-      "KUMUSTA KA? - FROM TAGALOG MODEL",
+      "KUMUSTA KA?",
       "HUH? NASAAN AKO? SINO KAYO? BAKIT AKO ROBOT?",
       "LET ME TELL YOU SOMETHING ABOUT MLL, HE'S A BIT....",
       "MSG RECEIVED: LET'S WORK TOGETHER - MARTHAN",
@@ -118,7 +119,12 @@ export default function Home() {
                 <div className="relative bg-[#ffeb3b] text-black p-3 shadow-xl transition-all duration-300 border-l-4 border-black">
                   <div className="absolute -top-3 left-4 w-12 h-4 bg-white/40 backdrop-blur-md rotate-6 shadow-sm z-50" />
                   <p className="font-mono text-[11px] leading-relaxed uppercase font-bold tracking-tight text-left w-full break-words relative z-10">
-                    {displayedReply}
+                    <span className="invisible select-none" aria-hidden="true">
+                      {modelReply || "AWAITING_INPUT"}
+                    </span>
+                    <span className="absolute top-0 left-0 w-full">
+                      {displayedReply}
+                    </span>
                   </p>
                 </div>
               </div>
