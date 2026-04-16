@@ -87,7 +87,7 @@ export default function Projects() {
       name: "med-id",
       serial: "02:MID",
       clearance: "RESTRICTED",
-      desc: "AI-powered medicine identifier utilizing Computer Vision.",
+      desc: "AI-powered medicine identifier using Computer Vision.",
       longDesc: "I made this to help people identify their medication using just a smartphone camera and deep learning.",
       tech: ["TensorFlow", "OpenCV", "Python"],
       link: "https://github.com/bikemaster2331/med-id",
