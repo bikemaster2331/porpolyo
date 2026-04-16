@@ -161,19 +161,25 @@ export default function Work() {
 
                     {/* PAGE HEADER */}
                     <div className="mb-10 md:mb-16 flex flex-col relative items-start w-full">
-                        <h1 className="text-3xl md:text-5xl font-black tracking-tighter uppercase drop-shadow-[4px_4px_0_rgba(0,0,0,1)] text-white font-sans mb-4">
+                        <h1 className="text-2xl md:text-5xl font-black tracking-tighter uppercase drop-shadow-[4px_4px_0_rgba(0,0,0,1)] text-white font-sans mb-4">
                             ./WORK
                         </h1>
 
-                        <div className="relative bg-zinc-100 p-5 md:p-6 border-4 border-black shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] rotate-[-1deg] w-full max-w-4xl mt-2 overflow-hidden group hover:rotate-0 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[12px_12px_0_rgba(0,0,0,1)] transition-all duration-300">
-                            <div className="absolute -top-3 right-8 md:right-12 w-4 h-12 border-[3px] border-zinc-400 rounded-full shadow-sm z-50 opacity-90" />
-                            <div className="border-b-2 border-black pb-2 mb-3 md:mb-4 flex justify-between items-end">
-                                <span className="font-mono text-[9px] md:text-[10px] font-bold text-black uppercase tracking-widest">FORM: INTRO-01</span>
-                                <span className="font-mono text-[9px] md:text-[10px] font-bold text-black uppercase tracking-widest bg-black/10 px-2 py-0.5">SUBJECT: MLL</span>
+                        <div className="relative bg-[#fefdf8] p-5 md:p-8 border-2 border-black shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] rotate-[-1deg] w-full max-w-4xl mt-2 overflow-hidden group hover:rotate-0 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[12px_12px_0_rgba(0,0,0,1)] transition-all duration-300">
+                            {/* Notebook Blue Lines */}
+                            <div className="absolute inset-0 pointer-events-none opacity-[0.15] z-0" style={{ backgroundImage: 'repeating-linear-gradient(transparent, transparent 23px, #3b82f6 24px)' }} />
+                            {/* Notebook Red Margin */}
+                            <div className="absolute top-0 bottom-0 left-6 md:left-8 w-0.5 bg-red-400/40 pointer-events-none z-0" />
+
+                            <div className="relative z-10 pl-4 md:pl-6">
+                                <div className="border-b-2 border-black pb-2 mb-3 md:mb-4 flex justify-between items-end">
+                                    <span className="font-mono text-[9px] md:text-[10px] font-bold text-black uppercase tracking-widest">NAME: MARTHAN</span>
+                                    <span className="font-mono text-[9px] md:text-[10px] font-bold text-black uppercase tracking-widest px-2 py-0.5">DATE: 2026</span>
+                                </div>
+                                <p className="text-black font-mono text-[13px] md:text-[15px] font-bold leading-relaxed tracking-tight">
+                                    I&apos;m always open to new opportunities, collaborations, or just a friendly chat about anything. You can even confess your crimes to me, I won&apos;t judge (jk).
+                                </p>
                             </div>
-                            <p className="text-black font-mono text-[13px] md:text-[15px] font-bold leading-relaxed tracking-tight">
-                                I&apos;m always open to new opportunities, collaborations, or just a friendly chat about anything. You can even confess your crimes to me, I won&apos;t judge (jk).
-                            </p>
                         </div>
                     </div>
 
@@ -193,13 +199,17 @@ export default function Work() {
 
                             <div className="flex flex-col gap-8 relative z-10">
                                 <div
-                                    className="relative bg-[#D4C3A3] p-5 md:p-8 border-4 border-[#8B7D60] shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] rotate-[1deg] hover:rotate-0 hover:scale-[1.02] hover:shadow-[12px_12px_0_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 cursor-default"
+                                    className="relative bg-[#D4C3A3] p-4 md:p-8 border-4 border-[#8B7D60] shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] rotate-[1deg] hover:rotate-0 hover:scale-[1.02] hover:shadow-[12px_12px_0_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 cursor-default"
                                     onMouseEnter={() => handleHoverEnter("A PROJECT MADE WITH A FRIEND")}
                                     onMouseLeave={handleHoverLeave}
                                 >
-                                    <div className="absolute -top-3 left-6 md:left-8 w-12 md:w-16 h-6 bg-black rotate-6 shadow-[2px_2px_0_rgba(0,0,0,0.5)] z-50 opacity-90" />
+                                    {/* Red Pin (Top Right) */}
+                                    <div className="absolute top-4 right-8 w-4 h-4 rounded-full bg-red-600 border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,1)] z-50 flex items-center justify-center">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-black/40 translate-x-[1px] translate-y-[1px]" />
+                                    </div>
+
                                     <div className="font-mono text-[9px] md:text-[10px] font-bold text-black/60 uppercase tracking-widest border-b-2 border-black/20 pb-2 mb-4 md:mb-4">Dec 2025 — Present</div>
-                                    <h3 className="text-2xl md:text-4xl font-black font-sans text-black uppercase tracking-tighter leading-none mb-1 mt-5 md:mt-6">
+                                    <h3 className="text-xl md:text-4xl font-black font-sans text-black uppercase tracking-tighter leading-none mb-1 mt-5 md:mt-6">
                                         Lead Developer
                                     </h3>
                                     <div className="font-mono text-[11px] md:text-[12px] font-bold text-black/80 mb-5 md:mb-6 tracking-widest">/ Sasquatch</div>
@@ -209,13 +219,14 @@ export default function Work() {
                                 </div>
 
                                 <div
-                                    className="relative bg-[#D4C3A3] p-5 md:p-8 border-4 border-[#8B7D60] shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] rotate-[-2deg] hover:rotate-0 hover:scale-[1.02] hover:shadow-[12px_12px_0_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 cursor-default"
+                                    className="relative bg-[#D4C3A3] p-4 md:p-8 border-4 border-[#8B7D60] shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] rotate-[-2deg] hover:rotate-0 hover:scale-[1.02] hover:shadow-[12px_12px_0_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 cursor-default"
                                     onMouseEnter={() => handleHoverEnter("Learned so much in here! Inspired me to be much better")}
                                     onMouseLeave={handleHoverLeave}
                                 >
-                                    <div className="absolute top-1/2 -right-3 md:-right-4 w-10 md:w-12 h-6 bg-black -rotate-12 shadow-[2px_2px_0_rgba(0,0,0,0.5)] z-50 opacity-90" />
+                                    {/* Slanted Tape on Left */}
+                                    <div className="absolute -top-3 -left-3 w-12 h-6 bg-white/40 backdrop-blur-[2px] border border-white/20 shadow-[0_1px_3px_rgba(0,0,0,0.1)] rotate-[-35deg] z-50 rounded-sm" />
                                     <div className="font-mono text-[9px] md:text-[10px] font-bold text-black/60 uppercase tracking-widest border-b-2 border-black/20 pb-2 mb-4 md:mb-4">May 2025 — Aug 2025</div>
-                                    <h3 className="text-2xl md:text-3xl font-black font-sans text-black/80 uppercase tracking-tighter leading-none mb-1">
+                                    <h3 className="text-xl md:text-3xl font-black font-sans text-black/80 uppercase tracking-tighter leading-none mb-1">
                                         Software Dev Intern
                                     </h3>
                                     <div className="font-mono text-[11px] md:text-[12px] font-bold text-black/70 mb-5 md:mb-6 tracking-widest">/ DOST-ASTI</div>
@@ -239,17 +250,19 @@ export default function Work() {
 
                             <div className="flex flex-col gap-8 relative z-10">
                                 <div
-                                    className="relative bg-zinc-100 p-5 md:p-8 border-4 border-black shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] rotate-[-1deg] hover:rotate-0 hover:scale-[1.02] hover:shadow-[12px_12px_0_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 cursor-default"
+                                    className="relative bg-zinc-100 p-4 md:p-8 border-4 border-black shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] rotate-[-1deg] hover:rotate-0 hover:scale-[1.02] hover:shadow-[12px_12px_0_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 cursor-default"
                                     onMouseEnter={() => handleHoverEnter("STOP TREATING DISCIPLINE AS A HOBBY. WORK IS PORTABLE.")}
                                     onMouseLeave={handleHoverLeave}
                                 >
-                                    <div className="absolute top-3 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-red-600 border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,1)] z-50 flex items-center justify-center">
+                                    {/* Gray Pin (Top Right) */}
+                                    <div className="absolute top-4 right-8 w-4 h-4 rounded-full bg-zinc-400 border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,1)] z-50 flex items-center justify-center">
                                         <div className="w-1.5 h-1.5 rounded-full bg-black/40 translate-x-[1px] translate-y-[1px]" />
                                     </div>
+
                                     <div className="flex items-start gap-4 mt-4 md:mt-4">
                                         <span className="text-zinc-400 font-black font-mono text-2xl md:text-2xl mt-0.5 border-b-2 border-zinc-400">01.</span>
                                         <div>
-                                            <h4 className="text-xl md:text-2xl font-black font-sans text-black uppercase tracking-tighter mb-2 md:mb-2">Mobile-First Cloud IDE</h4>
+                                            <h4 className="text-lg md:text-2xl font-black font-sans text-black uppercase tracking-tighter mb-2 md:mb-2">Mobile-First Cloud IDE</h4>
                                             <p className="text-[13px] md:text-[14px] text-black font-mono font-bold leading-relaxed border-t-2 border-black/10 pt-4 md:pt-4 mt-2">
                                                 Developing a zero-setup, persistent environment leveraging GitHub Codespaces to enable seamless remote &quot;vibe coding&quot; workflows.
                                             </p>
@@ -258,15 +271,17 @@ export default function Work() {
                                 </div>
 
                                 <div
-                                    className="relative bg-zinc-100 p-5 md:p-8 border-4 border-black shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] rotate-[2deg] hover:rotate-0 hover:scale-[1.02] hover:shadow-[12px_12px_0_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 cursor-default"
+                                    className="relative bg-zinc-100 p-4 md:p-8 border-4 border-black shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] rotate-[2deg] hover:rotate-0 hover:scale-[1.02] hover:shadow-[12px_12px_0_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 cursor-default"
                                     onMouseEnter={() => handleHoverEnter("AUTONOMY WITHOUT SUPERVISION IS JUST CHAOS IN DISGUISE.")}
                                     onMouseLeave={handleHoverLeave}
                                 >
-                                    <div className="absolute -top-3 right-6 md:right-8 w-12 md:w-14 h-6 bg-zinc-300 border-x border-black/20 rotate-12 opacity-90 shadow-[2px_2px_0_rgba(0,0,0,0.5)] z-50" />
+                                    {/* Paper Clip (Top Left) */}
+                                    <div className="absolute -top-4 left-8 md:left-12 w-4 h-12 border-[3px] border-zinc-400 rounded-full shadow-sm z-50 opacity-90" />
+
                                     <div className="flex items-start gap-4 mt-2 md:mt-2">
                                         <span className="text-zinc-400 font-black font-mono text-2xl md:text-2xl mt-0.5 border-b-2 border-zinc-400">02.</span>
                                         <div>
-                                            <h4 className="text-xl md:text-2xl font-black font-sans text-black uppercase tracking-tighter mb-2 md:mb-2">AI Agent Orchestration</h4>
+                                            <h4 className="text-lg md:text-2xl font-black font-sans text-black uppercase tracking-tighter mb-2 md:mb-2">AI Agent Orchestration</h4>
                                             <p className="text-[13px] md:text-[14px] text-black font-mono font-bold leading-relaxed border-t-2 border-black/10 pt-4 md:pt-4 mt-2">
                                                 Exploring autonomous systems and Human-in-the-Loop machine learning architectures for continuous model improvement.
                                             </p>
