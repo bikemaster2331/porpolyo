@@ -2,6 +2,68 @@
 import { useState, useRef, useEffect } from 'react';
 import Footer from '@/components/footer';
 
+const EXPERIENCE_DATA = [
+  {
+    title: "Lead Developer",
+    company: "Sasquatch",
+    period: "Dec 2025 — Present",
+    desc: "Building and architecting a behavior-aware AI coding assistant.",
+    hoverText: "A PROJECT MADE WITH A FRIEND",
+    rotate: "rotate-[1deg]",
+    attachment: { type: 'pin', color: 'red', position: 'top-4 right-8' }
+  },
+  {
+    title: "Software Dev Intern",
+    company: "DOST-ASTI",
+    period: "May 2025 — Aug 2025",
+    desc: "Designed and implemented a modular data processing pipeline in Python.",
+    hoverText: "Learned so much in here! Inspired me to be much better",
+    rotate: "rotate-[-2deg]",
+    attachment: { type: 'tape', position: '-top-3 -left-3', slanted: true }
+  }
+];
+
+const WORK_PROJECT_DATA = [
+  {
+    id: "01.",
+    title: "Mobile-First Cloud IDE",
+    desc: "Developing a zero-setup, persistent environment leveraging GitHub Codespaces to enable seamless remote \"vibe coding\" workflows.",
+    hoverText: "STOP TREATING DISCIPLINE AS A HOBBY. WORK IS PORTABLE.",
+    rotate: "rotate-[-1deg]",
+    attachment: { type: 'pin', color: 'gray', position: 'top-4 right-8' }
+  },
+  {
+    id: "02.",
+    title: "AI Agent Orchestration",
+    desc: "Exploring autonomous systems and Human-in-the-Loop machine learning architectures for continuous model improvement.",
+    hoverText: "AUTONOMY WITHOUT SUPERVISION IS JUST CHAOS IN DISGUISE.",
+    rotate: "rotate-[2deg]",
+    attachment: { type: 'clip', position: '-top-4 left-8 md:left-12' }
+  }
+];
+
+const Attachment = ({ type, color, position, slanted }: any) => {
+  if (type === 'pin') {
+    const colorClass = color === 'red' ? 'bg-red-600' : 'bg-zinc-400';
+    return (
+      <div className={`absolute ${position} w-4 h-4 rounded-full ${colorClass} border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,1)] z-50 flex items-center justify-center`}>
+        <div className="w-1.5 h-1.5 rounded-full bg-black/40 translate-x-[1px] translate-y-[1px]" />
+      </div>
+    );
+  }
+  if (type === 'tape') {
+    return (
+      <div className={`absolute ${position} w-12 h-6 bg-white/40 backdrop-blur-[2px] border border-white/20 shadow-[0_1px_3px_rgba(0,0,0,0.1)] ${slanted ? 'rotate-[-35deg]' : ''} z-50 rounded-sm`} />
+    );
+  }
+  if (type === 'clip') {
+    return (
+      <div className={`absolute ${position} w-4 h-12 border-[3px] border-zinc-400 rounded-full shadow-sm z-50 opacity-90`} />
+    );
+  }
+  return null;
+};
+
 export default function Work() {
     const [modelReply, setModelReply] = useState("TOO MANY DEADLINES... I'LL PUT SOME MUSIC.");
     const [displayedReply, setDisplayedReply] = useState("");
@@ -198,42 +260,24 @@ export default function Work() {
                             </div>
 
                             <div className="flex flex-col gap-8 relative z-10">
-                                <div
-                                    className="relative bg-[#D4C3A3] p-4 md:p-8 border-4 border-[#8B7D60] shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] rotate-[1deg] hover:rotate-0 hover:scale-[1.02] hover:shadow-[12px_12px_0_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 cursor-default"
-                                    onMouseEnter={() => handleHoverEnter("A PROJECT MADE WITH A FRIEND")}
-                                    onMouseLeave={handleHoverLeave}
-                                >
-                                    {/* Red Pin (Top Right) */}
-                                    <div className="absolute top-4 right-8 w-4 h-4 rounded-full bg-red-600 border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,1)] z-50 flex items-center justify-center">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-black/40 translate-x-[1px] translate-y-[1px]" />
+                                {EXPERIENCE_DATA.map((exp) => (
+                                    <div
+                                        key={exp.title}
+                                        className={`relative bg-[#D4C3A3] p-4 md:p-8 border-4 border-[#8B7D60] shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] ${exp.rotate} hover:rotate-0 hover:scale-[1.02] hover:shadow-[12px_12px_0_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 cursor-default`}
+                                        onMouseEnter={() => handleHoverEnter(exp.hoverText)}
+                                        onMouseLeave={handleHoverLeave}
+                                    >
+                                        <Attachment {...exp.attachment} />
+                                        <div className="font-mono text-[9px] md:text-[10px] font-bold text-black/60 uppercase tracking-widest border-b-2 border-black/20 pb-2 mb-4 md:mb-4">{exp.period}</div>
+                                        <h3 className="text-xl md:text-4xl font-black font-sans text-black uppercase tracking-tighter leading-none mb-1 mt-5 md:mt-6">
+                                            {exp.title}
+                                        </h3>
+                                        <div className="font-mono text-[11px] md:text-[12px] font-bold text-black/80 mb-5 md:mb-6 tracking-widest">/ {exp.company}</div>
+                                        <p className="text-black font-mono text-[13px] md:text-[14px] font-bold leading-relaxed">
+                                            {exp.desc}
+                                        </p>
                                     </div>
-
-                                    <div className="font-mono text-[9px] md:text-[10px] font-bold text-black/60 uppercase tracking-widest border-b-2 border-black/20 pb-2 mb-4 md:mb-4">Dec 2025 — Present</div>
-                                    <h3 className="text-xl md:text-4xl font-black font-sans text-black uppercase tracking-tighter leading-none mb-1 mt-5 md:mt-6">
-                                        Lead Developer
-                                    </h3>
-                                    <div className="font-mono text-[11px] md:text-[12px] font-bold text-black/80 mb-5 md:mb-6 tracking-widest">/ Sasquatch</div>
-                                    <p className="text-black font-mono text-[13px] md:text-[14px] font-bold leading-relaxed">
-                                        Building and architecting a behavior-aware AI coding assistant.
-                                    </p>
-                                </div>
-
-                                <div
-                                    className="relative bg-[#D4C3A3] p-4 md:p-8 border-4 border-[#8B7D60] shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] rotate-[-2deg] hover:rotate-0 hover:scale-[1.02] hover:shadow-[12px_12px_0_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 cursor-default"
-                                    onMouseEnter={() => handleHoverEnter("Learned so much in here! Inspired me to be much better")}
-                                    onMouseLeave={handleHoverLeave}
-                                >
-                                    {/* Slanted Tape on Left */}
-                                    <div className="absolute -top-3 -left-3 w-12 h-6 bg-white/40 backdrop-blur-[2px] border border-white/20 shadow-[0_1px_3px_rgba(0,0,0,0.1)] rotate-[-35deg] z-50 rounded-sm" />
-                                    <div className="font-mono text-[9px] md:text-[10px] font-bold text-black/60 uppercase tracking-widest border-b-2 border-black/20 pb-2 mb-4 md:mb-4">May 2025 — Aug 2025</div>
-                                    <h3 className="text-xl md:text-3xl font-black font-sans text-black/80 uppercase tracking-tighter leading-none mb-1">
-                                        Software Dev Intern
-                                    </h3>
-                                    <div className="font-mono text-[11px] md:text-[12px] font-bold text-black/70 mb-5 md:mb-6 tracking-widest">/ DOST-ASTI</div>
-                                    <p className="text-black/80 font-mono text-[13px] md:text-[14px] font-bold leading-relaxed">
-                                        Designed and implemented a modular data processing pipeline in Python.
-                                    </p>
-                                </div>
+                                ))}
                             </div>
                         </div>
 
@@ -249,45 +293,25 @@ export default function Work() {
                             </div>
 
                             <div className="flex flex-col gap-8 relative z-10">
-                                <div
-                                    className="relative bg-zinc-100 p-4 md:p-8 border-4 border-black shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] rotate-[-1deg] hover:rotate-0 hover:scale-[1.02] hover:shadow-[12px_12px_0_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 cursor-default"
-                                    onMouseEnter={() => handleHoverEnter("STOP TREATING DISCIPLINE AS A HOBBY. WORK IS PORTABLE.")}
-                                    onMouseLeave={handleHoverLeave}
-                                >
-                                    {/* Gray Pin (Top Right) */}
-                                    <div className="absolute top-4 right-8 w-4 h-4 rounded-full bg-zinc-400 border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,1)] z-50 flex items-center justify-center">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-black/40 translate-x-[1px] translate-y-[1px]" />
-                                    </div>
-
-                                    <div className="flex items-start gap-4 mt-4 md:mt-4">
-                                        <span className="text-zinc-400 font-black font-mono text-2xl md:text-2xl mt-0.5 border-b-2 border-zinc-400">01.</span>
-                                        <div>
-                                            <h4 className="text-lg md:text-2xl font-black font-sans text-black uppercase tracking-tighter mb-2 md:mb-2">Mobile-First Cloud IDE</h4>
-                                            <p className="text-[13px] md:text-[14px] text-black font-mono font-bold leading-relaxed border-t-2 border-black/10 pt-4 md:pt-4 mt-2">
-                                                Developing a zero-setup, persistent environment leveraging GitHub Codespaces to enable seamless remote &quot;vibe coding&quot; workflows.
-                                            </p>
+                                {WORK_PROJECT_DATA.map((proj) => (
+                                    <div
+                                        key={proj.title}
+                                        className={`relative bg-zinc-100 p-4 md:p-8 border-4 border-black shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] ${proj.rotate} hover:rotate-0 hover:scale-[1.02] hover:shadow-[12px_12px_0_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 cursor-default`}
+                                        onMouseEnter={() => handleHoverEnter(proj.hoverText)}
+                                        onMouseLeave={handleHoverLeave}
+                                    >
+                                        <Attachment {...proj.attachment} />
+                                        <div className="flex items-start gap-4 mt-4 md:mt-4">
+                                            <span className="text-zinc-400 font-black font-mono text-2xl md:text-2xl mt-0.5 border-b-2 border-zinc-400">{proj.id}</span>
+                                            <div>
+                                                <h4 className="text-lg md:text-2xl font-black font-sans text-black uppercase tracking-tighter mb-2 md:mb-2">{proj.title}</h4>
+                                                <p className="text-[13px] md:text-[14px] text-black font-mono font-bold leading-relaxed border-t-2 border-black/10 pt-4 md:pt-4 mt-2">
+                                                    {proj.desc}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div
-                                    className="relative bg-zinc-100 p-4 md:p-8 border-4 border-black shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] rotate-[2deg] hover:rotate-0 hover:scale-[1.02] hover:shadow-[12px_12px_0_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 cursor-default"
-                                    onMouseEnter={() => handleHoverEnter("AUTONOMY WITHOUT SUPERVISION IS JUST CHAOS IN DISGUISE.")}
-                                    onMouseLeave={handleHoverLeave}
-                                >
-                                    {/* Paper Clip (Top Left) */}
-                                    <div className="absolute -top-4 left-8 md:left-12 w-4 h-12 border-[3px] border-zinc-400 rounded-full shadow-sm z-50 opacity-90" />
-
-                                    <div className="flex items-start gap-4 mt-2 md:mt-2">
-                                        <span className="text-zinc-400 font-black font-mono text-2xl md:text-2xl mt-0.5 border-b-2 border-zinc-400">02.</span>
-                                        <div>
-                                            <h4 className="text-lg md:text-2xl font-black font-sans text-black uppercase tracking-tighter mb-2 md:mb-2">AI Agent Orchestration</h4>
-                                            <p className="text-[13px] md:text-[14px] text-black font-mono font-bold leading-relaxed border-t-2 border-black/10 pt-4 md:pt-4 mt-2">
-                                                Exploring autonomous systems and Human-in-the-Loop machine learning architectures for continuous model improvement.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         </div>
                     </div>

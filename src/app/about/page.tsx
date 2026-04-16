@@ -96,6 +96,42 @@ const ALBUM_DATA = [
   },
 ];
 
+const STACK_DATA = [
+  {
+    category: "Languages",
+    items: [
+      { name: "Python", icon: "python" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "C++", icon: "cplusplus" },
+    ]
+  },
+  {
+    category: "Frameworks",
+    items: [
+      { name: "React", icon: "react" },
+      { name: "Next.js", icon: "nextdotjs/white" },
+      { name: "Tailwind CSS", icon: "tailwindcss" },
+      { name: "FastAPI", icon: "fastapi" },
+    ]
+  },
+  {
+    category: "AI/ML",
+    items: [
+      { name: "TF/Keras", icon: "tensorflow" },
+      { name: "OpenCV", icon: "opencv" },
+      { name: "Pandas", isCustom: true },
+      { name: "NumPy", icon: "numpy" },
+    ]
+  },
+  {
+    category: "Database",
+    items: [
+      { name: "PostgreSQL", icon: "postgresql" },
+      { name: "ChromaDB", icon: "/images/chromadb.svg", isLocal: true },
+    ]
+  }
+];
+
 export default function About() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
@@ -168,99 +204,35 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 font-mono text-[12px] text-zinc-400">
-            {/* COLUMN 1: LANGUAGES */}
-            <div className="flex flex-col gap-3">
-              <div className="text-[10px] text-zinc-600 uppercase tracking-widest mb-1 font-bold font-satoshi">
-                // Languages
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-1 gap-2 md:gap-3">
-                <div className="flex items-center gap-2 md:gap-3 border border-zinc-800 bg-zinc-800/40 p-2 md:p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
-                  <img src="https://cdn.simpleicons.org/python" alt="Python" className="w-4 h-4 md:w-5 md:h-5 opacity-80 group-hover/item:opacity-100 transition-opacity shrink-0" />
-                  <span className="truncate">Python</span>
+            {STACK_DATA.map((col) => (
+              <div key={col.category} className="flex flex-col gap-3">
+                <div className="text-[10px] text-zinc-600 uppercase tracking-widest mb-1 font-bold font-satoshi">
+                  // {col.category}
                 </div>
-                <div className="flex items-center gap-2 md:gap-3 border border-zinc-800 bg-zinc-800/40 p-2 md:p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
-                  <img src="https://cdn.simpleicons.org/typescript" alt="TypeScript" className="w-4 h-4 md:w-5 md:h-5 opacity-80 group-hover/item:opacity-100 transition-opacity shrink-0" />
-                  <span className="truncate">TypeScript</span>
-                </div>
-                <div className="flex items-center gap-2 md:gap-3 border border-zinc-800 bg-zinc-800/40 p-2 md:p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
-                  <img src="https://cdn.simpleicons.org/cplusplus" alt="C++" className="w-4 h-4 md:w-5 md:h-5 opacity-80 group-hover/item:opacity-100 transition-opacity shrink-0" />
-                  <span className="truncate">C++</span>
-                </div>
-              </div>
-            </div>
-
-            {/* COLUMN 2: FRAMEWORKS */}
-            <div className="flex flex-col gap-3">
-              <div className="text-[10px] text-zinc-600 uppercase tracking-widest mb-1 font-bold font-satoshi">
-                // Frameworks
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-1 gap-2 md:gap-3">
-                <div className="flex items-center gap-2 md:gap-3 border border-zinc-800 bg-zinc-800/40 p-2 md:p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
-                  <img src="https://cdn.simpleicons.org/react" alt="React" className="w-4 h-4 md:w-5 md:h-5 opacity-80 group-hover/item:opacity-100 transition-opacity shrink-0" />
-                  <span className="truncate">React</span>
-                </div>
-                <div className="flex items-center gap-2 md:gap-3 border border-zinc-800 bg-zinc-800/40 p-2 md:p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
-                  <img src="https://cdn.simpleicons.org/nextdotjs/white" alt="Next.js" className="w-4 h-4 md:w-5 md:h-5 opacity-80 group-hover/item:opacity-100 transition-opacity shrink-0" />
-                  <span className="truncate">Next.js</span>
-                </div>
-                <div className="flex items-center gap-2 md:gap-3 border border-zinc-800 bg-zinc-800/40 p-2 md:p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
-                  <img src="https://cdn.simpleicons.org/tailwindcss" alt="Tailwind CSS" className="w-4 h-4 md:w-5 md:h-5 opacity-80 group-hover/item:opacity-100 transition-opacity shrink-0" />
-                  <span className="truncate">Tailwind CSS</span>
-                </div>
-                <div className="flex items-center gap-2 md:gap-3 border border-zinc-800 bg-zinc-800/40 p-2 md:p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
-                  <img src="https://cdn.simpleicons.org/fastapi" alt="FastAPI" className="w-4 h-4 md:w-5 md:h-5 opacity-80 group-hover/item:opacity-100 transition-opacity shrink-0" />
-                  <span className="truncate">FastAPI</span>
+                <div className="grid grid-cols-2 md:grid-cols-1 gap-2 md:gap-3">
+                  {col.items.map((item: any) => (
+                    <div key={item.name} className="flex items-center gap-2 md:gap-3 border border-zinc-800 bg-zinc-800/40 p-2 md:p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
+                      {item.isCustom ? (
+                        <svg viewBox="0 0 128 128" className="w-4 h-4 md:w-5 md:h-5 opacity-80 group-hover/item:opacity-100 transition-opacity shrink-0">
+                          <path style={{ stroke: 'none' }} d="M48.697 15.176h12.25v25.437h-12.25zm0 52.251h12.25v25.436h-12.25z" fill="#130754" />
+                          <path style={{ stroke: 'none' }} d="M48.697 48.037h12.25v12.001h-12.25z" fill="#ffca00" />
+                          <path style={{ stroke: 'none' }} d="M29.017 36.087h12.25v84.552h-12.25zM67.97 88.414h12.25v25.436H67.97zm0-52.297h12.25v25.437H67.97z" fill="#130754" />
+                          <path style={{ stroke: 'none' }} d="M67.97 68.983h12.25v12.001H67.97z" fill="#e70488" />
+                          <path style={{ stroke: 'none' }} d="M87.238 8.55h12.25v84.552h-12.25z" fill="#130754" />
+                        </svg>
+                      ) : (
+                        <img 
+                          src={item.isLocal ? item.icon : `https://cdn.simpleicons.org/${item.icon}`} 
+                          alt={item.name} 
+                          className="w-4 h-4 md:w-5 md:h-5 opacity-80 group-hover/item:opacity-100 transition-opacity shrink-0" 
+                        />
+                      )}
+                      <span className="truncate">{item.name}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
-
-            {/* COLUMN 3: AI/ML */}
-            <div className="flex flex-col gap-3">
-              <div className="text-[10px] text-zinc-600 uppercase tracking-widest mb-1 font-bold font-satoshi">
-                // AI/ML
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-1 gap-2 md:gap-3">
-                <div className="flex items-center gap-2 md:gap-3 border border-zinc-800 bg-zinc-800/40 p-2 md:p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
-                  <img src="https://cdn.simpleicons.org/tensorflow" alt="TensorFlow/keras" className="w-4 h-4 md:w-5 md:h-5 opacity-80 group-hover/item:opacity-100 transition-opacity shrink-0" />
-                  <span className="truncate">TF/Keras</span>
-                </div>
-                <div className="flex items-center gap-2 md:gap-3 border border-zinc-800 bg-zinc-800/40 p-2 md:p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
-                  <img src="https://cdn.simpleicons.org/opencv" alt="OpenCV" className="w-4 h-4 md:w-5 md:h-5 opacity-80 group-hover/item:opacity-100 transition-opacity shrink-0" />
-                  <span className="truncate">OpenCV</span>
-                </div>
-                <div className="flex items-center gap-2 md:gap-3 border border-zinc-800 bg-zinc-800/40 p-2 md:p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
-                  <svg viewBox="0 0 128 128" className="w-4 h-4 md:w-5 md:h-5 opacity-80 group-hover/item:opacity-100 transition-opacity shrink-0">
-                    <path style={{ stroke: 'none' }} d="M48.697 15.176h12.25v25.437h-12.25zm0 52.251h12.25v25.436h-12.25z" fill="#130754" />
-                    <path style={{ stroke: 'none' }} d="M48.697 48.037h12.25v12.001h-12.25z" fill="#ffca00" />
-                    <path style={{ stroke: 'none' }} d="M29.017 36.087h12.25v84.552h-12.25zM67.97 88.414h12.25v25.436H67.97zm0-52.297h12.25v25.437H67.97z" fill="#130754" />
-                    <path style={{ stroke: 'none' }} d="M67.97 68.983h12.25v12.001H67.97z" fill="#e70488" />
-                    <path style={{ stroke: 'none' }} d="M87.238 8.55h12.25v84.552h-12.25z" fill="#130754" />
-                  </svg>
-                  <span className="truncate">Pandas</span>
-                </div>
-                <div className="flex items-center gap-2 md:gap-3 border border-zinc-800 bg-zinc-800/40 p-2 md:p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
-                  <img src="https://cdn.simpleicons.org/numpy" alt="NumPy" className="w-4 h-4 md:w-5 md:h-5 opacity-80 group-hover/item:opacity-100 transition-opacity shrink-0" />
-                  <span className="truncate">NumPy</span>
-                </div>
-              </div>
-            </div>
-
-            {/* COLUMN 4: DATABASE */}
-            <div className="flex flex-col gap-3">
-              <div className="text-[10px] text-zinc-600 uppercase tracking-widest mb-1 font-bold font-satoshi">
-                // Database
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-1 gap-2 md:gap-3">
-                <div className="flex items-center gap-2 md:gap-3 border border-zinc-800 bg-zinc-800/40 p-2 md:p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
-                  <img src="https://cdn.simpleicons.org/postgresql" alt="PostgreSQL" className="w-4 h-4 md:w-5 md:h-5 opacity-80 group-hover/item:opacity-100 transition-opacity shrink-0" />
-                  <span className="truncate">PostgreSQL</span>
-                </div>
-                <div className="flex items-center gap-2 md:gap-3 border border-zinc-800 bg-zinc-800/40 p-2 md:p-3 md:hover:border-white md:hover:bg-white md:hover:text-black active:scale-95 active:bg-zinc-800 active:border-zinc-400 transition-all duration-200 cursor-default group/item">
-                  <img src="/images/chromadb.svg" alt="ChromaDB (RAG)" className="w-4 h-4 md:w-5 md:h-5 opacity-80 group-hover/item:opacity-100 transition-opacity shrink-0" />
-                  <span className="truncate">ChromaDB</span>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
