@@ -86,7 +86,8 @@ export default function Projects() {
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent | TouchEvent) => {
-      if (!isDesktop) {
+      const isMobile = window.innerWidth < 768;
+      if (isMobile) {
         const target = e.target as HTMLElement;
         if (!target.closest('.project-card')) {
           setActiveIndex(null);
@@ -99,7 +100,7 @@ export default function Projects() {
       document.removeEventListener('click', handleClickOutside);
       document.removeEventListener('touchstart', handleClickOutside);
     };
-  }, [isDesktop]);
+  }, []);
 
   const defaultDesc = "Get to know me more through my projects! This is my \"vault\" as of now. Click the cards for the repo!";
 
@@ -241,10 +242,11 @@ export default function Projects() {
                 onClick={(e) => {
                   if (!isDesktop) {
                     if (activeIndex === i) {
-                      setActiveIndex(null); // Clear blur before opening link
+                      setActiveIndex(null);
                       window.open(project.link, '_blank');
+                    } else if (activeIndex !== null) {
+                      setActiveIndex(null);
                     } else {
-                      // Immediately switch to the new project instead of just clearing selection
                       setActiveIndex(i);
                     }
                   } else {
