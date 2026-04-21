@@ -207,7 +207,7 @@ export default function Projects() {
               </p>
             </div>
 
-            <div className={`w-24 h-24 md:w-48 md:h-48 shrink-0 relative transition-all duration-300 drop-shadow-[0_4px_24px_rgba(255,255,255,0.2)] ${selectedIndex !== null ? 'blur-[4px] brightness-[0.4] grayscale' : ''}`}>
+            <div className={`w-24 h-24 md:w-48 md:h-48 shrink-0 relative transition-all duration-300 drop-shadow-[0_4px_24px_rgba(255,255,255,0.2)] ${selectedIndex !== null ? 'blur-[4px] brightness-[0.4] grayscale' : 'blur-0 brightness-100 grayscale-0'}`}>
               {hasMounted && (
                 <model-viewer
                   ref={modelRef}
