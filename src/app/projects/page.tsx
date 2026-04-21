@@ -85,8 +85,8 @@ export default function Projects() {
   }, []);
 
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (window.innerWidth < 768) {
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+      if (!isDesktop) {
         const target = e.target as HTMLElement;
         if (!target.closest('.project-card')) {
           setActiveIndex(null);
@@ -94,8 +94,12 @@ export default function Projects() {
       }
     };
     document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, []);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isDesktop]);
 
   const defaultDesc = "Get to know me more through my projects! This is my \"vault\" as of now. Click the cards for the repo!";
 
@@ -152,7 +156,10 @@ export default function Projects() {
   }, [selectedIndex]);
 
   return (
-    <div className="flex flex-col items-center min-h-screen relative text-white pb-24 md:pb-0 px-4 sm:px-6 overflow-x-clip">
+    <div 
+      onClick={() => {}} // Empty click to help mobile bubble-up
+      className={`flex flex-col items-center min-h-screen relative text-white pb-24 md:pb-0 px-4 sm:px-6 overflow-x-clip ${!isDesktop ? 'cursor-pointer' : ''}`}
+    >
       <div className="fixed inset-0 bg-[#111] bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:24px_24px] -z-10" aria-hidden="true" />
 
       <div className="w-full order-first md:order-last">
@@ -231,13 +238,13 @@ export default function Projects() {
               <div
                 onMouseEnter={() => isDesktop && setHoveredIndex(i)}
                 onMouseLeave={() => isDesktop && setHoveredIndex(null)}
-                onClick={() => {
+                onClick={(e) => {
                   if (!isDesktop) {
                     if (activeIndex === i) {
+                      setActiveIndex(null); // Clear blur before opening link
                       window.open(project.link, '_blank');
-                    } else if (activeIndex !== null) {
-                      setActiveIndex(null);
                     } else {
+                      // Immediately switch to the new project instead of just clearing selection
                       setActiveIndex(i);
                     }
                   } else {
