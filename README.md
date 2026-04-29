@@ -1,5 +1,5 @@
 # Marthan Lanuzga | WARRRUPPPPP
-A high-performance portfolio built with **Next.js 15**, **TypeScript**, and **Tailwind CSS**, featuring optimized rendering and modern UI patterns.
+A portfolio built with **Next.js 15**, **TypeScript**, and **Tailwind CSS**, featuring optimized rendering and modern UI patterns.
 
 ## Stack
 * **Frontend:** Next.js (App Router), React 19 (Compiler enabled)
