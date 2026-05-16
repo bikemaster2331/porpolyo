@@ -5,4 +5,4 @@ A portfolio built with **Next.js 15**, **TypeScript**, and **Tailwind CSS**, fea
 * **Frontend:** Next.js (App Router), React 19 (Compiler enabled)
 * **Styling:** Tailwind CSS, Framer Motion (Animations)
 * **Deployment:** Vercel
-* **Type Safety:** TypeScript (Strict Mode)
+* **Type Safety:** TypeScript
