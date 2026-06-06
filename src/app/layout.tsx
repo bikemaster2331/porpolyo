@@ -23,6 +23,46 @@ const satoshi = localFont({
 export const metadata: Metadata = {
   title: "Marthan Lanuzga | AI & Software Developer",
   description: "Portfolio of Marthan Lanuzga - Lead Developer & AI Specialist",
+  keywords: [
+    "Marthan Lanuzga",
+    "Marthan",
+    "Lanuzga",
+    "AI Specialist",
+    "Software Developer",
+    "Web Developer",
+    "bikemaster2331",
+    "portfolio"
+  ],
+  authors: [{ name: "Marthan Lanuzga" }],
+  creator: "Marthan Lanuzga",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://marthanlanuzga.com'),
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    title: "Marthan Lanuzga | AI & Software Developer",
+    description: "Portfolio of Marthan Lanuzga - Lead Developer & AI Specialist",
+    url: 'https://marthanlanuzga.com',
+    siteName: 'Marthan Lanuzga Portfolio',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Marthan Lanuzga | AI & Software Developer",
+    description: "Portfolio of Marthan Lanuzga - Lead Developer & AI Specialist",
+  },
 };
 
 import Script from "next/script";
