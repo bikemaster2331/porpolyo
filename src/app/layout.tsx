@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Marthan Lanuzga" }],
   creator: "Marthan Lanuzga",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://marthanlanuzga.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://mll-porpolyo.vercel.app'),
   alternates: {
     canonical: '/',
   },
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Marthan Lanuzga | AI & Software Developer",
     description: "Portfolio of Marthan Lanuzga - Lead Developer & AI Specialist",
-    url: 'https://marthanlanuzga.com',
+    url: 'https://mll-porpolyo.vercel.app',
     siteName: 'Marthan Lanuzga Portfolio',
     locale: 'en_US',
     type: 'website',

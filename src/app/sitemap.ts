@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://marthanlanuzga.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mll-porpolyo.vercel.app';
 
   const routes = ['', '/about', '/projects', '/work'].map((route) => ({
     url: `${baseUrl}${route}`,
