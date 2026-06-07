@@ -214,7 +214,7 @@ export default function Home() {
               onMouseLeave={() => {
                 setIsHovering(false);
               }}
-              href="/cv/resume.pdf"
+              href="/cv/resume1.pdf"
               target="_blank"
               rel="noopener noreferrer"
               style={{ fontFamily: 'Bradley Hand, cursive' }}
