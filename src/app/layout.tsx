@@ -19,10 +19,12 @@ const satoshi = localFont({
   variable: "--font-satoshi",
   weight: "100 900",
 });
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://mll-porpolyo.vercel.app';
+const metadataBase = new URL(SITE_URL);
 
 export const metadata: Metadata = {
   title: "Marthan Lanuzga | AI & Software Developer",
-  description: "Portfolio of Marthan Lanuzga - Lead Developer & AI Specialist",
+  description: "Get to know me.",
   keywords: [
     "Marthan Lanuzga",
     "Marthan",
@@ -35,7 +37,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Marthan Lanuzga" }],
   creator: "Marthan Lanuzga",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://mll-porpolyo.vercel.app'),
+  metadataBase: metadataBase,
   alternates: {
     canonical: '/',
   },
@@ -55,16 +57,25 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Marthan Lanuzga | AI & Software Developer",
-    description: "Get to know me.",
+    description: "Get to know me",
     url: 'https://mll-porpolyo.vercel.app',
     siteName: 'Marthan Lanuzga Portfolio',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: new URL('/images/bgg.png', metadataBase).toString(),
+        width: 1200,
+        height: 630,
+        alt: 'Marthan Lanuzga Portfolio Preview',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: "Marthan Lanuzga | AI & Software Developer",
-    description: "Get to know me.",
+    description: "Get to know me",
+    images: [new URL('/images/bgg.png', metadataBase).toString()],
   },
 };
 
