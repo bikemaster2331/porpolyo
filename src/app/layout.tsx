@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: new URL('/images/bgg.png', metadataBase).toString(),
+        url: new URL('/images/thebg.png', metadataBase).toString(),
         width: 1200,
         height: 630,
         alt: 'Marthan Lanuzga Portfolio Preview',
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Marthan Lanuzga | AI & Software Developer",
     description: "Get to know me",
-    images: [new URL('/images/bgg.png', metadataBase).toString()],
+    images: [new URL('/images/thebg.png', metadataBase).toString()],
   },
 };
 
