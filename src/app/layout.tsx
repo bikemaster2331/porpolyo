@@ -24,7 +24,7 @@ const metadataBase = new URL(SITE_URL);
 
 export const metadata: Metadata = {
   title: "Marthan Lanuzga | AI & Software Developer",
-  description: "Learn more about mll through this scrapbook. An aspiring SWE building robust, scalable end-to-end systems.",
+  description: "Learn more about mll through this scrapbook. An aspiring SWE building awesome end-to-end systems.",
   keywords: [
     "Marthan Lanuzga",
     "Marthan",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Marthan Lanuzga | AI & Software Developer",
-    description: "Learn more about mll through this scrapbook. An aspiring SWE building robust, scalable end-to-end systems.",
+    description: "Learn more about mll through this scrapbook. An aspiring SWE building awesome end-to-end systems.",
     url: 'https://mll-porpolyo.vercel.app',
     siteName: 'Marthan Lanuzga Portfolio',
     locale: 'en_US',
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Marthan Lanuzga | AI & Software Developer",
-    description: "Learn more about mll through this scrapbook. An aspiring SWE building robust, scalable end-to-end systems.",
+    description: "Learn more about mll through this scrapbook. An aspiring SWE building awesome end-to-end systems.",
     images: [new URL('/images/thebg.png', metadataBase).toString()],
   },
 };
