@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Marthan Lanuzga | AI & Software Developer",
-    description: "Portfolio of Marthan Lanuzga - Lead Developer & AI Specialist",
+    description: "Get to know me.",
     url: 'https://mll-porpolyo.vercel.app',
     siteName: 'Marthan Lanuzga Portfolio',
     locale: 'en_US',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Marthan Lanuzga | AI & Software Developer",
-    description: "Portfolio of Marthan Lanuzga - Lead Developer & AI Specialist",
+    description: "Get to know me.",
   },
 };
 
