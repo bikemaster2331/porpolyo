@@ -4,15 +4,6 @@ import Footer from '@/components/footer';
 
 const EXPERIENCE_DATA = [
     {
-        title: "Lead Developer",
-        company: "Sasquatch",
-        period: "Dec 2025 — Present",
-        desc: "Building and architecting a behavior-aware AI coding assistant.",
-        hoverText: "A PROJECT MADE WITH A FRIEND",
-        rotate: "rotate-[1deg]",
-        attachment: { type: 'pin', color: 'red', position: 'top-4 right-8' }
-    },
-    {
         title: "Software Dev Intern",
         company: "DOST-ASTI",
         period: "May 2025 — Aug 2025",
@@ -20,6 +11,15 @@ const EXPERIENCE_DATA = [
         hoverText: "Learned so much in here! Inspired me to be much better",
         rotate: "rotate-[-2deg]",
         attachment: { type: 'tape', position: '-top-3 -left-3', slanted: true }
+    },
+    {
+        title: "Lead Developer",
+        company: "Sasquatch",
+        period: "Dec 2025 — Present",
+        desc: "Building and architecting a behavior-aware AI coding assistant.",
+        hoverText: "A PROJECT MADE WITH A FRIEND",
+        rotate: "rotate-[1deg]",
+        attachment: { type: 'pin', color: 'red', position: 'top-4 right-8' }
     }
 ];
 
@@ -203,7 +203,7 @@ export default function Work() {
                     <div className="items-center gap-4 mb-2 flex">
                         <div className="inline-block px-3 py-1 bg-white border-2 border-black shadow-[2px_2px_0_rgba(255,255,255,0.2)] z-20 rotate-1">
                             <h2 className="text-[12px] md:text-[14px] font-mono font-bold text-black uppercase tracking-[0.3em] leading-none">
-                                ACHIEVEMENTS
+                                WAYPOINTS
                             </h2>
                         </div>
                         <div className="h-1 flex-grow bg-black shadow-[0_2px_0_rgba(255,255,255,0.1)] opacity-50"></div>
