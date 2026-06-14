@@ -9,56 +9,84 @@ const PROJECT_DATA = [
   {
     name: "pathfinder",
     serial: "01:PTF",
-    clearance: "LEVEL_4",
+    clearance: "PTF",
     desc: "Interactive tourism using Raspberry Pi and RAG.",
     longDesc: "Standard AI is too vague to be helpful. Pathfinder uses a custom database that acts like a local tourist guide.",
     tech: ["Python", "Raspberry Pi", "RAG", "React"],
     link: "https://github.com/bikemaster2331/pathfinder",
     styles: "bg-[#0b1b3d] text-blue-100 border-4 border-[#071126] shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[-1deg] rotate-[-2deg]",
     tape: "md:-top-3 md:right-8 top-[-8px] right-6 w-12 md:w-16 h-4 md:h-6 bg-white rotate-3 opacity-90 bg-zinc-300 shadow-[2px_2px_0_rgba(0,0,0,0.5)]",
-    gridSpan: "col-span-1 md:col-span-6",
+    gridSpan: "col-span-1 md:col-span-4",
     bgImage: "/images/human.png",
     bgPos: "bottom-0 right-0"
   },
   {
+    name: "akma",
+    serial: "02:AKM",
+    clearance: "AKMA",
+    desc: "Self-evolving RAG framework where interactions mutate the knowledge base.",
+    longDesc: "Imagine a knowledge base that matures on its own. AKMA is a closed-loop, self-evolving RAG framework where every user interaction serves as a micro-evolution stimulus, treating knowledge as a dynamic organism.",
+    tech: ["Python", "ChromaDB", "OpenAI"],
+    link: "https://github.com/bikemaster2331/AKMA",
+    styles: "bg-[#fdf2f8] text-[#db2777] border-4 border-[#9d174d] shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[2deg] rotate-[1deg]",
+    tape: "md:top-2 md:left-4 top-[-6px] left-10 w-12 md:w-20 h-4 md:h-6 bg-pink-200 rotate-[-4deg] opacity-80 shadow-[2px_2px_0_rgba(0,0,0,0.5)]",
+    gridSpan: "col-span-1 md:col-span-4",
+    bgImage: "/images/akmaaa.png",
+    bgPos: "bottom-0 right-0"
+  },
+  {
+    name: "project-detroit",
+    serial: "03:PDT",
+    clearance: "DEVIANT",
+    desc: "A 'deviant' AI model that develops personality through accumulated experience.",
+    longDesc: "This project explores a deviant model that escapes typical AI thinking to develop a personality shaped over time through memory, internal state, and experience. Inspired by Detroit: Become Human.",
+    tech: ["Python", "Groq"],
+    link: "https://github.com/bikemaster2331/project-detroit",
+    styles: "bg-[#182945] text-blue-50 border-4 border-[#0e192c] shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[-1deg] rotate-[-2deg]",
+    tape: "md:-top-4 md:right-1/2 md:translate-x-1/2 top-[-10px] right-8 w-16 md:w-24 h-4 md:h-7 bg-zinc-400 rotate-[3deg] shadow-[2px_2px_0_rgba(0,0,0,0.5)] border-l-2 border-zinc-200",
+    gridSpan: "col-span-1 md:col-span-4",
+    bgImage: "/images/robot.png",
+    bgPos: "bottom-0 right-0"
+  },
+  {
     name: "med-id",
-    serial: "02:MID",
-    clearance: "RESTRICTED",
+    serial: "04:MID",
+    clearance: "MED",
     desc: "AI-powered medicine identifier using Computer Vision.",
     longDesc: "I made this to help people identify their medication using just a smartphone camera and deep learning.",
     tech: ["TensorFlow", "OpenCV", "Python"],
     link: "https://github.com/bikemaster2331/med-id",
     styles: "bg-[#D4C3A3] text-black border-4 border-[#8B7D60] shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[2deg] rotate-[2deg]",
     tape: "md:-top-3 md:left-1/2 md:-translate-x-1/2 top-[-8px] left-8 w-10 md:w-14 h-4 md:h-6 bg-zinc-300 -rotate-2 opacity-90 shadow-[2px_2px_0_rgba(0,0,0,0.5)]",
-    gridSpan: "col-span-1 md:col-span-6",
+    gridSpan: "col-span-1 md:col-span-4",
     bgImage: "/images/med.png",
     bgPos: "bottom-0 right-0"
   },
   {
     name: "reflex",
-    serial: "03:RFX",
-    clearance: "TOP_SECRET",
+    serial: "05:RFX",
+    clearance: "RFLX",
     desc: "Coding behavior analysis using AST traversal.",
     longDesc: "Reflex is my exploration into the DNA of code—analyzing developer behavior through structural AST analysis.",
     tech: ["AST", "TypeScript", "Algorithms"],
     link: "https://github.com/bikemaster2331/reflex",
     styles: "bg-zinc-100 text-black border-4 border-zinc-900 shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[-2deg]",
     tape: "md:top-1 md:-left-4 top-[-10] left-1/3 w-12 md:w-24 md:h-6 md:h-7 h-4.5 bg-blue-600/80 md:-rotate-24 -rotate-4 shadow-[2px_2px_0_rgba(0,0,0,0.5)] border-l-2 border-blue-400/30",
-    gridSpan: "col-span-1 md:col-span-6",
+    gridSpan: "col-span-1 md:col-span-4",
     bgImage: "/images/arm.png",
     bgPos: "top-0 right-0"
   },
   {
     name: "pokebind",
-    serial: "04:PKB",
-    clearance: "EVIDENCE",
+    serial: "06:PKB",
+    clearance: "GIRA",
     desc: "Marketplace for trading and purchasing booster packs.",
     longDesc: "A passion project for the collector—building a secure, specialized marketplace for Pokémon enthusiasts. I love Giratina.",
     tech: ["Next.js", "Supabase", "Tailwind"],
     link: "https://github.com/bikemaster2331/pokebind",
     styles: "bg-[#8b1c1c] text-white border-4 border-[#4a0d0d] shadow-[8px_8px_0_rgba(0,0,0,1)] md:rotate-[1deg] rotate-[-2deg]",
     tape: "md:top-1 md:right-[-20] top-0 right-[-10] md:w-16 md:w-24 w-8 md:h-8 h-3 bg-zinc-300 rotate-36 opacity-70 shadow-[2px_2px_0_rgba(0,0,0,0.5)]",
-    gridSpan: "col-span-1 md:col-span-6",
+    gridSpan: "col-span-1 md:col-span-4",
     bgImage: "/images/girat.png",
     bgPos: "bottom-0 right-0"
   }
@@ -157,8 +185,8 @@ export default function Projects() {
   }, [selectedIndex]);
 
   return (
-    <div 
-      onClick={() => {}} // Empty click to help mobile bubble-up
+    <div
+      onClick={() => { }} // Empty click to help mobile bubble-up
       className={`flex flex-col items-center min-h-screen relative text-white pb-24 md:pb-0 px-4 sm:px-6 overflow-x-clip ${!isDesktop ? 'cursor-pointer' : ''}`}
     >
       <div className="fixed inset-0 bg-[#111] bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:24px_24px] -z-10" aria-hidden="true" />
@@ -263,47 +291,47 @@ export default function Projects() {
                     : 'blur-0 opacity-100 grayscale-0'
                   }`}
               >
-              <div className={`absolute shadow-sm z-50 ${project.tape}`} />
+                <div className={`absolute shadow-sm z-50 ${project.tape}`} />
 
-              {project.bgImage && (
-                <img
-                  src={project.bgImage}
-                  alt=""
-                  className={`absolute ${project.bgPos || 'bottom-0 right-0'} w-32 h-32 md:w-44 md:h-44 opacity-[0.08] md:opacity-[0.3] filter brightness-0 pointer-events-none z-0`}
-                />
-              )}
+                {project.bgImage && (
+                  <img
+                    src={project.bgImage}
+                    alt=""
+                    className={`absolute ${project.bgPos || 'bottom-0 right-0'} w-32 h-32 md:w-44 md:h-44 opacity-[0.08] md:opacity-[0.3] filter brightness-0 pointer-events-none z-0`}
+                  />
+                )}
 
-              <div className="flex justify-between items-center mb-2 border-b-2 border-black/20 pb-1">
-                <span className="font-mono text-[7px] md:text-[10px] font-bold uppercase tracking-widest opacity-60">
-                  {project.serial}
-                </span>
-                <span className={`font-mono text-[7px] md:text-[10px] font-bold uppercase tracking-widest px-1 md:px-2 py-0.5 rounded-sm ${project.clearance === 'TOP_SECRET' || project.clearance === 'EVIDENCE' ? 'bg-red-600/20 text-red-600' : 'bg-black/10'}`}>
-                  [{project.clearance}]
-                </span>
-              </div>
+                <div className="flex justify-between items-center mb-2 border-b-2 border-black/20 pb-1">
+                  <span className="font-mono text-[7px] md:text-[10px] font-bold uppercase tracking-widest opacity-60">
+                    {project.serial}
+                  </span>
+                  <span className={`font-mono text-[7px] md:text-[10px] font-bold uppercase tracking-widest px-1 md:px-2 py-0.5 rounded-sm ${project.clearance === 'TOP_SECRET' || project.clearance === 'EVIDENCE' ? 'bg-red-600/20 text-red-600' : 'bg-black/10'}`}>
+                    [{project.clearance}]
+                  </span>
+                </div>
 
-              <h3 className="text-lg md:text-4xl font-black uppercase tracking-tighter md:mb-6 mb-2 font-sans relative inline-block w-fit leading-none">
-                {project.name}
-              </h3>
+                <h3 className="text-lg md:text-4xl font-black uppercase tracking-tighter md:mb-6 mb-2 font-sans relative inline-block w-fit leading-none">
+                  {project.name}
+                </h3>
 
-              <p className="font-mono text-[9px] md:text-[12px] font-bold leading-tight mb-6 md:mb-10 flex-1 opacity-80">
-                {project.desc}
-              </p>
+                <p className="font-mono text-[9px] md:text-[12px] font-bold leading-tight mb-6 md:mb-10 flex-1 opacity-80">
+                  {project.desc}
+                </p>
 
-              <div className="flex items-center justify-between mt-auto pt-4 border-t-2 border-black/20">
-                <div className="flex flex-wrap gap-1.5 md:gap-2 relative z-20">
-                  {project.tech.map((t: any) => (
-                    <TechBadge key={t} name={t} />
-                  ))}
+                <div className="flex items-center justify-between mt-auto pt-4 border-t-2 border-black/20">
+                  <div className="flex flex-wrap gap-1.5 md:gap-2 relative z-20">
+                    {project.tech.map((t: any) => (
+                      <TechBadge key={t} name={t} />
+                    ))}
+                  </div>
                 </div>
               </div>
+              {!isDesktop && activeIndex === i && (
+                <div className="relative mt-4 z-10 w-full text-center text-[8px] uppercase tracking-[0.25em] font-mono text-white/70 animate-subtle-float pointer-events-none">
+                  [tap to open]
+                </div>
+              )}
             </div>
-            {!isDesktop && activeIndex === i && (
-              <div className="relative mt-4 z-10 w-full text-center text-[8px] uppercase tracking-[0.25em] font-mono text-white/70 animate-subtle-float pointer-events-none">
-                [tap to open]
-              </div>
-            )}
-          </div>
           ))}
         </div>
       </div>
