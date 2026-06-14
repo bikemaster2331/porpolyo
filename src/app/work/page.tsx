@@ -157,7 +157,7 @@ export default function Work() {
                             <span className="font-mono text-[9px] md:text-[10px] font-bold text-black uppercase tracking-widest px-2 py-0.5">DATE: 2026</span>
                         </div>
                         <p className="text-black font-mono text-[13px] md:text-[15px] font-bold leading-relaxed tracking-tight">
-                            I&apos;m always open to new opportunities, collaborations, or just a friendly chat about anything. You can even confess your crimes to me, I won&apos;t judge (jk).
+                            I&apos;m always interested in connecting with people who share a passion for technology, software development, artificial intelligence, and research. Whether it&apos;s a potential collaboration, project, or discussion, feel free to reach out.
                         </p>
                     </div>
                 </div>
