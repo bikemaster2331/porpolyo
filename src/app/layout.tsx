@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Marthan Lanuzga | AI & Software Developer",
-    description: "Get to know me",
+    description: "Learn more about mll through this scrapbook. An aspiring SWE building awesome end-to-end systems.",
     url: 'https://mll-porpolyo.vercel.app',
     siteName: 'Marthan Lanuzga Portfolio',
     locale: 'en_US',
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Marthan Lanuzga | AI & Software Developer",
-    description: "Get to know me",
+    description: "Learn more about mll through this scrapbook. An aspiring SWE building awesome end-to-end systems.",
     images: ['/images/bgg.png'],
   },
 };
